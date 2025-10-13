@@ -1,0 +1,971 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fiki – BeaconX Project</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
+    .fade-section {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .fade-section.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .bg-grid {
+      background-image:
+        radial-gradient(circle at 1px 1px, rgba(148, 163, 184, 0.08) 1px, transparent 0);
+      background-size: 32px 32px;
+    }
+
+    .no-scrollbar {
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+
+    .milestone-trigger {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.55rem;
+      border-radius: 9999px;
+      padding: 0.6rem 1.25rem;
+      font-size: 0.9rem;
+      font-weight: 500;
+      letter-spacing: 0.01em;
+      color: rgb(226 232 240);
+      background: linear-gradient(130deg, rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.65));
+      border: 1px solid rgba(71, 85, 105, 0.45);
+      box-shadow: 0 10px 24px rgba(15, 23, 42, 0.45);
+      backdrop-filter: blur(8px);
+      transition: all 0.25s ease;
+    }
+
+    .milestone-trigger:hover,
+    .milestone-trigger:focus-visible {
+      color: rgb(125, 211, 252);
+      border-color: rgba(56, 189, 248, 0.45);
+      box-shadow: 0 16px 32px rgba(14, 165, 233, 0.22);
+    }
+
+    .milestone-trigger[data-active="true"] {
+      color: white;
+      background: linear-gradient(140deg, rgba(56, 189, 248, 0.38), rgba(8, 145, 178, 0.25));
+      border-color: rgba(125, 211, 252, 0.6);
+      box-shadow: 0 18px 36px rgba(8, 145, 178, 0.35);
+    }
+
+    .milestone-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 9999px;
+      padding: 0.2rem 0.8rem;
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: rgb(125, 211, 252);
+      background: rgba(56, 189, 248, 0.15);
+    }
+  </style>
+</head>
+
+<body class="bg-slate-950 text-slate-100 antialiased">
+  <div class="fixed top-0 inset-x-0 z-50 backdrop-blur border-b border-slate-800 bg-slate-950/80">
+    <div class="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
+      <a href="#top" class="text-lg font-semibold tracking-tight text-slate-100">BeaconX</a>
+      <nav class="hidden flex-1 justify-end lg:flex">
+        <div class="flex flex-col items-end gap-2">
+          <span class="text-[11px] font-semibold uppercase tracking-[0.4em] text-slate-500">Milestones</span>
+          <div class="relative w-full max-w-4xl">
+            <div
+              class="no-scrollbar flex flex-nowrap items-center gap-3 overflow-x-auto overflow-y-visible rounded-3xl border border-slate-800/70 bg-slate-950/40 px-4 py-3 shadow-lg shadow-slate-950/40">
+              <div class="relative flex-shrink-0" data-dropdown="m1-desktop">
+                <button type="button" data-dropdown-trigger class="milestone-trigger" data-active="true"
+                  aria-expanded="false" aria-haspopup="true">
+                  <span>Milestone M1</span>
+                  <span class="milestone-badge hidden md:inline-flex">Current</span>
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 9l6 6 6-6" />
+                  </svg>
+                </button>
+                <div data-dropdown-panel
+                  class="absolute right-0 top-full z-40 mt-3 w-72 rounded-3xl border border-slate-800/80 bg-slate-950/95 p-4 text-sm text-slate-200 shadow-xl shadow-slate-950/50 backdrop-blur-xl hidden">
+                  <ul class="flex flex-col gap-2 text-left">
+                    <li><a href="#overview"
+                        class="flex items-center justify-between gap-3 rounded-2xl px-3 py-2 text-slate-200 transition hover:bg-slate-800/60 hover:text-sky-300">Project
+                        Overview</a></li>
+                    <li><a href="#team"
+                        class="flex items-center justify-between gap-3 rounded-2xl px-3 py-2 text-slate-200 transition hover:bg-slate-800/60 hover:text-sky-300">Team</a>
+                    </li>
+                    <li><a href="#problem"
+                        class="flex items-center justify-between gap-3 rounded-2xl px-3 py-2 text-slate-200 transition hover:bg-slate-800/60 hover:text-sky-300">Problem</a>
+                    </li>
+                    <li><a href="#solution"
+                        class="flex items-center justify-between gap-3 rounded-2xl px-3 py-2 text-slate-200 transition hover:bg-slate-800/60 hover:text-sky-300">Solution</a>
+                    </li>
+                    <li><a href="#customers"
+                        class="flex items-center justify-between gap-3 rounded-2xl px-3 py-2 text-slate-200 transition hover:bg-slate-800/60 hover:text-sky-300">Customers</a>
+                    </li>
+                    <li><a href="#competition"
+                        class="flex items-center justify-between gap-3 rounded-2xl px-3 py-2 text-slate-200 transition hover:bg-slate-800/60 hover:text-sky-300">Competition</a>
+                    </li>
+                    <li><a href="#advantage"
+                        class="flex items-center justify-between gap-3 rounded-2xl px-3 py-2 text-slate-200 transition hover:bg-slate-800/60 hover:text-sky-300">Advantage</a>
+                    </li>
+                    <li><a href="#metrics"
+                        class="flex items-center justify-between gap-3 rounded-2xl px-3 py-2 text-slate-200 transition hover:bg-slate-800/60 hover:text-sky-300">Metrics</a>
+                    </li>
+                    <li><a href="#costs"
+                        class="flex items-center justify-between gap-3 rounded-2xl px-3 py-2 text-slate-200 transition hover:bg-slate-800/60 hover:text-sky-300">Costs
+                        &amp; Revenue</a></li>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="relative flex-shrink-0" data-dropdown="m2-desktop">
+                <button type="button" data-dropdown-trigger class="milestone-trigger" aria-expanded="false"
+                  aria-haspopup="true">
+                  <span>Milestone M2</span>
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 9l6 6 6-6" />
+                  </svg>
+                </button>
+                <div data-dropdown-panel
+                  class="absolute right-0 top-full z-40 mt-3 w-72 rounded-3xl border border-slate-800/80 bg-slate-950/95 p-4 text-sm text-slate-200 shadow-xl shadow-slate-950/50 backdrop-blur-xl hidden">
+                  <div class="flex items-start gap-3 rounded-2xl border border-slate-800/70 bg-slate-900/70 px-4 py-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-sky-300" fill="none" viewBox="0 0 24 24"
+                      stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                        d="M12 6v6l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    <div class="space-y-1">
+                      <p class="text-sm font-semibold text-white">Coming soon</p>
+                      <p class="text-xs text-slate-400">Milestone M2 content will be added soon.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="relative flex-shrink-0" data-dropdown="m3-desktop">
+                <button type="button" data-dropdown-trigger class="milestone-trigger" aria-expanded="false"
+                  aria-haspopup="true">
+                  <span>Milestone M3</span>
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 9l6 6 6-6" />
+                  </svg>
+                </button>
+                <div data-dropdown-panel
+                  class="absolute right-0 top-full z-40 mt-3 w-72 rounded-3xl border border-slate-800/80 bg-slate-950/95 p-4 text-sm text-slate-200 shadow-xl shadow-slate-950/50 backdrop-blur-xl hidden">
+                  <div class="flex items-start gap-3 rounded-2xl border border-slate-800/70 bg-slate-900/70 px-4 py-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-sky-300" fill="none" viewBox="0 0 24 24"
+                      stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                        d="M12 6v6l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    <div class="space-y-1">
+                      <p class="text-sm font-semibold text-white">Coming soon</p>
+                      <p class="text-xs text-slate-400">Milestone M3 content will be added soon.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="relative flex-shrink-0" data-dropdown="m4-desktop">
+                <button type="button" data-dropdown-trigger class="milestone-trigger" aria-expanded="false"
+                  aria-haspopup="true">
+                  <span>Milestone M4</span>
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 9l6 6 6-6" />
+                  </svg>
+                </button>
+                <div data-dropdown-panel
+                  class="absolute right-0 top-full z-40 mt-3 w-72 rounded-3xl border border-slate-800/80 bg-slate-950/95 p-4 text-sm text-slate-200 shadow-xl shadow-slate-950/50 backdrop-blur-xl hidden">
+                  <div class="flex items-start gap-3 rounded-2xl border border-slate-800/70 bg-slate-900/70 px-4 py-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-sky-300" fill="none" viewBox="0 0 24 24"
+                      stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                        d="M12 6v6l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    <div class="space-y-1">
+                      <p class="text-sm font-semibold text-white">Coming soon</p>
+                      <p class="text-xs text-slate-400">Milestone M4 content will be added soon.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="relative flex-shrink-0" data-dropdown="m5-desktop">
+                <button type="button" data-dropdown-trigger class="milestone-trigger" aria-expanded="false"
+                  aria-haspopup="true">
+                  <span>Milestone M5</span>
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 9l6 6 6-6" />
+                  </svg>
+                </button>
+                <div data-dropdown-panel
+                  class="absolute right-0 top-full z-40 mt-3 w-72 rounded-3xl border border-slate-800/80 bg-slate-950/95 p-4 text-sm text-slate-200 shadow-xl shadow-slate-950/50 backdrop-blur-xl hidden">
+                  <div class="flex items-start gap-3 rounded-2xl border border-slate-800/70 bg-slate-900/70 px-4 py-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-sky-300" fill="none" viewBox="0 0 24 24"
+                      stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                        d="M12 6v6l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    <div class="space-y-1">
+                      <p class="text-sm font-semibold text-white">Coming soon</p>
+                      <p class="text-xs text-slate-400">Milestone M5 content will be added soon.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="relative flex-shrink-0" data-dropdown="m6-desktop">
+                <button type="button" data-dropdown-trigger class="milestone-trigger" aria-expanded="false"
+                  aria-haspopup="true">
+                  <span>Milestone M6</span>
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 9l6 6 6-6" />
+                  </svg>
+                </button>
+                <div data-dropdown-panel
+                  class="absolute right-0 top-full z-40 mt-3 w-72 rounded-3xl border border-slate-800/80 bg-slate-950/95 p-4 text-sm text-slate-200 shadow-xl shadow-slate-950/50 backdrop-blur-xl hidden">
+                  <div class="flex items-start gap-3 rounded-2xl border border-slate-800/70 bg-slate-900/70 px-4 py-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-sky-300" fill="none" viewBox="0 0 24 24"
+                      stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                        d="M12 6v6l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    <div class="space-y-1">
+                      <p class="text-sm font-semibold text-white">Coming soon</p>
+                      <p class="text-xs text-slate-400">Milestone M6 content will be added soon.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="relative flex-shrink-0" data-dropdown="m7-desktop">
+                <button type="button" data-dropdown-trigger class="milestone-trigger" aria-expanded="false"
+                  aria-haspopup="true">
+                  <span>Milestone M7</span>
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 9l6 6 6-6" />
+                  </svg>
+                </button>
+                <div data-dropdown-panel
+                  class="absolute right-0 top-full z-40 mt-3 w-72 rounded-3xl border border-slate-800/80 bg-slate-950/95 p-4 text-sm text-slate-200 shadow-xl shadow-slate-950/50 backdrop-blur-xl hidden">
+                  <div class="flex items-start gap-3 rounded-2xl border border-slate-800/70 bg-slate-900/70 px-4 py-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-sky-300" fill="none" viewBox="0 0 24 24"
+                      stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                        d="M12 6v6l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    <div class="space-y-1">
+                      <p class="text-sm font-semibold text-white">Coming soon</p>
+                      <p class="text-xs text-slate-400">Milestone M7 content will be added soon.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="relative flex-shrink-0" data-dropdown="m8-desktop">
+                <button type="button" data-dropdown-trigger class="milestone-trigger" aria-expanded="false"
+                  aria-haspopup="true">
+                  <span>Milestone M8</span>
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 9l6 6 6-6" />
+                  </svg>
+                </button>
+                <div data-dropdown-panel
+                  class="absolute right-0 top-full z-40 mt-3 w-72 rounded-3xl border border-slate-800/80 bg-slate-950/95 p-4 text-sm text-slate-200 shadow-xl shadow-slate-950/50 backdrop-blur-xl hidden">
+                  <div class="flex items-start gap-3 rounded-2xl border border-slate-800/70 bg-slate-900/70 px-4 py-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-sky-300" fill="none" viewBox="0 0 24 24"
+                      stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                        d="M12 6v6l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    <div class="space-y-1">
+                      <p class="text-sm font-semibold text-white">Coming soon</p>
+                      <p class="text-xs text-slate-400">Milestone M8 content will be added soon.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="relative flex-shrink-0" data-dropdown="m9-desktop">
+                <button type="button" data-dropdown-trigger class="milestone-trigger" aria-expanded="false"
+                  aria-haspopup="true">
+                  <span>Milestone M9</span>
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 9l6 6 6-6" />
+                  </svg>
+                </button>
+                <div data-dropdown-panel
+                  class="absolute right-0 top-full z-40 mt-3 w-72 rounded-3xl border border-slate-800/80 bg-slate-950/95 p-4 text-sm text-slate-200 shadow-xl shadow-slate-950/50 backdrop-blur-xl hidden">
+                  <div class="flex items-start gap-3 rounded-2xl border border-slate-800/70 bg-slate-900/70 px-4 py-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-sky-300" fill="none" viewBox="0 0 24 24"
+                      stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                        d="M12 6v6l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    <div class="space-y-1">
+                      <p class="text-sm font-semibold text-white">Coming soon</p>
+                      <p class="text-xs text-slate-400">Milestone M9 content will be added soon.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="relative flex-shrink-0" data-dropdown="m10-desktop">
+                <button type="button" data-dropdown-trigger class="milestone-trigger" aria-expanded="false"
+                  aria-haspopup="true">
+                  <span>Milestone M10</span>
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 9l6 6 6-6" />
+                  </svg>
+                </button>
+                <div data-dropdown-panel
+                  class="absolute right-0 top-full z-40 mt-3 w-72 rounded-3xl border border-slate-800/80 bg-slate-950/95 p-4 text-sm text-slate-200 shadow-xl shadow-slate-950/50 backdrop-blur-xl hidden">
+                  <div class="flex items-start gap-3 rounded-2xl border border-slate-800/70 bg-slate-900/70 px-4 py-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-sky-300" fill="none" viewBox="0 0 24 24"
+                      stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                        d="M12 6v6l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    <div class="space-y-1">
+                      <p class="text-sm font-semibold text-white">Coming soon</p>
+                      <p class="text-xs text-slate-400">Milestone M10 content will be added soon.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="relative flex-shrink-0" data-dropdown="m11-desktop">
+                <button type="button" data-dropdown-trigger class="milestone-trigger" aria-expanded="false"
+                  aria-haspopup="true">
+                  <span>Milestone M11</span>
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 9l6 6 6-6" />
+                  </svg>
+                </button>
+                <div data-dropdown-panel
+                  class="absolute right-0 top-full z-40 mt-3 w-72 rounded-3xl border border-slate-800/80 bg-slate-950/95 p-4 text-sm text-slate-200 shadow-xl shadow-slate-950/50 backdrop-blur-xl hidden">
+                  <div class="flex items-start gap-3 rounded-2xl border border-slate-800/70 bg-slate-900/70 px-4 py-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-sky-300" fill="none" viewBox="0 0 24 24"
+                      stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                        d="M12 6v6l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    <div class="space-y-1">
+                      <p class="text-sm font-semibold text-white">Coming soon</p>
+                      <p class="text-xs text-slate-400">Milestone M11 content will be added soon.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <button id="mobile-toggle"
+        class="lg:hidden inline-flex items-center justify-center rounded-lg border border-slate-800 p-2 text-slate-200 hover:bg-slate-800/60">
+        <span class="sr-only">Toggle navigation</span>
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </div>
+    <div id="mobile-menu" class="hidden border-t border-slate-800 bg-slate-950/95 lg:hidden">
+      <div class="mx-auto flex max-w-6xl flex-col gap-5 px-6 py-6 text-sm text-slate-200">
+        <span class="text-[11px] font-semibold uppercase tracking-[0.4em] text-slate-500">Milestones</span>
+        <div class="flex flex-col gap-4">
+          <div class="flex flex-col gap-3 rounded-3xl border border-slate-800/70 bg-slate-950/60 p-4 backdrop-blur"
+            data-dropdown="m1-mobile">
+            <button type="button" data-dropdown-trigger class="milestone-trigger w-full justify-between text-left"
+              data-active="true" aria-expanded="false" aria-haspopup="true">
+              <span>Milestone M1</span>
+              <span class="milestone-badge">Current</span>
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24"
+                stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 9l6 6 6-6" />
+              </svg>
+            </button>
+            <div data-dropdown-panel class="hidden flex flex-col gap-2 text-sm text-slate-300">
+              <a href="#overview"
+                class="rounded-2xl border border-slate-800/50 bg-slate-900/60 px-3 py-2 transition hover:border-sky-500/40 hover:text-sky-300">Project
+                Overview</a>
+              <a href="#team"
+                class="rounded-2xl border border-slate-800/50 bg-slate-900/60 px-3 py-2 transition hover:border-sky-500/40 hover:text-sky-300">Team</a>
+              <a href="#problem"
+                class="rounded-2xl border border-slate-800/50 bg-slate-900/60 px-3 py-2 transition hover:border-sky-500/40 hover:text-sky-300">Problem</a>
+              <a href="#solution"
+                class="rounded-2xl border border-slate-800/50 bg-slate-900/60 px-3 py-2 transition hover:border-sky-500/40 hover:text-sky-300">Solution</a>
+              <a href="#customers"
+                class="rounded-2xl border border-slate-800/50 bg-slate-900/60 px-3 py-2 transition hover:border-sky-500/40 hover:text-sky-300">Customers</a>
+              <a href="#competition"
+                class="rounded-2xl border border-slate-800/50 bg-slate-900/60 px-3 py-2 transition hover:border-sky-500/40 hover:text-sky-300">Competition</a>
+              <a href="#advantage"
+                class="rounded-2xl border border-slate-800/50 bg-slate-900/60 px-3 py-2 transition hover:border-sky-500/40 hover:text-sky-300">Advantage</a>
+              <a href="#metrics"
+                class="rounded-2xl border border-slate-800/50 bg-slate-900/60 px-3 py-2 transition hover:border-sky-500/40 hover:text-sky-300">Metrics</a>
+              <a href="#costs"
+                class="rounded-2xl border border-slate-800/50 bg-slate-900/60 px-3 py-2 transition hover:border-sky-500/40 hover:text-sky-300">Costs
+                &amp; Revenue</a>
+            </div>
+          </div>
+          <div class="flex flex-col gap-3 rounded-3xl border border-slate-800/40 bg-slate-950/40 p-4 backdrop-blur"
+            data-dropdown="m2-mobile">
+            <button type="button" data-dropdown-trigger class="milestone-trigger w-full justify-between text-left"
+              aria-expanded="false" aria-haspopup="true">
+              <span>Milestone M2</span>
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24"
+                stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 9l6 6 6-6" />
+              </svg>
+            </button>
+            <div data-dropdown-panel
+              class="hidden rounded-2xl border border-slate-800/70 bg-slate-900/70 px-4 py-4 text-sm text-slate-300">
+              <div class="flex items-start gap-3">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-sky-300" fill="none" viewBox="0 0 24 24"
+                  stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                    d="M12 6v6l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                <div class="space-y-1">
+                  <p class="text-sm font-semibold text-white">Coming soon</p>
+                  <p class="text-xs text-slate-400">Milestone M2 content will be added soon.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="flex flex-col gap-3 rounded-3xl border border-slate-800/40 bg-slate-950/40 p-4 backdrop-blur"
+            data-dropdown="m3-mobile">
+            <button type="button" data-dropdown-trigger class="milestone-trigger w-full justify-between text-left"
+              aria-expanded="false" aria-haspopup="true">
+              <span>Milestone M3</span>
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24"
+                stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 9l6 6 6-6" />
+              </svg>
+            </button>
+            <div data-dropdown-panel
+              class="hidden rounded-2xl border border-slate-800/70 bg-slate-900/70 px-4 py-4 text-sm text-slate-300">
+              <div class="flex items-start gap-3">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-sky-300" fill="none" viewBox="0 0 24 24"
+                  stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                    d="M12 6v6l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                <div class="space-y-1">
+                  <p class="text-sm font-semibold text-white">Coming soon</p>
+                  <p class="text-xs text-slate-400">Milestone M3 content will be added soon.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="flex flex-col gap-3 rounded-3xl border border-slate-800/40 bg-slate-950/40 p-4 backdrop-blur"
+            data-dropdown="m4-mobile">
+            <button type="button" data-dropdown-trigger class="milestone-trigger w-full justify-between text-left"
+              aria-expanded="false" aria-haspopup="true">
+              <span>Milestone M4</span>
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24"
+                stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 9l6 6 6-6" />
+              </svg>
+            </button>
+            <div data-dropdown-panel
+              class="hidden rounded-2xl border border-slate-800/70 bg-slate-900/70 px-4 py-4 text-sm text-slate-300">
+              <div class="flex items-start gap-3">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-sky-300" fill="none" viewBox="0 0 24 24"
+                  stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                    d="M12 6v6l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                <div class="space-y-1">
+                  <p class="text-sm font-semibold text-white">Coming soon</p>
+                  <p class="text-xs text-slate-400">Milestone M4 content will be added soon.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="flex flex-col gap-3 rounded-3xl border border-slate-800/40 bg-slate-950/40 p-4 backdrop-blur"
+            data-dropdown="m5-mobile">
+            <button type="button" data-dropdown-trigger class="milestone-trigger w-full justify-between text-left"
+              aria-expanded="false" aria-haspopup="true">
+              <span>Milestone M5</span>
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24"
+                stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 9l6 6 6-6" />
+              </svg>
+            </button>
+            <div data-dropdown-panel
+              class="hidden rounded-2xl border border-slate-800/70 bg-slate-900/70 px-4 py-4 text-sm text-slate-300">
+              <div class="flex items-start gap-3">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-sky-300" fill="none" viewBox="0 0 24 24"
+                  stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                    d="M12 6v6l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                <div class="space-y-1">
+                  <p class="text-sm font-semibold text-white">Coming soon</p>
+                  <p class="text-xs text-slate-400">Milestone M5 content will be added soon.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="flex flex-col gap-3 rounded-3xl border border-slate-800/40 bg-slate-950/40 p-4 backdrop-blur"
+            data-dropdown="m6-mobile">
+            <button type="button" data-dropdown-trigger class="milestone-trigger w-full justify-between text-left"
+              aria-expanded="false" aria-haspopup="true">
+              <span>Milestone M6</span>
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24"
+                stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 9l6 6 6-6" />
+              </svg>
+            </button>
+            <div data-dropdown-panel
+              class="hidden rounded-2xl border border-slate-800/70 bg-slate-900/70 px-4 py-4 text-sm text-slate-300">
+              <div class="flex items-start gap-3">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-sky-300" fill="none" viewBox="0 0 24 24"
+                  stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                    d="M12 6v6l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                <div class="space-y-1">
+                  <p class="text-sm font-semibold text-white">Coming soon</p>
+                  <p class="text-xs text-slate-400">Milestone M6 content will be added soon.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="flex flex-col gap-3 rounded-3xl border border-slate-800/40 bg-slate-950/40 p-4 backdrop-blur"
+            data-dropdown="m7-mobile">
+            <button type="button" data-dropdown-trigger class="milestone-trigger w-full justify-between text-left"
+              aria-expanded="false" aria-haspopup="true">
+              <span>Milestone M7</span>
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24"
+                stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 9l6 6 6-6" />
+              </svg>
+            </button>
+            <div data-dropdown-panel
+              class="hidden rounded-2xl border border-slate-800/70 bg-slate-900/70 px-4 py-4 text-sm text-slate-300">
+              <div class="flex items-start gap-3">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-sky-300" fill="none" viewBox="0 0 24 24"
+                  stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                    d="M12 6v6l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                <div class="space-y-1">
+                  <p class="text-sm font-semibold text-white">Coming soon</p>
+                  <p class="text-xs text-slate-400">Milestone M7 content will be added soon.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="flex flex-col gap-3 rounded-3xl border border-slate-800/40 bg-slate-950/40 p-4 backdrop-blur"
+            data-dropdown="m8-mobile">
+            <button type="button" data-dropdown-trigger class="milestone-trigger w-full justify-between text-left"
+              aria-expanded="false" aria-haspopup="true">
+              <span>Milestone M8</span>
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24"
+                stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 9l6 6 6-6" />
+              </svg>
+            </button>
+            <div data-dropdown-panel
+              class="hidden rounded-2xl border border-slate-800/70 bg-slate-900/70 px-4 py-4 text-sm text-slate-300">
+              <div class="flex items-start gap-3">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-sky-300" fill="none" viewBox="0 0 24 24"
+                  stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                    d="M12 6v6l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                <div class="space-y-1">
+                  <p class="text-sm font-semibold text-white">Coming soon</p>
+                  <p class="text-xs text-slate-400">Milestone M8 content will be added soon.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="flex flex-col gap-3 rounded-3xl border border-slate-800/40 bg-slate-950/40 p-4 backdrop-blur"
+            data-dropdown="m9-mobile">
+            <button type="button" data-dropdown-trigger class="milestone-trigger w-full justify-between text-left"
+              aria-expanded="false" aria-haspopup="true">
+              <span>Milestone M9</span>
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24"
+                stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 9l6 6 6-6" />
+              </svg>
+            </button>
+            <div data-dropdown-panel
+              class="hidden rounded-2xl border border-slate-800/70 bg-slate-900/70 px-4 py-4 text-sm text-slate-300">
+              <div class="flex items-start gap-3">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-sky-300" fill="none" viewBox="0 0 24 24"
+                  stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                    d="M12 6v6l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                <div class="space-y-1">
+                  <p class="text-sm font-semibold text-white">Coming soon</p>
+                  <p class="text-xs text-slate-400">Milestone M9 content will be added soon.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="flex flex-col gap-3 rounded-3xl border border-slate-800/40 bg-slate-950/40 p-4 backdrop-blur"
+            data-dropdown="m10-mobile">
+            <button type="button" data-dropdown-trigger class="milestone-trigger w-full justify-between text-left"
+              aria-expanded="false" aria-haspopup="true">
+              <span>Milestone M10</span>
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24"
+                stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 9l6 6 6-6" />
+              </svg>
+            </button>
+            <div data-dropdown-panel
+              class="hidden rounded-2xl border border-slate-800/70 bg-slate-900/70 px-4 py-4 text-sm text-slate-300">
+              <div class="flex items-start gap-3">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-sky-300" fill="none" viewBox="0 0 24 24"
+                  stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                    d="M12 6v6l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                <div class="space-y-1">
+                  <p class="text-sm font-semibold text-white">Coming soon</p>
+                  <p class="text-xs text-slate-400">Milestone M10 content will be added soon.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="flex flex-col gap-3 rounded-3xl border border-slate-800/40 bg-slate-950/40 p-4 backdrop-blur"
+            data-dropdown="m11-mobile">
+            <button type="button" data-dropdown-trigger class="milestone-trigger w-full justify-between text-left"
+              aria-expanded="false" aria-haspopup="true">
+              <span>Milestone M11</span>
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24"
+                stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 9l6 6 6-6" />
+              </svg>
+            </button>
+            <div data-dropdown-panel
+              class="hidden rounded-2xl border border-slate-800/70 bg-slate-900/70 px-4 py-4 text-sm text-slate-300">
+              <div class="flex items-start gap-3">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-sky-300" fill="none" viewBox="0 0 24 24"
+                  stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                    d="M12 6v6l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                <div class="space-y-1">
+                  <p class="text-sm font-semibold text-white">Coming soon</p>
+                  <p class="text-xs text-slate-400">Milestone M11 content will be added soon.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <header id="top" class="relative overflow-hidden bg-slate-950 pt-28">
+    <div class="absolute inset-0 -z-10 bg-gradient-to-br from-slate-900 via-slate-950 to-black"></div>
+    <div class="absolute inset-0 -z-10 bg-grid"></div>
+    <div class="mx-auto flex max-w-6xl flex-col items-start gap-8 px-6 pb-24 pt-12 fade-section">
+      <p
+        class="inline-flex items-center gap-2 rounded-full border border-slate-800 bg-slate-900/60 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-slate-300">
+        Fiki – Fancy Wiki | M1
+      </p>
+      <div class="max-w-3xl space-y-6">
+        <h1 class="text-4xl font-semibold leading-tight text-white sm:text-5xl lg:text-6xl">
+          BeaconX
+        </h1>
+        <p class="text-lg text-slate-200 sm:text-xl">
+          Fiki – Fancy Wiki | M1 Submission – 13.10.25
+        </p>
+        <p class="text-base text-slate-300 sm:text-lg">
+          Blockchain Event Intelligence Platform
+        </p>
+      </div>
+    </div>
+  </header>
+
+  <main class="bg-slate-950">
+    <section id="overview" class="fade-section bg-slate-900/40">
+      <div class="mx-auto max-w-6xl px-6 py-20">
+        <h2 class="text-3xl font-semibold text-white md:text-4xl">Project Title &amp; Description</h2>
+        <p class="mt-6 text-base text-slate-300 md:text-lg">
+          BeaconX simplifies blockchain event monitoring through real-time notifications, analytics, and APIs. It
+          enables developers and businesses to integrate blockchain intelligence easily without managing nodes or
+          complex data pipelines.
+        </p>
+      </div>
+    </section>
+
+    <section id="team" class="fade-section">
+      <div class="mx-auto max-w-6xl px-6 py-20">
+        <div class="mb-12 flex flex-col gap-4">
+          <h2 class="text-3xl font-semibold text-white md:text-4xl">Team</h2>
+          <p class="text-base text-slate-300 md:text-lg">
+            The BeaconX team combines engineering, research, and design expertise to deliver blockchain insights with
+            precision.
+          </p>
+        </div>
+        <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+          <article
+            class="flex flex-col items-center gap-4 rounded-3xl border border-slate-800 bg-slate-900/40 p-6 text-center">
+            <img src="https://via.placeholder.com/150x150.png?text=Alex" alt="Gabriel Iosif"
+              class="h-24 w-24 rounded-full border border-slate-700 bg-slate-800 object-cover shadow-lg">
+            <div class="space-y-1">
+              <h3 class="text-lg font-semibold text-white">Gabriel Iosif</h3>
+              <p class="text-sm text-sky-300">Dev/Manager/Everything</p>
+              <a href="mailto:gabriel.iosif@stud.acs.upb.ro"
+                class="text-xs text-slate-400 hover:text-sky-400 transition-colors">gabriel.iosif@stud.acs.upb.ro</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="problem" class="fade-section bg-slate-900/40">
+      <div class="mx-auto max-w-6xl px-6 py-20">
+        <h2 class="text-3xl font-semibold text-white md:text-4xl">Problem Noticed</h2>
+        <p class="mt-6 text-base text-slate-300 md:text-lg">
+          Blockchain data is hard to monitor in real time. Developers struggle with fragmented APIs, node maintenance,
+          and missing event visibility across networks.
+        </p>
+      </div>
+    </section>
+
+    <section id="solution" class="fade-section">
+      <div class="mx-auto max-w-6xl px-6 py-20">
+        <h2 class="text-3xl font-semibold text-white md:text-4xl">Solution / Value Proposition</h2>
+        <p class="mt-6 text-base text-slate-300 md:text-lg">
+          BeaconX delivers real-time blockchain event alerts, historical transaction data, and developer-ready APIs. It
+          uses NFT-based subscriptions for scalability and traceability.
+        </p>
+      </div>
+    </section>
+
+    <section id="customers" class="fade-section bg-slate-900/40">
+      <div class="mx-auto max-w-6xl px-6 py-20">
+        <h2 class="text-3xl font-semibold text-white md:text-4xl">Customer Segments</h2>
+        <ul class="mt-6 grid gap-4 text-base text-slate-300 md:grid-cols-2 md:text-lg">
+          <li class="rounded-2xl border border-slate-800 bg-slate-900/40 p-4">Web3 developers and startups</li>
+          <li class="rounded-2xl border border-slate-800 bg-slate-900/40 p-4">Blockchain analytics companies</li>
+          <li class="rounded-2xl border border-slate-800 bg-slate-900/40 p-4">Smart contract auditors</li>
+          <li class="rounded-2xl border border-slate-800 bg-slate-900/40 p-4">dApp creators</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="competition" class="fade-section">
+      <div class="mx-auto max-w-6xl px-6 py-20">
+        <h2 class="text-3xl font-semibold text-white md:text-4xl">Competition</h2>
+        <div class="mt-8 overflow-hidden rounded-3xl border border-slate-800 bg-slate-900/60">
+          <div class="overflow-x-auto">
+            <table class="min-w-full divide-y divide-slate-800 text-left text-sm text-slate-200">
+              <thead class="bg-slate-900/70 text-xs uppercase tracking-wide text-slate-400">
+                <tr>
+                  <th class="px-6 py-4">Competitor</th>
+                  <th class="px-6 py-4">Strength</th>
+                  <th class="px-6 py-4">Weakness</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-slate-800">
+                <tr class="hover:bg-slate-800/40 transition-colors">
+                  <td class="px-6 py-4 font-medium text-white">Alchemy</td>
+                  <td class="px-6 py-4">Established API suite</td>
+                  <td class="px-6 py-4">Lacks event NFT integration</td>
+                </tr>
+                <tr class="hover:bg-slate-800/40 transition-colors">
+                  <td class="px-6 py-4 font-medium text-white">Moralis</td>
+                  <td class="px-6 py-4">Fast setup</td>
+                  <td class="px-6 py-4">Limited deep historical data</td>
+                </tr>
+                <tr class="hover:bg-slate-800/40 transition-colors">
+                  <td class="px-6 py-4 font-medium text-white">Infura</td>
+                  <td class="px-6 py-4">Reliable infrastructure</td>
+                  <td class="px-6 py-4">No real-time alerting</td>
+                </tr>
+                <tr class="hover:bg-slate-800/40 transition-colors">
+                  <td class="px-6 py-4 font-medium text-white">BeaconX</td>
+                  <td class="px-6 py-4">Real-time alerts, NFT events</td>
+                  <td class="px-6 py-4">Early-stage platform</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="advantage" class="fade-section bg-slate-900/40">
+      <div class="mx-auto max-w-6xl px-6 py-20">
+        <h2 class="text-3xl font-semibold text-white md:text-4xl">Advantage Over Competition</h2>
+        <p class="mt-6 text-base text-slate-300 md:text-lg">
+          BeaconX integrates NFT-based event subscriptions, deep blockchain history, and lightweight APIs. It reduces
+          infrastructure costs while improving event transparency.
+        </p>
+      </div>
+    </section>
+
+    <section id="metrics" class="fade-section">
+      <div class="mx-auto max-w-6xl px-6 py-20">
+        <h2 class="text-3xl font-semibold text-white md:text-4xl">Key Metrics</h2>
+        <ul class="mt-6 grid gap-4 text-base text-slate-300 md:grid-cols-2 md:text-lg">
+          <li class="rounded-2xl border border-slate-800 bg-slate-900/40 p-4">Transactions tracked</li>
+          <li class="rounded-2xl border border-slate-800 bg-slate-900/40 p-4">Events processed per second</li>
+          <li class="rounded-2xl border border-slate-800 bg-slate-900/40 p-4">API calls per day</li>
+          <li class="rounded-2xl border border-slate-800 bg-slate-900/40 p-4">Active subscriptions</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="costs" class="fade-section bg-slate-900/40">
+      <div class="mx-auto max-w-6xl px-6 py-20">
+        <h2 class="text-3xl font-semibold text-white md:text-4xl">Cost Structure</h2>
+        <ul class="mt-6 space-y-3 text-base text-slate-300 md:text-lg">
+          <li class="rounded-2xl border border-slate-800 bg-slate-900/40 p-4">Infrastructure and node hosting</li>
+          <li class="rounded-2xl border border-slate-800 bg-slate-900/40 p-4">Smart contract deployment</li>
+          <li class="rounded-2xl border border-slate-800 bg-slate-900/40 p-4">Data storage and maintenance</li>
+          <li class="rounded-2xl border border-slate-800 bg-slate-900/40 p-4">Developer time</li>
+        </ul>
+        <h2 class="mt-12 text-3xl font-semibold text-white md:text-4xl">Revenue Streams</h2>
+        <ul class="mt-6 space-y-3 text-base text-slate-300 md:text-lg">
+          <li class="rounded-2xl border border-slate-800 bg-slate-900/40 p-4">NFT-based event subscriptions (25 USDC+)
+          </li>
+          <li class="rounded-2xl border border-slate-800 bg-slate-900/40 p-4">Premium analytics</li>
+          <li class="rounded-2xl border border-slate-800 bg-slate-900/40 p-4">Enterprise API access</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-t border-slate-800 bg-slate-950/90">
+    <div
+      class="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 px-6 py-6 text-xs text-slate-500 sm:flex-row">
+      <span>© 2025 BeaconX Team. All rights reserved.</span>
+      <a href="#top" class="flex items-center gap-1 hover:text-sky-400 transition-colors">
+        Back to top
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 15l7-7 7 7" />
+        </svg>
+      </a>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('show');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.15 });
+
+      document.querySelectorAll('.fade-section').forEach((section, index) => {
+        section.style.transitionDelay = `${index * 60}ms`;
+        observer.observe(section);
+      });
+
+      const toggle = document.getElementById('mobile-toggle');
+      const menu = document.getElementById('mobile-menu');
+
+      if (toggle && menu) {
+        toggle.addEventListener('click', (event) => {
+          event.stopPropagation();
+          menu.classList.toggle('hidden');
+        });
+
+        menu.querySelectorAll('a').forEach((link) => {
+          link.addEventListener('click', () => {
+            menu.classList.add('hidden');
+          });
+        });
+      }
+
+      const dropdowns = document.querySelectorAll('[data-dropdown]');
+
+      const closeDropdown = (dropdown) => {
+        const trigger = dropdown.querySelector('[data-dropdown-trigger]');
+        const panel = dropdown.querySelector('[data-dropdown-panel]');
+        panel?.classList.add('hidden');
+        trigger?.setAttribute('aria-expanded', 'false');
+      };
+
+      const openDropdown = (dropdown) => {
+        const trigger = dropdown.querySelector('[data-dropdown-trigger]');
+        const panel = dropdown.querySelector('[data-dropdown-panel]');
+        panel?.classList.remove('hidden');
+        trigger?.setAttribute('aria-expanded', 'true');
+      };
+
+      dropdowns.forEach((dropdown) => {
+        const trigger = dropdown.querySelector('[data-dropdown-trigger]');
+        const panel = dropdown.querySelector('[data-dropdown-panel]');
+
+        if (!trigger || !panel) {
+          return;
+        }
+
+        trigger.addEventListener('click', (event) => {
+          event.stopPropagation();
+          const isHidden = panel.classList.contains('hidden');
+
+          dropdowns.forEach((other) => {
+            if (other !== dropdown) {
+              closeDropdown(other);
+            }
+          });
+
+          if (isHidden) {
+            openDropdown(dropdown);
+          } else {
+            closeDropdown(dropdown);
+          }
+        });
+
+        panel.addEventListener('click', (event) => {
+          event.stopPropagation();
+        });
+
+        panel.querySelectorAll('a').forEach((anchor) => {
+          anchor.addEventListener('click', () => {
+            closeDropdown(dropdown);
+            if (menu) {
+              menu.classList.add('hidden');
+            }
+          });
+        });
+      });
+
+      document.addEventListener('click', () => {
+        dropdowns.forEach((dropdown) => closeDropdown(dropdown));
+        if (menu) {
+          menu.classList.add('hidden');
+        }
+      });
+    });
+  </script>
+</body>
+
+</html>

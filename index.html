@@ -37,6 +37,43 @@
       display: none;
     }
 
+    .milestone-slider {
+      position: relative;
+      height: 0.35rem;
+      width: 100%;
+      margin-top: 0.75rem;
+      background: rgba(51, 65, 85, 0.6);
+      border-radius: 9999px;
+      overflow: hidden;
+    }
+
+    .milestone-slider.hidden {
+      opacity: 0;
+      pointer-events: none;
+      height: 0;
+      margin-top: 0 !important;
+    }
+
+    .milestone-thumb {
+      display: block;
+      position: absolute;
+      top: 50%;
+      left: 0;
+      height: 0.85rem;
+      min-width: 2.75rem;
+      transform: translateY(-50%);
+      border-radius: 9999px;
+      background: linear-gradient(120deg, rgba(125, 211, 252, 0.8), rgba(14, 165, 233, 0.5));
+      box-shadow: 0 10px 24px rgba(14, 165, 233, 0.25);
+      transition: transform 0.15s ease, background 0.2s ease;
+      cursor: grab;
+    }
+
+    .milestone-thumb.dragging {
+      cursor: grabbing;
+      background: linear-gradient(120deg, rgba(56, 189, 248, 0.9), rgba(2, 132, 199, 0.6));
+    }
+
     .milestone-trigger {
       display: inline-flex;
       align-items: center;
@@ -102,7 +139,7 @@
         <div class="flex flex-col items-end gap-2">
           <span class="text-[11px] font-semibold uppercase tracking-[0.4em] text-slate-500">Milestones</span>
           <div class="relative w-full max-w-4xl">
-            <div
+            <div data-scroll="milestones"
               class="no-scrollbar flex flex-nowrap items-center gap-3 overflow-x-auto overflow-y-visible rounded-3xl border border-slate-800/70 bg-slate-950/40 px-4 py-3 shadow-lg shadow-slate-950/40">
 
               <a href="#m1" class="milestone-trigger flex-shrink-0">
@@ -150,6 +187,9 @@
                 <span>Milestone M11</span>
               </a>
 
+            </div>
+            <div class="milestone-slider relative rounded-full bg-slate-800/70">
+              <span class="milestone-thumb absolute top-1/2 left-0 h-4 w-16 -translate-y-1/2 rounded-full bg-sky-400/80 shadow-lg shadow-sky-900/40"></span>
             </div>
           </div>
         </div>
@@ -1299,6 +1339,121 @@
       link.addEventListener('click', () => {
         mobileMenu.classList.add('hidden');
       });
+    });
+
+    // Enable horizontal scrolling for milestone navigation
+    const milestoneScrollers = document.querySelectorAll('[data-scroll="milestones"]');
+
+    milestoneScrollers.forEach(scroller => {
+      const slider = scroller.parentElement.querySelector('.milestone-slider');
+      const thumb = slider?.querySelector('.milestone-thumb');
+
+      const getMetrics = () => {
+        const scrollWidth = scroller.scrollWidth;
+        const clientWidth = scroller.clientWidth;
+        const maxScroll = Math.max(scrollWidth - clientWidth, 0);
+        const sliderWidth = slider?.clientWidth ?? 0;
+        const thumbWidth = slider && scrollWidth > 0
+          ? Math.max(sliderWidth * (clientWidth / scrollWidth), 40)
+          : sliderWidth;
+        const maxThumbLeft = Math.max(sliderWidth - thumbWidth, 0);
+
+        return {
+          scrollWidth,
+          clientWidth,
+          maxScroll,
+          sliderWidth,
+          thumbWidth,
+          maxThumbLeft
+        };
+      };
+
+      const updateThumb = () => {
+        if (!slider || !thumb) return;
+        const { maxScroll, scrollWidth, thumbWidth, maxThumbLeft } = getMetrics();
+
+        if (scrollWidth <= scroller.clientWidth + 1 || maxScroll <= 0) {
+          slider.classList.add('hidden');
+          thumb.style.width = `${slider.clientWidth}px`;
+          thumb.style.transform = 'translateX(0) translateY(-50%)';
+          return;
+        }
+
+        slider.classList.remove('hidden');
+        const scrollLeft = scroller.scrollLeft;
+        const thumbLeft = (scrollLeft / maxScroll) * maxThumbLeft;
+        thumb.style.width = `${thumbWidth}px`;
+        thumb.style.transform = `translateX(${thumbLeft}px) translateY(-50%)`;
+      };
+
+      const scheduleUpdate = () => requestAnimationFrame(updateThumb);
+      scroller.addEventListener('scroll', scheduleUpdate, { passive: true });
+      window.addEventListener('resize', scheduleUpdate);
+
+      if (slider && thumb) {
+        let isDraggingThumb = false;
+        let startX = 0;
+        let startScrollLeft = 0;
+
+        const pointerX = (event) => {
+          if (event.touches && event.touches.length) {
+            return event.touches[0].clientX;
+          }
+          return event.clientX;
+        };
+
+        const beginThumbDrag = (event) => {
+          isDraggingThumb = true;
+          startX = pointerX(event);
+          startScrollLeft = scroller.scrollLeft;
+          thumb.classList.add('dragging');
+          event.preventDefault();
+        };
+
+        const moveThumb = (event) => {
+          if (!isDraggingThumb) return;
+          event.preventDefault();
+          const metrics = getMetrics();
+          if (metrics.maxScroll <= 0) return;
+          const currentX = pointerX(event);
+          const delta = currentX - startX;
+          const ratio = metrics.maxScroll / Math.max(metrics.maxThumbLeft, 1);
+          const nextScroll = Math.min(Math.max(startScrollLeft + delta * ratio, 0), metrics.maxScroll);
+          scroller.scrollLeft = nextScroll;
+        };
+
+        const endThumbDrag = () => {
+          if (!isDraggingThumb) return;
+          isDraggingThumb = false;
+          thumb.classList.remove('dragging');
+        };
+
+        const handleSliderClick = (event) => {
+          if (event.target === thumb) return;
+          const metrics = getMetrics();
+          if (metrics.maxScroll <= 0) return;
+          const rect = slider.getBoundingClientRect();
+          const clickX = event.clientX - rect.left;
+          const thumbCenterOffset = metrics.thumbWidth / 2;
+          const targetThumbLeft = Math.min(
+            Math.max(clickX - thumbCenterOffset, 0),
+            metrics.maxThumbLeft
+          );
+          const scrollLeft = (targetThumbLeft / Math.max(metrics.maxThumbLeft, 1)) * metrics.maxScroll;
+          scroller.scrollLeft = scrollLeft;
+        };
+
+        thumb.addEventListener('mousedown', beginThumbDrag);
+        thumb.addEventListener('touchstart', beginThumbDrag, { passive: false });
+        window.addEventListener('mousemove', moveThumb);
+        window.addEventListener('touchmove', moveThumb, { passive: false });
+        window.addEventListener('mouseup', endThumbDrag);
+        window.addEventListener('touchend', endThumbDrag);
+        window.addEventListener('touchcancel', endThumbDrag);
+        slider.addEventListener('click', handleSliderClick);
+      }
+
+      updateThumb();
     });
 
     // Fade-in sections on scroll - improved to work on scroll down

@@ -146,13 +146,13 @@
                 <span>Milestone M1</span>
               </a>
 
-              <a href="#m2" class="milestone-trigger flex-shrink-0" data-active="true">
+              <a href="#m2" class="milestone-trigger flex-shrink-0">
                 <span>Milestone M2</span>
-                <span class="milestone-badge hidden md:inline-flex">Current</span>
               </a>
 
-              <a href="#m3" class="milestone-trigger flex-shrink-0">
+              <a href="#m3" class="milestone-trigger flex-shrink-0" data-active="true">
                 <span>Milestone M3</span>
+                <span class="milestone-badge hidden md:inline-flex">Current</span>
               </a>
 
               <a href="#m4" class="milestone-trigger flex-shrink-0">
@@ -189,7 +189,8 @@
 
             </div>
             <div class="milestone-slider relative rounded-full bg-slate-800/70">
-              <span class="milestone-thumb absolute top-1/2 left-0 h-4 w-16 -translate-y-1/2 rounded-full bg-sky-400/80 shadow-lg shadow-sky-900/40"></span>
+              <span
+                class="milestone-thumb absolute top-1/2 left-0 h-4 w-16 -translate-y-1/2 rounded-full bg-sky-400/80 shadow-lg shadow-sky-900/40"></span>
             </div>
           </div>
         </div>
@@ -210,11 +211,11 @@
       <div class="mx-auto flex max-w-6xl flex-col gap-3 px-6 py-6">
         <span class="text-[11px] font-semibold uppercase tracking-[0.4em] text-slate-500">Milestones</span>
         <a href="#m1" class="milestone-trigger w-full">Milestone M1</a>
-        <a href="#m2" class="milestone-trigger w-full" data-active="true">
-          <span>Milestone M2</span>
+        <a href="#m2" class="milestone-trigger w-full">Milestone M2</a>
+        <a href="#m3" class="milestone-trigger w-full" data-active="true">
+          <span>Milestone M3</span>
           <span class="milestone-badge">Current</span>
         </a>
-        <a href="#m3" class="milestone-trigger w-full">Milestone M3</a>
         <a href="#m4" class="milestone-trigger w-full">Milestone M4</a>
         <a href="#m5" class="milestone-trigger w-full">Milestone M5</a>
         <a href="#m6" class="milestone-trigger w-full">Milestone M6</a>
@@ -356,7 +357,8 @@
           <div class="grid gap-6 md:grid-cols-3">
             <div class="space-y-3 rounded-2xl border border-slate-800/70 bg-slate-900/60 p-6 text-center">
               <img src="9d2b06d3-29f5-47b1-96bf-ae1598e8a8d7.jpeg" alt="Gabriel Iosif"
-                class="mx-auto h-24 w-24 rounded-2xl object-cover border border-slate-800/80">
+                class="mx-auto h-24 w-24 rounded-2xl object-cover border border-slate-800/80 cursor-zoom-in zoomable"
+                data-zoom-src="9d2b06d3-29f5-47b1-96bf-ae1598e8a8d7.jpeg" tabindex="0">
               <div>
                 <p class="text-base font-semibold text-white">Gabriel Iosif</p>
                 <p class="text-sm text-sky-300">CTO/CEO/Marketing, everything else</p>
@@ -832,7 +834,8 @@
               <div class="grid gap-6 md:grid-cols-2">
                 <figure class="rounded-2xl border border-slate-800/60 bg-slate-900/60 p-4 space-y-3">
                   <img src="m2-customer-question.png" alt="Developer asking about smart contract monitoring approaches"
-                    class="w-full rounded-xl object-cover border border-slate-700">
+                    class="w-full rounded-xl object-cover border border-slate-700 cursor-zoom-in zoomable"
+                    data-zoom-src="m2-customer-question.png" tabindex="0">
                   <figcaption class="text-xs text-slate-400 leading-relaxed">
                     <strong class="text-slate-300">Smart Contract Polling Problem:</strong> Developer asking whether to
                     use BeaconX or continue polling smart contracts every few seconds, highlighting the exact problem we
@@ -843,7 +846,8 @@
                 <figure class="rounded-2xl border border-slate-800/60 bg-slate-900/60 p-4 space-y-3">
                   <img src="m2-infrastructure-feedback.png"
                     alt="Discussion of deep-history observer infrastructure complexity"
-                    class="w-full rounded-xl object-cover border border-slate-700">
+                    class="w-full rounded-xl object-cover border border-slate-700 cursor-zoom-in zoomable"
+                    data-zoom-src="m2-infrastructure-feedback.png" tabindex="0">
                   <figcaption class="text-xs text-slate-400 leading-relaxed">
                     <strong class="text-slate-300">Infrastructure Complexity Validation:</strong> Infrastructure partner
                     acknowledging the significant effort required to maintain deep-history observers (~20TB databases,
@@ -865,7 +869,8 @@
               <div class="grid gap-6 md:grid-cols-2">
                 <figure class="rounded-2xl border border-slate-800/60 bg-slate-900/60 p-4 space-y-3">
                   <img src="m2-beta-feedback.png" alt="Developer providing positive feedback after testing BeaconX"
-                    class="w-full rounded-xl object-cover border border-slate-700">
+                    class="w-full rounded-xl object-cover border border-slate-700 cursor-zoom-in zoomable"
+                    data-zoom-src="m2-beta-feedback.png" tabindex="0">
                   <figcaption class="text-xs text-slate-400 leading-relaxed">
                     <strong class="text-slate-300">Production Deployment Success:</strong> Developer reports
                     successfully integrating BeaconX into their devnet game environment, noting it solved their need to
@@ -876,7 +881,8 @@
 
                 <figure class="rounded-2xl border border-slate-800/60 bg-slate-900/60 p-4 space-y-3">
                   <img src="m2-existing-user.png" alt="Existing user asking about direct observer connection"
-                    class="w-full rounded-xl object-cover border border-slate-700">
+                    class="w-full rounded-xl object-cover border border-slate-700 cursor-zoom-in zoomable"
+                    data-zoom-src="m2-existing-user.png" tabindex="0">
                   <figcaption class="text-xs text-slate-400 leading-relaxed">
                     <strong class="text-slate-300">User Adoption Confirmation:</strong> Developer who has already
                     adopted BeaconX asking technical questions about connecting to the observer infrastructure,
@@ -897,7 +903,8 @@
               <div class="grid gap-6 md:grid-cols-2">
                 <figure class="rounded-2xl border border-slate-800/60 bg-slate-900/60 p-4 space-y-3">
                   <img src="m2-pricing-inquiry.png" alt="Customer asking about mainnet timeline and pricing"
-                    class="w-full rounded-xl object-cover border border-slate-700">
+                    class="w-full rounded-xl object-cover border border-slate-700 cursor-zoom-in zoomable"
+                    data-zoom-src="m2-pricing-inquiry.png" tabindex="0">
                   <figcaption class="text-xs text-slate-400 leading-relaxed">
                     <strong class="text-slate-300">Mainnet Interest & Pricing Discussion:</strong> Established
                     blockchain project (valoro.fund) asking about mainnet availability timeline and pricing structure,
@@ -908,7 +915,8 @@
 
                 <figure class="rounded-2xl border border-slate-800/60 bg-slate-900/60 p-4 space-y-3">
                   <img src="m2-testnet-question.png" alt="Developer asking about testnet availability"
-                    class="w-full rounded-xl object-cover border border-slate-700">
+                    class="w-full rounded-xl object-cover border border-slate-700 cursor-zoom-in zoomable"
+                    data-zoom-src="m2-testnet-question.png" tabindex="0">
                   <figcaption class="text-xs text-slate-400 leading-relaxed">
                     <strong class="text-slate-300">Network Coverage Request:</strong> Developer inquiring about testnet
                     support availability, demonstrating demand for broader network coverage beyond the initial devnet
@@ -919,7 +927,8 @@
 
                 <figure class="rounded-2xl border border-slate-800/60 bg-slate-900/60 p-4 space-y-3">
                   <img src="m2-followup-limits.png" alt="Discussion of API rate limits and free tier parameters"
-                    class="w-full rounded-xl object-cover border border-slate-700">
+                    class="w-full rounded-xl object-cover border border-slate-700 cursor-zoom-in zoomable"
+                    data-zoom-src="m2-followup-limits.png" tabindex="0">
                   <figcaption class="text-xs text-slate-400 leading-relaxed">
                     <strong class="text-slate-300">Technical Integration & Free Tier:</strong> Conversation showing
                     transparency about rate limits (8 req/s, 300 req/min) and commitment to providing a free mainnet
@@ -931,7 +940,8 @@
                 <figure class="rounded-2xl border border-slate-800/60 bg-slate-900/60 p-4 space-y-3">
                   <img src="m2-infrastructure-feedback.png"
                     alt="Deep discussion about infrastructure partnership and gateway access"
-                    class="w-full rounded-xl object-cover border border-slate-700">
+                    class="w-full rounded-xl object-cover border border-slate-700 cursor-zoom-in zoomable"
+                    data-zoom-src="m2-infrastructure-feedback.png" tabindex="0">
                   <figcaption class="text-xs text-slate-400 leading-relaxed">
                     <strong class="text-slate-300">Partnership & Deep History Service:</strong> Discussion of
                     collaboration on deep-history observers and public gateway API middleware (3 req/s, 65 req/min
@@ -1139,23 +1149,161 @@
       </div>
     </section>
 
-    <!-- Milestone M3 Section - Coming Soon -->
-    <section id="m3" class="fade-section py-32 flex items-center justify-center" style="min-height: 60vh;">
-      <div class="mx-auto max-w-6xl px-6 text-center">
-        <div class="inline-flex items-center gap-3 mb-6">
-          <span class="milestone-badge">Milestone M3</span>
+    <!-- Milestone M3 Section - Wireframe & Landing Page -->
+    <section id="m3" class="fade-section py-20 bg-slate-950">
+      <div class="mx-auto max-w-6xl px-6 space-y-10">
+        <div class="space-y-4 text-center">
+          <div class="inline-flex items-center gap-3 justify-center">
+            <span class="milestone-badge">Milestone M3</span>
+            <span class="text-xs font-semibold uppercase tracking-[0.25em] text-slate-400">12.11.25</span>
+          </div>
+          <h2 class="text-4xl font-bold text-white md:text-5xl">Wireframe and Landing Page</h2>
+          <p class="text-base text-slate-400 max-w-3xl mx-auto">
+            Wireframe and landing page documentation for M3, focused only on the requested deliverables.
+          </p>
         </div>
-        <div class="flex items-center justify-center gap-4 mb-6">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 text-sky-300" fill="none" viewBox="0 0 24 24"
-            stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-              d="M12 6v6l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-          </svg>
+
+        <div class="space-y-8">
+          <article class="space-y-4 rounded-3xl border border-slate-800 bg-slate-900/40 p-8">
+            <h3 class="text-2xl font-semibold text-white">Wireframe</h3>
+            <p class="text-slate-300">
+              Wireframe block highlights the entire data path: Observer squads on Server&nbsp;1 and Server&nbsp;2 (nodes
+              0–3) feed Notifier
+              services which hand events into a shared Redis dedupe cache before publication.
+            </p>
+            <ul class="space-y-3 text-slate-300">
+              <li><span class="text-sky-300 font-semibold">Observer Layer:</span> Each server runs Observer squads 01/02
+                with four nodes gathering events and handing them to the local Notifier.</li>
+              <li><span class="text-sky-300 font-semibold">Deduplication:</span> Both notifiers write to the shared
+                Redis instance, stripping duplicate payloads prior to queueing.</li>
+              <li><span class="text-sky-300 font-semibold">Messaging:</span> RabbitMQ cluster (master + two followers)
+                absorbs the cleaned stream for durable, redundant fan‑out; notifiers publish directly here.</li>
+              <li><span class="text-sky-300 font-semibold">Ingress:</span> Nginx gateways sit on top of RabbitMQ
+                consumers, pushing normalized messages toward the load balancer.</li>
+              <li><span class="text-sky-300 font-semibold">Load Balancer & App:</span> LoadBalancer spreads traffic
+                across the BeaconX dapp frontends, which surface real-time feeds to users.</li>
+              <li><span class="text-sky-300 font-semibold">User Layer:</span> Multiple user cohorts connect through the
+                dapp UI, closing the Observer → Notifier → Redis → RabbitMQ → Nginx → LB → Dapp chain.</li>
+            </ul>
+            <p class="text-slate-300">
+              This architecture yields high availability, deduped event delivery, and scalable ingress all the way to
+              the BeaconX user experience.
+            </p>
+            <div class="rounded-2xl border border-slate-800/70 bg-slate-950/60 p-3">
+              <img src="Eventsnotifierarhitecture.jpg" alt="Events notifier architecture wireframe"
+                class="w-full rounded-xl border border-slate-800/60 object-cover cursor-zoom-in zoomable"
+                data-zoom-src="Eventsnotifierarhitecture.jpg" loading="lazy" tabindex="0">
+            </div>
+            <div class="space-y-6">
+              <div class="space-y-4 rounded-3xl border border-slate-800/70 bg-slate-950/50 p-6">
+                <p class="text-sm uppercase tracking-[0.3em] text-slate-400">BeaconX dApp Overview</p>
+                <p class="text-slate-300">
+                  Live interface surfaces queue creation and monitoring inside the Events Notifier dApp, matching the architectural flow with user-facing controls.
+                </p>
+                <div>
+                  <p class="text-slate-200 font-semibold">Navigation Sidebar</p>
+                  <ul class="mt-2 space-y-2 text-slate-300 text-sm leading-relaxed">
+                    <li>BeaconX logo anchors the brand.</li>
+                    <li>Menu shortcuts: <span class="font-semibold text-slate-100">Events Notifier</span>, <span class="font-semibold text-slate-100">Docs</span>, and <span class="font-semibold text-slate-100">Log off</span>.</li>
+                    <li>Theme toggle swaps dark/light palettes.</li>
+                  </ul>
+                </div>
+                <div>
+                  <p class="text-slate-200 font-semibold">Main Dashboard</p>
+                  <ul class="mt-2 space-y-2 text-slate-300 text-sm leading-relaxed">
+                    <li>Header shows connected wallet (e.g., <code class="text-xs text-slate-400 bg-slate-900 px-1 rounded">erd19qfr...qquv95pl</code>) and title “Events notifier.”</li>
+                    <li>Primary blue card triggers “Create new queue.”</li>
+                    <li>Table lists queues with status + NFT reference.</li>
+                  </ul>
+                </div>
+                <p class="text-slate-300 text-sm leading-relaxed">
+                  Dark UI and rounded cards keep attention on actions while consolidating queue creation, NFT linkage, and monitoring in one control plane.
+                </p>
+                <div class="rounded-2xl border border-slate-800/60 bg-slate-950/60 p-3">
+                  <img src="mainapp.png" alt="BeaconX Events Notifier dApp main dashboard"
+                    class="w-full rounded-xl border border-slate-800/60 object-cover cursor-zoom-in zoomable"
+                    data-zoom-src="mainapp.png" loading="lazy" tabindex="0">
+                </div>
+              </div>
+
+              <div class="space-y-4 rounded-3xl border border-slate-800/70 bg-slate-950/50 p-6">
+                <p class="text-sm uppercase tracking-[0.3em] text-slate-400">Queue Management View</p>
+                <p class="text-slate-300">
+                  Deep-link page lets operators renew a single queue, copy RabbitMQ credentials, reset passwords, and review usage insights.
+                </p>
+                <div>
+                  <p class="text-slate-200 font-semibold">Header</p>
+                  <p class="mt-2 text-slate-300 text-sm leading-relaxed">
+                    Subscription badge displays status (e.g., “expired on Jul 5, 2025, 8:13 PM”) alongside the “Renew Subscription” button.
+                  </p>
+                </div>
+                <div>
+                  <p class="text-slate-200 font-semibold">Connection Details Panel</p>
+                  <ul class="mt-2 space-y-2 text-slate-300 text-sm leading-relaxed">
+                    <li>Lists queue name, username, masked password, host, port, vhost, and AMQP string.</li>
+                    <li>Copy helper + documentation links accelerate RabbitMQ integration.</li>
+                  </ul>
+                </div>
+                <div>
+                  <p class="text-slate-200 font-semibold">Reset Password & Insights</p>
+                  <p class="mt-2 text-slate-300 text-sm leading-relaxed">
+                    Dedicated card resets credentials securely, while the Insights module (chart placeholder) will surface throughput/connection metrics.
+                  </p>
+                </div>
+                <p class="text-slate-300 text-sm leading-relaxed">
+                  Sidebar layout remains consistent: logo, Events Notifier, Docs, Log off, and theme toggle.
+                </p>
+                <div class="rounded-2xl border border-slate-800/60 bg-slate-950/60 p-3">
+                  <img src="mainappqueuemanagement.png" alt="Queue management view in BeaconX dApp"
+                    class="w-full rounded-xl border border-slate-800/60 object-cover cursor-zoom-in zoomable"
+                    data-zoom-src="mainappqueuemanagement.png" loading="lazy" tabindex="0">
+                </div>
+                <ul class="space-y-1 text-slate-300 text-sm leading-relaxed">
+                  <li><span class="text-slate-200 font-semibold">Renew Subscription:</span> extends queue access.</li>
+                  <li><span class="text-slate-200 font-semibold">View Connection Details:</span> surfaces RabbitMQ parameters and copy tools.</li>
+                  <li><span class="text-slate-200 font-semibold">Reset Password:</span> rotates credentials safely.</li>
+                  <li><span class="text-slate-200 font-semibold">Insights:</span> monitors usage once telemetry is live.</li>
+                </ul>
+              </div>
+            </div>
+          </article>
+
+          <article class="space-y-4 rounded-3xl border border-slate-800 bg-slate-900/40 p-8">
+            <h3 class="text-2xl font-semibold text-white">Landing Page</h3>
+            <p class="text-slate-300">
+              The BeaconX landing page (<a href="https://beaconx.app/" target="_blank" rel="noopener"
+                class="text-sky-400 hover:text-sky-300 underline-offset-2 hover:underline">beaconx.app</a>) gives a quick
+              overview of the platform, explaining that it lets users create and manage NFT-linked event notifier queues. It
+              also features a “Get Early Access” button that jumps straight into the app so builders can begin setting up
+              their own queues.
+            </p>
+            <p class="text-slate-300">
+              The live mainnet app (<a href="https://mainnet.beaconx.app/" target="_blank" rel="noopener"
+                class="text-sky-400 hover:text-sky-300 underline-offset-2 hover:underline">mainnet.beaconx.app</a>) lets
+              authenticated users view their existing queues, check statuses, and manage connection credentials. NFT holders
+              configure and monitor their event notifications there in real time.
+            </p>
+          </article>
         </div>
-        <h2 class="text-4xl font-bold text-white mb-4">Coming Soon</h2>
-        <p class="text-lg text-slate-400">Milestone M3 content will be added as the project progresses.</p>
       </div>
     </section>
+
+    <!-- Zoom Overlay -->
+    <div id="image-zoom-overlay"
+      class="fixed inset-0 z-50 hidden flex items-center justify-center bg-slate-950/90 p-6 backdrop-blur-sm">
+      <div class="relative max-w-5xl w-full">
+        <button type="button" data-zoom-close
+          class="absolute -top-3 -right-3 flex h-10 w-10 items-center justify-center rounded-full border border-slate-700 bg-slate-900 text-slate-200 hover:text-sky-300 focus:outline-none focus:ring-2 focus:ring-sky-500">
+          <span class="sr-only">Close</span>
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+        <div class="rounded-2xl border border-slate-800 bg-slate-900/90 p-4 shadow-2xl">
+          <img src="" alt="Zoomed preview" class="w-full rounded-xl object-contain" loading="lazy">
+        </div>
+      </div>
+    </div>
 
     <!-- Milestone M4 Section - Coming Soon -->
     <section id="m4" class="fade-section py-32 flex items-center justify-center bg-slate-900/20"
@@ -1515,6 +1663,61 @@
         }
       });
     };
+
+    // Image zoom interactions
+    const zoomOverlay = document.getElementById('image-zoom-overlay');
+    const zoomOverlayImg = zoomOverlay?.querySelector('img');
+    const zoomCloseButtons = zoomOverlay?.querySelectorAll('[data-zoom-close]');
+    const zoomables = document.querySelectorAll('.zoomable');
+
+    const closeZoom = () => {
+      if (!zoomOverlay) return;
+      zoomOverlay.classList.add('hidden');
+      document.body.classList.remove('overflow-hidden');
+      if (zoomOverlayImg) {
+        zoomOverlayImg.setAttribute('src', '');
+        zoomOverlayImg.setAttribute('alt', 'Zoomed preview');
+      }
+    };
+
+    const openZoom = (src, alt) => {
+      if (!zoomOverlay || !zoomOverlayImg) return;
+      zoomOverlayImg.setAttribute('src', src);
+      zoomOverlayImg.setAttribute('alt', alt || 'Zoomed preview');
+      zoomOverlay.classList.remove('hidden');
+      document.body.classList.add('overflow-hidden');
+    };
+
+    zoomables.forEach(img => {
+      const triggerZoom = () => {
+        const src = img.getAttribute('data-zoom-src') || img.getAttribute('src');
+        const alt = img.getAttribute('alt');
+        if (src) {
+          openZoom(src, alt);
+        }
+      };
+      img.addEventListener('click', triggerZoom);
+      img.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter' || event.key === ' ') {
+          event.preventDefault();
+          triggerZoom();
+        }
+      });
+    });
+
+    zoomCloseButtons?.forEach(button => button.addEventListener('click', closeZoom));
+
+    zoomOverlay?.addEventListener('click', (event) => {
+      if (event.target === zoomOverlay) {
+        closeZoom();
+      }
+    });
+
+    window.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape') {
+        closeZoom();
+      }
+    });
 
     window.addEventListener('scroll', updateActiveNav);
     window.addEventListener('load', updateActiveNav);

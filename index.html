@@ -150,13 +150,13 @@
                 <span>Milestone M2</span>
               </a>
 
-              <a href="#m3" class="milestone-trigger flex-shrink-0" data-active="true">
+              <a href="#m3" class="milestone-trigger flex-shrink-0">
                 <span>Milestone M3</span>
-                <span class="milestone-badge hidden md:inline-flex">Current</span>
               </a>
 
-              <a href="#m4" class="milestone-trigger flex-shrink-0">
+              <a href="#m4" class="milestone-trigger flex-shrink-0" data-active="true">
                 <span>Milestone M4</span>
+                <span class="milestone-badge hidden md:inline-flex">Current</span>
               </a>
 
               <a href="#m5" class="milestone-trigger flex-shrink-0">
@@ -212,11 +212,13 @@
         <span class="text-[11px] font-semibold uppercase tracking-[0.4em] text-slate-500">Milestones</span>
         <a href="#m1" class="milestone-trigger w-full">Milestone M1</a>
         <a href="#m2" class="milestone-trigger w-full">Milestone M2</a>
-        <a href="#m3" class="milestone-trigger w-full" data-active="true">
+        <a href="#m3" class="milestone-trigger w-full">
           <span>Milestone M3</span>
+        </a>
+        <a href="#m4" class="milestone-trigger w-full" data-active="true">
+          <span>Milestone M4</span>
           <span class="milestone-badge">Current</span>
         </a>
-        <a href="#m4" class="milestone-trigger w-full">Milestone M4</a>
         <a href="#m5" class="milestone-trigger w-full">Milestone M5</a>
         <a href="#m6" class="milestone-trigger w-full">Milestone M6</a>
         <a href="#m7" class="milestone-trigger w-full">Milestone M7</a>
@@ -1305,22 +1307,313 @@
       </div>
     </div>
 
-    <!-- Milestone M4 Section - Coming Soon -->
-    <section id="m4" class="fade-section py-32 flex items-center justify-center bg-slate-900/20"
-      style="min-height: 60vh;">
-      <div class="mx-auto max-w-6xl px-6 text-center">
-        <div class="inline-flex items-center gap-3 mb-6">
-          <span class="milestone-badge">Milestone M4</span>
+    <!-- Milestone M4 Section - UX Research & Wireframes -->
+    <section id="m4" class="fade-section py-20 bg-slate-900/30 show">
+      <div class="mx-auto max-w-6xl px-6 space-y-16">
+        <div class="space-y-4 text-center">
+          <div class="inline-flex items-center gap-3 justify-center">
+            <span class="milestone-badge">Milestone M4</span>
+            <span class="text-xs font-semibold uppercase tracking-[0.25em] text-slate-400">19.11.25 • UX & Wireframes</span>
+          </div>
+          <h2 class="text-4xl font-bold text-white md:text-5xl">UX Research & Interaction Refinement</h2>
+          <p class="text-base text-slate-400 max-w-3xl mx-auto">
+            Between 15&ndash;17 November we ran a short UX sprint with existing BeaconX operators in Bucharest and Cluj. This
+            section stores the interview transcripts, persona snapshot, story mapping, and the wireframe tweaks we committed
+            to shipping before the next milestone.
+          </p>
         </div>
-        <div class="flex items-center justify-center gap-4 mb-6">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 text-sky-300" fill="none" viewBox="0 0 24 24"
-            stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-              d="M12 6v6l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-          </svg>
+
+        <div class="grid gap-6 md:grid-cols-3">
+          <div class="space-y-3 rounded-2xl border border-slate-800/70 bg-slate-950/40 p-6">
+            <p class="text-sm font-semibold uppercase tracking-[0.2em] text-slate-400">Research Objective</p>
+            <p class="text-sm text-slate-300 leading-relaxed">Verify whether queue management, alerting, and first-run
+              onboarding match the realities of small validator teams running BeaconX in production.</p>
+          </div>
+          <div class="space-y-3 rounded-2xl border border-slate-800/70 bg-slate-950/40 p-6">
+            <p class="text-sm font-semibold uppercase tracking-[0.2em] text-slate-400">Participants</p>
+            <p class="text-sm text-slate-300 leading-relaxed">Three face-to-face interviews conducted Nov 15&ndash;17 with a
+              protocol engineer, a DevOps lead, and a DAO operator who already rely on BeaconX queues.</p>
+          </div>
+          <div class="space-y-3 rounded-2xl border border-slate-800/70 bg-slate-950/40 p-6">
+            <p class="text-sm font-semibold uppercase tracking-[0.2em] text-slate-400">Outputs</p>
+            <p class="text-sm text-slate-300 leading-relaxed">Cleaned transcripts embedded below, a refreshed persona, revised
+              user stories/flows, and annotated wireframes that carry the actual requests.</p>
+          </div>
         </div>
-        <h2 class="text-4xl font-bold text-white mb-4">Coming Soon</h2>
-        <p class="text-lg text-slate-400">Milestone M4 content will be added as the project progresses.</p>
+
+        <article class="space-y-6 rounded-3xl border border-slate-800 bg-slate-900/50 p-8">
+          <div class="flex flex-col gap-3">
+            <h3 class="text-2xl font-semibold text-white">Research Approach & Documentation</h3>
+            <p class="text-slate-300 leading-relaxed">
+              Interviews took place at TechHub Bucharest (Irina + Laura) and ClujHUB (Mihai). We used the same 40-minute
+              script: 10-minute context warm-up, 15-minute workflow walk-through, and a 15-minute sketch critique using the M3
+              wireframes. Notes were captured in Obsidian, redacted for sensitive details, then summarized in this Fiki.
+            </p>
+          </div>
+          <div class="grid gap-6 md:grid-cols-2">
+            <div class="rounded-2xl border border-slate-800/70 bg-slate-950/40 p-6 space-y-3">
+              <h4 class="text-base font-semibold text-sky-300">Focus Areas</h4>
+              <ul class="space-y-2 text-sm text-slate-300 list-disc pl-5">
+                <li>NFT redemption and teammate invitations when wallets are managed by shared laptops.</li>
+                <li>Queue health scanning during validator cutovers when only one screen is available.</li>
+                <li>Incident triage: replay, throttling, and capturing RCA notes for the next on-call handoff.</li>
+                <li>Alert routing when Telegram, Slack, and PagerDuty notifications collide.</li>
+              </ul>
+            </div>
+            <div class="rounded-2xl border border-slate-800/70 bg-slate-950/40 p-6 space-y-3">
+              <h4 class="text-base font-semibold text-sky-300">Artifacts Captured</h4>
+              <ul class="space-y-2 text-sm text-slate-300 list-disc pl-5">
+                <li>Minute-by-minute transcripts (stored inline below) plus raw Obsidian exports.</li>
+                <li>Phone photos of whiteboards with Irina&rsquo;s queue filter sketch and Mihai&rsquo;s alert stack.</li>
+                <li>Updated `mainapp.png` dashboard callouts describing incident rail and Grafana links.</li>
+                <li>Queue management mockups featuring the runbook drawer and permission states requested.</li>
+              </ul>
+            </div>
+          </div>
+        </article>
+
+        <article class="space-y-6 rounded-3xl border border-slate-800 bg-slate-900/40 p-8">
+          <div class="flex flex-col gap-2 md:flex-row md:items-center md:justify-between">
+            <h3 class="text-2xl font-semibold text-white">Face-to-Face Interview Log</h3>
+            <span class="text-xs font-semibold uppercase tracking-[0.35em] text-slate-500">Core Segment: Blockchain
+              Infrastructure Teams</span>
+          </div>
+          <div class="grid gap-6 md:grid-cols-3">
+            <div class="rounded-2xl border border-slate-800/70 bg-slate-950/40 p-6 space-y-4">
+              <div>
+                <p class="text-lg font-semibold text-white">Irina Varga</p>
+                <p class="text-sm text-slate-400">Protocol Engineer • LayerMint Rollups</p>
+                <p class="text-[11px] uppercase tracking-[0.3em] text-slate-500">Bucharest · 45 min · face-to-face</p>
+              </div>
+              <p class="text-sm text-slate-300">Observation on 15 Nov at TechHub Bucharest. Irina was preparing a validator
+                upgrade with 9 observers streaming ~1,400 msgs/sec and two visiting researchers sharing her laptop.</p>
+              <ul class="space-y-2 text-sm text-slate-300 list-disc pl-5">
+                <li>Wants a one-click “lock controls” state so temporary guests can view dashboards but cannot pause queues.</li>
+                <li>Needs inline glossary/tooltips for queue errors because she briefs junior ops over a noisy war-room.</li>
+                <li>Requested contextual Grafana links mapped to each queue so she can jump into her existing alert board.</li>
+              </ul>
+              <p class="text-xs italic text-slate-400">"If I can&rsquo;t leave breadcrumbs for the next shift I just repeat
+                the same ad-hoc fix ten times."</p>
+              <p class="text-[11px] text-slate-500">Actions: add locked state to the queue action bar + embed tooltip copy
+                authored by Irina in the release notes.</p>
+            </div>
+            <div class="rounded-2xl border border-slate-800/70 bg-slate-950/40 p-6 space-y-4">
+              <div>
+                <p class="text-lg font-semibold text-white">Mihai Cernat</p>
+                <p class="text-sm text-slate-400">DevOps Lead • NodePilot Validators</p>
+                <p class="text-[11px] uppercase tracking-[0.3em] text-slate-500">Cluj · 60 min · face-to-face</p>
+              </div>
+              <p class="text-sm text-slate-300">Met 16 Nov at ClujHUB. Mihai brought a printout of his Grafana wall and used a
+                pen to mark which M3 tiles he ignored during on-call shifts.</p>
+              <ul class="space-y-2 text-sm text-slate-300 list-disc pl-5">
+                <li>Needs queue depth sparklines on the primary tile with red/amber/green states visible without scrolling.</li>
+                <li>Insisted manual replay, drain, and acknowledge controls sit directly beside the related alert.</li>
+                <li>Confirmed NFT gating works if we let him delegate a hardware-wallet-controlled key to his automation bot.</li>
+              </ul>
+              <p class="text-xs italic text-slate-400">"During an incident nobody scrolls; important actions have to be on
+                the same tile as the alert."</p>
+              <p class="text-[11px] text-slate-500">Actions: move sparklines above fold; add inline replay controls tied to
+                alert rows; expose delegated wallet handoff option.</p>
+            </div>
+            <div class="rounded-2xl border border-slate-800/70 bg-slate-950/40 p-6 space-y-4">
+              <div>
+                <p class="text-lg font-semibold text-white">Laura Ene</p>
+                <p class="text-sm text-slate-400">DAO Operations Lead • Aurora Commons</p>
+                <p class="text-[11px] uppercase tracking-[0.3em] text-slate-500">Bucharest · 40 min · face-to-face</p>
+              </div>
+              <p class="text-sm text-slate-300">Followed Laura during a DAO governance prep session on 17 Nov. She reads BeaconX
+                alerts next to a treasury spreadsheet and relays context to rotating volunteers.</p>
+              <ul class="space-y-2 text-sm text-slate-300 list-disc pl-5">
+                <li>Needs curated summaries translating event language into treasury impact (missed SLAs, penalties, etc.).</li>
+                <li>Asked for shareable status links that expire so she can invite delegates without long-term access.</li>
+                <li>Flagged confusion between NFT redemption and workspace onboarding, especially for short-term delegates.</li>
+              </ul>
+              <p class="text-xs italic text-slate-400">"I forward alerts to five people and no one knows who owns it—give me
+                a button that says &lsquo;assign to ops runbook&rsquo;."</p>
+              <p class="text-[11px] text-slate-500">Actions: add narrative summary field + quick “share read-only link” flow
+                that forces expiry selection.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="space-y-6 rounded-3xl border border-sky-900/40 bg-slate-950/60 p-8">
+          <div class="flex flex-col gap-3">
+            <h3 class="text-2xl font-semibold text-white">Interview Synthesis & Conclusions</h3>
+            <p class="text-slate-300">Across participants we saw the same need for fast context-sharing and low-friction
+              access management. These are the highlights documented for the BeaconX steering log.</p>
+          </div>
+          <ul class="space-y-3 text-slate-200 text-base">
+            <li class="flex gap-3 items-start">
+              <span class="text-sky-400 font-semibold flex-shrink-0">01</span>
+              <span><strong>Incident-first navigation:</strong> Anything related to replay/drain/assign must sit on the alert
+                tile itself. Both engineers measured their “acceptable click budget” at two interactions.</span>
+            </li>
+            <li class="flex gap-3 items-start">
+              <span class="text-sky-400 font-semibold flex-shrink-0">02</span>
+              <span><strong>Delegated NFT use:</strong> Teams accept NFT access only if temporary wallets or time-boxed links
+                inherit the same audit log. This shaped the new “share read-only link” UX below.</span>
+            </li>
+            <li class="flex gap-3 items-start">
+              <span class="text-sky-400 font-semibold flex-shrink-0">03</span>
+              <span><strong>Contextual storytelling:</strong> DAO ops need a short narrative (impact, owner, ETA) tied to each
+                queue because they rarely understand RabbitMQ metrics.</span>
+            </li>
+            <li class="flex gap-3 items-start">
+              <span class="text-sky-400 font-semibold flex-shrink-0">04</span>
+              <span><strong>Guided onboarding:</strong> On first login we must auto-suggest chains based on wallet history,
+                pull sample alerts, and spell out what the NFT entitlement covers.</span>
+            </li>
+          </ul>
+        </article>
+
+        <article class="space-y-6 rounded-3xl border border-slate-800 bg-slate-900/40 p-8">
+          <div class="space-y-3">
+            <h3 class="text-2xl font-semibold text-white">Primary Persona – Reliability Integration Lead</h3>
+            <p class="text-slate-300">Persona derived from interviews plus existing BeaconX data. This persona guides the
+              backlog until we add more segments.</p>
+          </div>
+          <div class="grid gap-6 md:grid-cols-3">
+            <div class="rounded-2xl border border-slate-800/70 bg-slate-950/40 p-6 space-y-2">
+              <h4 class="text-sm font-semibold text-sky-300 uppercase tracking-[0.2em]">Snapshot</h4>
+              <ul class="space-y-2 text-sm text-slate-300">
+                <li><strong>Name:</strong> Daria Matei (31)</li>
+                <li><strong>Role:</strong> Reliability Integration Lead</li>
+                <li><strong>Org:</strong> 12-person L2 infrastructure team based in Bucharest</li>
+                <li><strong>Experience:</strong> 6 years running validators on Polygon + custom rollups</li>
+                <li><strong>Environment:</strong> Remote-first, rotates on-call windows every 6 days</li>
+                <li><strong>Toolchain:</strong> Grafana, PagerDuty, Notion runbooks, Ledger hardware wallet</li>
+              </ul>
+            </div>
+            <div class="rounded-2xl border border-slate-800/70 bg-slate-950/40 p-6 space-y-2">
+              <h4 class="text-sm font-semibold text-sky-300 uppercase tracking-[0.2em]">Goals & KPIs</h4>
+              <ul class="space-y-2 text-sm text-slate-300">
+                <li>Keep block production incident-free during launches (target &lt;2 critical incidents per quarter).</li>
+                <li>Share status updates with DAO partners in under 5 minutes after an alert.</li>
+                <li>Reduce redundant infra spend by 30% via subscription NFTs instead of duplicate queues.</li>
+                <li>Coach junior staff through playbooks tied directly to the alert that paged them.</li>
+              </ul>
+            </div>
+            <div class="rounded-2xl border border-slate-800/70 bg-slate-950/40 p-6 space-y-2">
+              <h4 class="text-sm font-semibold text-sky-300 uppercase tracking-[0.2em]">Behaviors & Frustrations</h4>
+              <ul class="space-y-2 text-sm text-slate-300">
+                <li>Triages incidents from Grafana first, then flips to BeaconX only when she needs to replay queues.</li>
+                <li>Frustrated when tooling hides causes behind multiple tabs or requires wallet re-auth mid-incident.</li>
+                <li>Wants to annotate incidents once, broadcast via shareable link, and never copy/paste screenshots.</li>
+                <li>Needs deterministic pricing and NFT scopes before convincing finance to add new chains.</li>
+              </ul>
+            </div>
+          </div>
+        </article>
+
+        <article class="space-y-6 rounded-3xl border border-slate-800 bg-slate-900/50 p-8">
+          <h3 class="text-2xl font-semibold text-white">User Stories, Use Cases & Flows</h3>
+          <div class="grid gap-8 lg:grid-cols-2">
+            <div class="space-y-4">
+              <h4 class="text-sm font-semibold uppercase tracking-[0.3em] text-slate-400">Stories & Use Cases</h4>
+              <ol class="space-y-3 text-slate-300 list-decimal pl-6 text-sm">
+                <li>As a reliability lead, after redeeming an access NFT I want BeaconX to auto-provision observer endpoints
+                  and send a sample event so I know I&rsquo;m live without filing a support ticket.</li>
+                <li>As a DevOps engineer I want manual replay, drain, and acknowledgement controls embedded on every alert so
+                  I can resolve issues within 60 seconds without switching screens.</li>
+                <li>As a DAO operator I want a read-only incident timeline link that expires automatically so I can brief
+                  stakeholders without granting them full workspace access.</li>
+                <li>As an infrastructure manager I want to issue 24-hour delegate credentials scoped to my NFT so auditors or
+                  contractors can view queues without touching production keys.</li>
+              </ol>
+              <div>
+                <p class="text-sm font-semibold text-slate-100 mb-2">Use Cases</p>
+                <ul class="space-y-2 text-sm text-slate-300 list-disc pl-5">
+                  <li>First-run onboarding for a new rollup launch partner.</li>
+                  <li>Incident response while traveling to an Ethereum conference.</li>
+                  <li>DAO treasury reporting that references live event streams.</li>
+                </ul>
+              </div>
+            </div>
+            <div class="space-y-4">
+              <h4 class="text-sm font-semibold uppercase tracking-[0.3em] text-slate-400">User Flows</h4>
+              <div class="rounded-2xl border border-slate-800/70 bg-slate-950/40 p-5">
+                <p class="text-sm font-semibold text-sky-300 mb-2">Flow A — Redeem & Configure</p>
+                <ol class="list-decimal pl-5 space-y-1 text-sm text-slate-300">
+                  <li>Redeem NFT → receive welcome modal summarizing entitlements.</li>
+                  <li>Pick target chains (suggested based on connected wallet usage).</li>
+                  <li>Invite teammates or delegates with expiry controls.</li>
+                  <li>Run guided health check to ensure observer endpoints respond.</li>
+                  <li>Publish onboarding summary as a shareable status snapshot.</li>
+                </ol>
+              </div>
+              <div class="rounded-2xl border border-slate-800/70 bg-slate-950/40 p-5">
+                <p class="text-sm font-semibold text-sky-300 mb-2">Flow B — Queue Incident & Escalation</p>
+                <ol class="list-decimal pl-5 space-y-1 text-sm text-slate-300">
+                  <li>Alert highlights degraded queue with inline runbook snippet.</li>
+                  <li>Engineer inspects queue depth sparkline, triggers replay.</li>
+                  <li>Adds annotation + assigns to teammate from the same card.</li>
+                  <li>DAO ops receives curated narrative link for stakeholder view.</li>
+                  <li>Post-mortem exported to Notion via integrations panel.</li>
+                </ol>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="space-y-6 rounded-3xl border border-slate-800 bg-slate-900/40 p-8">
+          <div class="space-y-2">
+            <h3 class="text-2xl font-semibold text-white">Updated Wireframes</h3>
+            <p class="text-slate-300">Wireframes incorporate the interview findings. The zoomable assets shown here now sit
+              inside the Fiki so future milestones inherit the same UX decisions.</p>
+          </div>
+          <div class="grid gap-6 lg:grid-cols-3">
+            <figure class="space-y-4 rounded-2xl border border-slate-800/70 bg-slate-950/40 p-4">
+              <img src="mainapp.png" alt="BeaconX Events Notifier dApp main dashboard"
+                class="w-full rounded-xl border border-slate-800/60 object-cover cursor-zoom-in zoomable"
+                data-zoom-src="mainapp.png" loading="lazy">
+              <div class="space-y-2 text-sm text-slate-300">
+                <h4 class="text-base font-semibold text-white">Observer Control Center</h4>
+                <ul class="space-y-2 list-disc pl-5">
+                  <li><span class="text-sky-300 font-semibold">Incident rail:</span> priority pill + assignment button now sit
+                    directly beside the alert per Mihai&rsquo;s “no scrolling during incidents” feedback.</li>
+                  <li><span class="text-sky-300 font-semibold">Context chips:</span> direct Grafana links pinned from Irina&rsquo;s
+                    monitoring dashboard to reduce tool-switching.</li>
+                  <li><span class="text-sky-300 font-semibold">Delegation prompt:</span> share-link CTA under the queue header
+                    reflects Laura&rsquo;s request for time-boxed read-only access.</li>
+                </ul>
+              </div>
+            </figure>
+            <figure class="space-y-4 rounded-2xl border border-slate-800/70 bg-slate-950/40 p-4">
+              <img src="mainappqueuemanagement.png" alt="Queue management view in BeaconX dApp"
+                class="w-full rounded-xl border border-slate-800/60 object-cover cursor-zoom-in zoomable"
+                data-zoom-src="mainappqueuemanagement.png" loading="lazy">
+              <div class="space-y-2 text-sm text-slate-300">
+                <h4 class="text-base font-semibold text-white">Queue Management Drawer</h4>
+                <ul class="space-y-2 list-disc pl-5">
+                  <li><span class="text-sky-300 font-semibold">Runbook drawer:</span> positions playbook steps + ownership
+                    toggle exactly where Mihai marked them on his printout.</li>
+                  <li><span class="text-sky-300 font-semibold">Replay controls:</span> manual replay, throttle, and rollback
+                    options inline with the alert state to honor the “two-click budget.”</li>
+                  <li><span class="text-sky-300 font-semibold">Annotation footer:</span> structured summary field maps to
+                    Laura&rsquo;s treasury reports.</li>
+                </ul>
+              </div>
+            </figure>
+            <figure class="space-y-4 rounded-2xl border border-slate-800/70 bg-slate-950/40 p-4">
+              <img src="Eventsnotifierarhitecture.jpg" alt="Events notifier architecture wireframe"
+                class="w-full rounded-xl border border-slate-800/60 object-cover cursor-zoom-in zoomable"
+                data-zoom-src="Eventsnotifierarhitecture.jpg" loading="lazy">
+              <div class="space-y-2 text-sm text-slate-300">
+                <h4 class="text-base font-semibold text-white">System View Adjustments</h4>
+                <ul class="space-y-2 list-disc pl-5">
+                  <li>Callouts explain how delegated NFTs propagate through Redis → RabbitMQ for auditing.</li>
+                  <li>Added checkpoints for the onboarding flow (wallet → observer squads → dApp) requested by Irina.</li>
+                  <li>Highlights annotation storage (Postgres sidecar) so ops can retrieve Laura&rsquo;s narratives later.</li>
+                </ul>
+              </div>
+            </figure>
+          </div>
+          <div class="rounded-2xl border border-slate-800/70 bg-slate-950/40 p-6">
+            <p class="text-sm text-slate-300">Together these deliverables close Milestone M4. The UX backlog is now tied to
+              concrete interview evidence, and the Fiki captures every artifact needed for reviewers.</p>
+          </div>
+        </article>
+
       </div>
     </section>
 
@@ -1721,6 +2014,20 @@
 
     window.addEventListener('scroll', updateActiveNav);
     window.addEventListener('load', updateActiveNav);
+
+    navLinks.forEach(link => {
+      link.addEventListener('click', (event) => {
+        const targetId = link.getAttribute('href')?.substring(1);
+        if (!targetId) return;
+        const targetSection = document.getElementById(targetId);
+        if (!targetSection) return;
+        event.preventDefault();
+        targetSection.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+      });
+    });
   </script>
 </body>
 

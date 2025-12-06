@@ -126,6 +126,10 @@
       scroll-margin-top: 80px;
     }
   </style>
+  <script>
+    !function (t, e) { var o, n, p, r; e.__SV || (window.posthog = e, e._i = [], e.init = function (i, s, a) { function g(t, e) { var o = e.split("."); 2 == o.length && (t = t[o[0]], e = o[1]), t[e] = function () { t.push([e].concat(Array.prototype.slice.call(arguments, 0))) } } (p = t.createElement("script")).type = "text/javascript", p.async = !0, p.src = s.api_host + "/static/array.js", (r = t.getElementsByTagName("script")[0]).parentNode.insertBefore(p, r); var u = e; for (void 0 !== a ? u = e[a] = [] : a = "posthog", u.people = u.people || [], u.toString = function (t) { var e = "posthog"; return "posthog" !== a && (e += "." + a), t || (e += " (stub)"), e }, u.people.toString = function () { return u.toString(1) + ".people (stub)" }, o = "capture identify alias people.set people.set_once set_config register register_once unregister opt_out_capturing has_opted_out_capturing opt_in_capturing reset isFeatureEnabled onFeatureFlags getFeatureFlag getFeatureFlagPayload reloadFeatureFlags group updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures getActiveMatchingSurveys getSurveys getNextSurveyStep onSessionId".split(" "), n = 0; n < o.length; n++)g(u, o[n]); e._i.push([i, s, a]) }, e.__SV = 1) }(document, window.posthog || []);
+    posthog.init('YOUR_POSTHOG_KEY', { api_host: 'https://app.posthog.com' })
+  </script>
 </head>
 
 <body class="bg-slate-950 text-slate-100 antialiased">
@@ -154,13 +158,13 @@
                 <span>Milestone M3</span>
               </a>
 
-              <a href="#m4" class="milestone-trigger flex-shrink-0" data-active="true">
+              <a href="#m4" class="milestone-trigger flex-shrink-0">
                 <span>Milestone M4</span>
-                <span class="milestone-badge hidden md:inline-flex">Current</span>
               </a>
 
-              <a href="#m5" class="milestone-trigger flex-shrink-0">
+              <a href="#m5" class="milestone-trigger flex-shrink-0" data-active="true">
                 <span>Milestone M5</span>
+                <span class="milestone-badge hidden md:inline-flex">Current</span>
               </a>
 
               <a href="#m6" class="milestone-trigger flex-shrink-0">
@@ -215,11 +219,13 @@
         <a href="#m3" class="milestone-trigger w-full">
           <span>Milestone M3</span>
         </a>
-        <a href="#m4" class="milestone-trigger w-full" data-active="true">
+        <a href="#m4" class="milestone-trigger w-full">
           <span>Milestone M4</span>
+        </a>
+        <a href="#m5" class="milestone-trigger w-full" data-active="true">
+          <span>Milestone M5</span>
           <span class="milestone-badge">Current</span>
         </a>
-        <a href="#m5" class="milestone-trigger w-full">Milestone M5</a>
         <a href="#m6" class="milestone-trigger w-full">Milestone M6</a>
         <a href="#m7" class="milestone-trigger w-full">Milestone M7</a>
         <a href="#m8" class="milestone-trigger w-full">Milestone M8</a>
@@ -276,52 +282,55 @@
             <span class="text-xs font-semibold uppercase tracking-[0.25em] text-slate-400">13.10.25 • Fiki & Project
               Description</span>
           </div>
-          <h2 class="text-4xl font-bold text-white md:text-5xl">BeaconX Fancy Wiki (Fiki)</h2>
+          <h2 class="text-4xl font-bold text-white md:text-5xl">BeaconX Fiki</h2>
           <p class="text-lg text-slate-300 max-w-3xl">
-            We use the Fiki to capture why BeaconX exists, what value we provide, and how the team will execute. M1
-            stays on this page—clean, focused, and ready for feedback.
+            Welcome to our Fiki (Fancy Wiki). This is where we document our journey, our progress, and our validation.
+            We chose a Fiki because standard wikis are boring, and we want this to look as good as the product we're
+            building.
           </p>
         </div>
 
         <div class="grid gap-8 md:grid-cols-2">
           <article class="space-y-4 rounded-3xl border border-slate-800 bg-slate-900/40 p-8">
-            <h3 class="text-2xl font-semibold text-white">Problem</h3>
+            <h3 class="text-2xl font-semibold text-white">The Problem</h3>
             <p class="text-slate-300">
-              We attend high-signal crypto events constantly, yet reliable access to those streams costs too much for
-              the
-              handful of sessions we truly need. Instead of paying premium rates over and over, we chose to turn the
-              queues we already run into something other builders can use.
+              We're builders. We attend crypto events, hackathons, and we build protocols. And we noticed something
+              annoying: <strong>reliable access to on-chain events is expensive and complex.</strong> You either pay a
+              fortune for enterprise RPCs just to listen to a few events, or you waste weeks maintaining your own
+              observer infrastructure. It's a distraction from building the actual product.
             </p>
           </article>
 
           <article class="space-y-4 rounded-3xl border border-slate-800 bg-slate-900/40 p-8">
-            <h3 class="text-2xl font-semibold text-white">Solution</h3>
+            <h3 class="text-2xl font-semibold text-white">Our Solution</h3>
             <p class="text-slate-300">
-              BeaconX offers a managed platform that spins up NFT-gated queues for others at a small fee. Teams get
-              dependable access, ready integrations, and pricing that matches the few crucial streams they care about.
+              <strong>BeaconX.</strong> We run the heavy infrastructure—the observers, the queues, the redundancy. You
+              just rent a queue. Access is gated by an NFT. You hold the NFT, you get the stream. It's that simple.
+              Automated, reliable, and way cheaper than running your own nodes.
             </p>
           </article>
         </div>
 
         <div class="grid gap-8 md:grid-cols-3">
           <article class="space-y-4 rounded-3xl border border-slate-800 bg-slate-900/40 p-8">
-            <h3 class="text-xl font-semibold text-white">Customer Segments</h3>
+            <h3 class="text-xl font-semibold text-white">Who is this for?</h3>
             <p class="text-slate-300">
-              Fellow blockchain programmers, DAO facilitators, and protocol educators who need quick, controlled access
-              to gated events.
+              Blockchain developers, DAO facilitators, and protocol teams. Anyone who needs to know "what just happened
+              on-chain" without the headache of managing the infrastructure to find out.
             </p>
           </article>
           <article class="space-y-4 rounded-3xl border border-slate-800 bg-slate-900/40 p-8">
-            <h3 class="text-xl font-semibold text-white">Competition</h3>
+            <h3 class="text-xl font-semibold text-white">The Competition</h3>
             <p class="text-slate-300">
-              Today there is effectively no direct competitor. Teams either roll their own stack or go without.
+              Right now? You either roll your own stack (painful) or overpay for generic RPC providers (expensive).
+              There's no direct competitor offering this specific "NFT-gated event queue" model.
             </p>
           </article>
           <article class="space-y-4 rounded-3xl border border-slate-800 bg-slate-900/40 p-8">
-            <h3 class="text-xl font-semibold text-white">Edge</h3>
+            <h3 class="text-xl font-semibold text-white">Our Edge</h3>
             <p class="text-slate-300">
-              We stay cheap, fast to integrate, and laser-focused on this use case. Without competition, BeaconX becomes
-              the obvious helper for “events but onchain”.
+              Focus. We do one thing: event streaming. And we use the tech we're building on—NFTs for access control.
+              It's crypto-native infrastructure for crypto-native teams.
             </p>
           </article>
         </div>
@@ -330,32 +339,21 @@
           <article class="space-y-4 rounded-3xl border border-slate-800 bg-slate-900/40 p-8">
             <h3 class="text-xl font-semibold text-white">Cost Structure</h3>
             <ul class="space-y-3 text-slate-300">
-              <li>$100 DigitalOcean droplet running the primary queue service.</li>
-              <li>$100 warm standby droplet ready for failover.</li>
-              <li>Elastic bandwidth and storage budgeted per queue.</li>
+              <li><strong>Infrastructure:</strong> ~$200/mo for DigitalOcean droplets (Primary + Standby).</li>
+              <li><strong>Scalability:</strong> Elastic bandwidth/storage that grows with usage.</li>
             </ul>
           </article>
           <article class="space-y-4 rounded-3xl border border-slate-800 bg-slate-900/40 p-8">
             <h3 class="text-xl font-semibold text-white">Revenue Streams</h3>
             <ul class="space-y-3 text-slate-300">
-              <li>Fellow builders paying a small fee per active queue per month.</li>
+              <li><strong>Subscriptions:</strong> Monthly fee per active queue (paid in crypto/stablecoins).</li>
+              <li><strong>Secondary Market:</strong> Potential royalties from NFT access trading (future).</li>
             </ul>
           </article>
         </div>
 
         <article class="space-y-6 rounded-3xl border border-slate-800 bg-slate-900/40 p-8">
-          <h3 class="text-2xl font-semibold text-white">Key Metrics</h3>
-          <ul class="grid gap-4 md:grid-cols-3 text-slate-300">
-            <li class="rounded-2xl border border-slate-800/80 bg-slate-900/60 p-4">
-              <p class="text-xs uppercase tracking-[0.3em] text-sky-300">Queues launched / week</p>
-              <p class="mt-2 text-2xl font-semibold text-white">1</p>
-              <p class="mt-2 text-xs text-slate-400">Measures adoption momentum.</p>
-            </li>
-          </ul>
-        </article>
-
-        <article class="space-y-6 rounded-3xl border border-slate-800 bg-slate-900/40 p-8">
-          <h3 class="text-2xl font-semibold text-white">Project Description & Team</h3>
+          <h3 class="text-2xl font-semibold text-white">The Team</h3>
           <div class="grid gap-6 md:grid-cols-3">
             <div class="space-y-3 rounded-2xl border border-slate-800/70 bg-slate-900/60 p-6 text-center">
               <img src="9d2b06d3-29f5-47b1-96bf-ae1598e8a8d7.jpeg" alt="Gabriel Iosif"
@@ -363,11 +361,11 @@
                 data-zoom-src="9d2b06d3-29f5-47b1-96bf-ae1598e8a8d7.jpeg" tabindex="0">
               <div>
                 <p class="text-base font-semibold text-white">Gabriel Iosif</p>
-                <p class="text-sm text-sky-300">CTO/CEO/Marketing, everything else</p>
+                <p class="text-sm text-sky-300">CTO/CEO/Marketing</p>
               </div>
               <a href="mailto:gabriel.iosif@stud.acs.upb.ro"
                 class="text-xs text-slate-400 hover:text-sky-400 transition-colors">gabriel.iosif@stud.acs.upb.ro</a>
-              <p class="text-xs text-slate-400">Keeps the roadmap aligned with builders’ needs.</p>
+              <p class="text-xs text-slate-400">"I build the tech and tell the story."</p>
             </div>
             <div class="space-y-3 rounded-2xl border border-slate-800/70 bg-slate-900/60 p-6 text-center">
               <img src="ilie-david.jpg" alt="Ilie David"
@@ -379,7 +377,19 @@
               </div>
               <a href="mailto:ilie.david@stud.acs.upb.ro"
                 class="text-xs text-slate-400 hover:text-sky-400 transition-colors">david.ilie@stud.acs.upb.ro</a>
-              <p class="text-xs text-slate-400">Responsible for operational strategy and technical infrastructure.</p>
+              <p class="text-xs text-slate-400">"I make sure the servers never go down."</p>
+            </div>
+            <div class="space-y-3 rounded-2xl border border-slate-800/70 bg-slate-900/60 p-6 text-center">
+              <img src="StefanRadulescu.png" alt="Stefan Radulescu"
+                class="mx-auto h-24 w-24 rounded-2xl object-cover border border-slate-800/80 cursor-zoom-in zoomable"
+                data-zoom-src="StefanRadulescu.png" tabindex="0">
+              <div>
+                <p class="text-base font-semibold text-white">Stefan Radulescu</p>
+                <p class="text-sm text-sky-300">Developer</p>
+              </div>
+              <a href="mailto:stefan.radulescu@stud.acs.upb.ro"
+                class="text-xs text-slate-400 hover:text-sky-400 transition-colors">stefan.radulescu@stud.acs.upb.ro</a>
+              <p class="text-xs text-slate-400">"I write the code that makes it work."</p>
             </div>
           </div>
         </article>
@@ -397,767 +407,98 @@
             <span class="text-xs font-semibold uppercase tracking-[0.25em] text-slate-400">Validation 1 ·
               27.10.25</span>
           </div>
-          <h2 class="text-4xl font-bold text-white md:text-5xl">Customer Discovery & Validation</h2>
+          <h2 class="text-4xl font-bold text-white md:text-5xl">Validation 1: The Idea</h2>
           <p class="text-lg text-slate-300 max-w-3xl">
-            Comprehensive documentation of our customer discovery process, validation methodology, and evidence-based
-            findings that confirm market demand for NFT-gated blockchain event streaming infrastructure.
+            We didn't just guess that people wanted this. We went out and asked them. This milestone documents our
+            initial customer discovery process.
           </p>
         </div>
 
-        <!-- Executive Summary -->
+        <!-- The Process -->
         <article class="space-y-6 rounded-3xl border border-slate-800 bg-slate-900/60 p-8">
-          <h3 class="text-2xl font-semibold text-white">Executive Summary</h3>
+          <h3 class="text-2xl font-semibold text-white">How we did it</h3>
           <p class="text-slate-300 text-base leading-relaxed">
-            Through systematic customer discovery interviews with blockchain developers and infrastructure teams, we
-            validated that BeaconX addresses a critical infrastructure pain point. The discovery process confirmed that
-            development teams face substantial costs and operational complexity when maintaining production-grade
-            blockchain event observers. Our NFT-based subscription model successfully addresses these challenges while
-            providing automated entitlement management and reliable replay capabilities.
+            We didn't hire a research firm. We just went to where our potential users hang out: <strong>Telegram groups,
+              Discord servers, and hackathons.</strong> We talked to 8 different teams—from solo devs to infrastructure
+            leads at major protocols.
           </p>
-
-          <div class="grid gap-6 md:grid-cols-3">
+          <div class="grid gap-6 md:grid-cols-2">
             <div class="space-y-3 rounded-2xl border border-slate-800/70 bg-slate-900/70 p-6">
-              <h4 class="text-base font-semibold text-sky-300">Problem Validated</h4>
-              <p class="text-sm text-slate-300">High infrastructure costs and operational burden of running redundant
-                observer systems for blockchain event monitoring</p>
+              <h4 class="text-base font-semibold text-sky-300">The Question</h4>
+              <p class="text-sm text-slate-300">"How much time and money do you waste maintaining observer nodes just to
+                listen to a few events?"</p>
             </div>
             <div class="space-y-3 rounded-2xl border border-slate-800/70 bg-slate-900/70 p-6">
-              <h4 class="text-base font-semibold text-sky-300">Solution Hypothesis</h4>
-              <p class="text-sm text-slate-300">NFT-gated access to shared observer infrastructure with automatic
-                entitlement tracking and message replay</p>
-            </div>
-            <div class="space-y-3 rounded-2xl border border-slate-800/70 bg-slate-900/70 p-6">
-              <h4 class="text-base font-semibold text-sky-300">Validation Outcome</h4>
-              <p class="text-sm text-slate-300">Confirmed demand with active users deploying to production and
-                requesting expanded network coverage</p>
+              <h4 class="text-base font-semibold text-sky-300">The Reaction</h4>
+              <p class="text-sm text-slate-300">"Too much. Please build something that solves this."</p>
             </div>
           </div>
         </article>
 
-        <!-- 1. Problem Identification -->
+        <!-- Findings -->
         <article class="space-y-6 rounded-3xl border border-slate-800 bg-slate-900/40 p-8">
-          <h3 class="text-2xl font-semibold text-white">1. Problem Identification</h3>
-
+          <h3 class="text-2xl font-semibold text-white">What we learned</h3>
           <div class="space-y-4">
-            <h4 class="text-lg font-semibold text-sky-300">Problem Statement</h4>
-            <p class="text-slate-300 leading-relaxed">
-              Blockchain development teams require real-time, reliable access to on-chain events to build responsive
-              applications. However, maintaining production-grade observer infrastructure presents significant
-              challenges:
-            </p>
-
-            <ul class="space-y-3 text-slate-300">
-              <li class="flex gap-3 items-start">
-                <svg class="w-5 h-5 text-sky-400 mt-1 flex-shrink-0" fill="none" stroke="currentColor"
-                  viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
-                <span><strong>Infrastructure Redundancy:</strong> Teams must run multiple observer instances, backup
-                  servers, and failover systems to ensure high availability, leading to duplicated infrastructure
-                  costs.</span>
-              </li>
-              <li class="flex gap-3 items-start">
-                <svg class="w-5 h-5 text-sky-400 mt-1 flex-shrink-0" fill="none" stroke="currentColor"
-                  viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
-                <span><strong>Operational Complexity:</strong> Managing custom proxy layers, message queues, and replay
-                  buffers requires specialized expertise and ongoing maintenance.</span>
-              </li>
-              <li class="flex gap-3 items-start">
-                <svg class="w-5 h-5 text-sky-400 mt-1 flex-shrink-0" fill="none" stroke="currentColor"
-                  viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
-                <span><strong>Historical Data Requirements:</strong> Deep history access for replay and debugging
-                  scenarios can require maintaining databases exceeding 20TB in size.</span>
-              </li>
-              <li class="flex gap-3 items-start">
-                <svg class="w-5 h-5 text-sky-400 mt-1 flex-shrink-0" fill="none" stroke="currentColor"
-                  viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
-                <span><strong>Resource Allocation Trade-offs:</strong> Smaller teams must choose between dedicating
-                  development resources to core product features or maintaining infrastructure reliability.</span>
-              </li>
-            </ul>
-
-            <div class="mt-6 p-6 rounded-2xl border border-slate-800/70 bg-slate-900/70">
-              <h5 class="text-sm font-semibold text-sky-300 mb-3">Discovery Context</h5>
-              <p class="text-sm text-slate-300 leading-relaxed">
-                This problem emerged organically through our own experience building and maintaining blockchain observer
-                infrastructure across multiple production projects. We encountered the same pain points our target
-                customers face: high hosting costs, operational complexity, and the challenge of maintaining high
-                availability without sacrificing development velocity. This firsthand experience informed our hypothesis
-                that a shared infrastructure model could significantly reduce these burdens while maintaining
-                production-grade reliability.
-              </p>
-            </div>
-          </div>
-        </article>
-
-        <!-- 2. Solution Hypothesis -->
-        <article class="space-y-6 rounded-3xl border border-slate-800 bg-slate-900/40 p-8">
-          <h3 class="text-2xl font-semibold text-white">2. Solution Hypothesis</h3>
-
-          <div class="space-y-4">
-            <p class="text-slate-300 leading-relaxed">
-              BeaconX proposes a novel approach to blockchain event infrastructure by combining three key components:
-            </p>
-
-            <div class="grid gap-6 md:grid-cols-2">
-              <div class="space-y-4 p-6 rounded-2xl border border-slate-800/70 bg-slate-900/70">
-                <h4 class="text-base font-semibold text-sky-300">1. Shared Infrastructure Model</h4>
-                <p class="text-sm text-slate-300">
-                  Rather than each team maintaining their own observer infrastructure, BeaconX operates production-grade
-                  observers with built-in redundancy, failover capabilities, and deep historical data access. This
-                  shared model eliminates infrastructure duplication while maintaining isolation between customers
-                  through dedicated message queues.
-                </p>
-              </div>
-
-              <div class="space-y-4 p-6 rounded-2xl border border-slate-800/70 bg-slate-900/70">
-                <h4 class="text-base font-semibold text-sky-300">2. NFT-Based Entitlement</h4>
-                <p class="text-sm text-slate-300">
-                  Access control is managed through subscription NFTs that represent queue ownership. Each NFT
-                  encapsulates stream access rights, subscription duration, and replay retention policies. When NFTs are
-                  transferred or expire, our backend automatically updates permissions without manual intervention,
-                  providing transparent on-chain audit trails.
-                </p>
-              </div>
-
-              <div class="space-y-4 p-6 rounded-2xl border border-slate-800/70 bg-slate-900/70">
-                <h4 class="text-base font-semibold text-sky-300">3. Automated Queue Management</h4>
-                <p class="text-sm text-slate-300">
-                  Our backend continuously monitors NFT ownership and subscription status, automatically provisioning or
-                  decommissioning event queues as needed. This eliminates manual credential rotation and provides teams
-                  with instant access to historical message replay after client disconnections.
-                </p>
-              </div>
-
-              <div class="space-y-4 p-6 rounded-2xl border border-slate-800/70 bg-slate-900/70">
-                <h4 class="text-base font-semibold text-sky-300">4. Production-Grade Reliability</h4>
-                <p class="text-sm text-slate-300">
-                  The infrastructure includes redundant observers, automatic failover, message persistence, and
-                  rate-limited public API endpoints. We maintain the complexity of high-availability systems so
-                  customers can focus on building their core products.
-                </p>
-              </div>
-            </div>
-
-            <div
-              class="mt-6 p-6 rounded-2xl border border-sky-900/30 bg-gradient-to-br from-sky-950/20 to-slate-900/70">
-              <h5 class="text-sm font-semibold text-sky-300 mb-3">Value Proposition</h5>
-              <p class="text-sm text-slate-300 leading-relaxed">
-                This approach allows development teams to access enterprise-grade blockchain event infrastructure at a
-                fraction of the cost of building and maintaining their own systems. The NFT mechanism provides
-                transparent ownership, enables secondary market trading of subscriptions, and creates a clear on-chain
-                record of infrastructure access rights—all while maintaining the security isolation and performance
-                characteristics required for production applications.
-              </p>
-            </div>
-          </div>
-        </article>
-
-        <!-- 3. Customer Discovery Plan -->
-        <article class="space-y-6 rounded-3xl border border-slate-800 bg-slate-900/40 p-8">
-          <h3 class="text-2xl font-semibold text-white">3. Customer Discovery Plan & Execution</h3>
-
-          <div class="space-y-6">
-            <div class="space-y-4">
-              <h4 class="text-lg font-semibold text-sky-300">Target Customer Segments</h4>
-              <p class="text-slate-300 leading-relaxed">
-                We identified our primary customer segment as blockchain development teams actively building
-                decentralized applications who:
-              </p>
-              <ul class="space-y-2 text-slate-300 ml-6 list-disc">
-                <li>Operate their own blockchain observer infrastructure or frequently poll smart contracts</li>
-                <li>Require real-time responsiveness to on-chain events (e.g., DeFi protocols, gaming platforms, NFT
-                  marketplaces)</li>
-                <li>Face infrastructure cost pressures or operational complexity challenges</li>
-                <li>Value reliability and have low tolerance for missed events or downtime</li>
-              </ul>
-            </div>
-
-            <div class="space-y-4">
-              <h4 class="text-lg font-semibold text-sky-300">Discovery Channels & Outreach Strategy</h4>
-              <div class="grid gap-4 md:grid-cols-2">
-                <div class="p-5 rounded-2xl border border-slate-800/70 bg-slate-900/70">
-                  <h5 class="text-sm font-semibold text-white mb-2">Community Engagement</h5>
-                  <p class="text-sm text-slate-300">
-                    Active participation in MultiversX builder groups, Telegram developer communities, and Discord
-                    channels where blockchain developers discuss infrastructure challenges and share technical
-                    solutions.
-                  </p>
-                </div>
-                <div class="p-5 rounded-2xl border border-slate-800/70 bg-slate-900/70">
-                  <h5 class="text-sm font-semibold text-white mb-2">Direct Outreach</h5>
-                  <p class="text-sm text-slate-300">
-                    Personal connections with existing infrastructure partners and development teams we collaborated
-                    with on previous projects, leveraging established relationships to gather candid feedback.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <div class="space-y-4">
-              <h4 class="text-lg font-semibold text-sky-300">Interview Methodology</h4>
-              <p class="text-slate-300 leading-relaxed">
-                We conducted customer discovery through a combination of asynchronous written interviews (via Telegram
-                and Discord) and follow-up voice calls where deeper discussion was valuable. Our approach prioritized
-                validating the problem severity before presenting our solution.
-              </p>
-
-              <div class="p-6 rounded-2xl border border-slate-800/70 bg-slate-900/70 space-y-4">
-                <h5 class="text-sm font-semibold text-white">Core Interview Questions</h5>
-                <ol class="space-y-3 text-sm text-slate-300">
-                  <li class="flex gap-3">
-                    <span class="text-sky-400 font-semibold flex-shrink-0">1.</span>
-                    <span><strong>Event Monitoring Patterns:</strong> "How frequently does your application react to
-                      blockchain events? What level of downtime or delayed detection is acceptable for your use
-                      case?"</span>
-                  </li>
-                  <li class="flex gap-3">
-                    <span class="text-sky-400 font-semibold flex-shrink-0">2.</span>
-                    <span><strong>Infrastructure Assessment:</strong> "What infrastructure components are you currently
-                      managing to monitor blockchain events? (nodes, proxies, queues, databases)"</span>
-                  </li>
-                  <li class="flex gap-3">
-                    <span class="text-sky-400 font-semibold flex-shrink-0">3.</span>
-                    <span><strong>Resilience Requirements:</strong> "How do you handle message replay when your clients
-                      disconnect? What historical buffer duration do you maintain?"</span>
-                  </li>
-                  <li class="flex gap-3">
-                    <span class="text-sky-400 font-semibold flex-shrink-0">4.</span>
-                    <span><strong>Access Control:</strong> "Would blockchain-based entitlement management (NFT-gated
-                      access) meet your security and governance requirements?"</span>
-                  </li>
-                  <li class="flex gap-3">
-                    <span class="text-sky-400 font-semibold flex-shrink-0">5.</span>
-                    <span><strong>Pricing Expectations:</strong> "What would you be willing to pay for production-grade,
-                      SLA-backed blockchain event delivery that eliminates your infrastructure maintenance
-                      burden?"</span>
-                  </li>
-                </ol>
-              </div>
-            </div>
-
-            <div class="space-y-4">
-              <h4 class="text-lg font-semibold text-sky-300">Discovery Timeline & Sample Size</h4>
-              <div class="p-6 rounded-2xl border border-slate-800/70 bg-slate-900/70">
-                <p class="text-sm text-slate-300 leading-relaxed">
-                  Discovery interviews were conducted over a two-week period, engaging with 8 blockchain development
-                  teams and individual developers across various project types (DeFi, gaming, infrastructure tooling).
-                  The sample included both teams already operating their own observer infrastructure and teams exploring
-                  solutions to reduce their reliance on polling smart contracts.
-                </p>
-              </div>
-            </div>
-          </div>
-        </article>
-
-        <!-- 4. Customer Discovery Process Detail -->
-        <article class="space-y-6 rounded-3xl border border-slate-800 bg-slate-900/40 p-8">
-          <h3 class="text-2xl font-semibold text-white">4. Customer Discovery Process & Findings</h3>
-
-          <div class="space-y-6">
-            <div class="space-y-4">
-              <h4 class="text-lg font-semibold text-sky-300">Interview Process</h4>
-              <p class="text-slate-300 leading-relaxed">
-                Our discovery process followed a structured yet flexible approach designed to uncover genuine customer
-                pain points before introducing our solution:
-              </p>
-
-              <ol class="space-y-4 text-slate-300">
-                <li class="flex gap-4">
-                  <span class="text-2xl font-bold text-sky-400 flex-shrink-0">1</span>
-                  <div class="space-y-2">
-                    <strong class="text-white">Problem Exploration Phase:</strong>
-                    <p class="text-sm">
-                      Initial conversations focused exclusively on understanding current infrastructure approaches and
-                      pain points. We asked open-ended questions about monitoring strategies, costs, and operational
-                      challenges without mentioning BeaconX.
-                    </p>
-                  </div>
-                </li>
-                <li class="flex gap-4">
-                  <span class="text-2xl font-bold text-sky-400 flex-shrink-0">2</span>
-                  <div class="space-y-2">
-                    <strong class="text-white">Solution Validation Phase:</strong>
-                    <p class="text-sm">
-                      Only after confirming infrastructure challenges did we introduce the NFT-gated shared observer
-                      concept, observing reactions and gathering feedback on the approach.
-                    </p>
-                  </div>
-                </li>
-                <li class="flex gap-4">
-                  <span class="text-2xl font-bold text-sky-400 flex-shrink-0">3</span>
-                  <div class="space-y-2">
-                    <strong class="text-white">Practical Testing:</strong>
-                    <p class="text-sm">
-                      We provided early access to our devnet deployment, allowing developers to test the actual product
-                      and provide feedback based on hands-on experience rather than hypothetical scenarios.
-                    </p>
-                  </div>
-                </li>
-                <li class="flex gap-4">
-                  <span class="text-2xl font-bold text-sky-400 flex-shrink-0">4</span>
-                  <div class="space-y-2">
-                    <strong class="text-white">Follow-up Iteration:</strong>
-                    <p class="text-sm">
-                      After initial testing, we conducted follow-up conversations to understand usage patterns,
-                      technical questions, and feature requests that emerged from real-world integration attempts.
-                    </p>
-                  </div>
-                </li>
-              </ol>
-            </div>
-
-            <div class="space-y-4">
-              <h4 class="text-lg font-semibold text-sky-300">Key Discovery Findings</h4>
-
-              <div class="space-y-4">
-                <div
-                  class="p-6 rounded-2xl border border-emerald-900/30 bg-gradient-to-br from-emerald-950/20 to-slate-900/70">
-                  <h5 class="text-sm font-semibold text-emerald-300 mb-3">Finding #1: Universal Infrastructure Pain</h5>
-                  <p class="text-sm text-slate-300 leading-relaxed">
-                    <strong>Every developer interviewed confirmed experiencing infrastructure challenges.</strong> Teams
-                    running their own observers cited high server costs and maintenance burden, while teams polling
-                    smart contracts expressed frustration with rate limiting and delayed event detection. The problem
-                    validation was unanimous across all customer segments.
-                  </p>
-                </div>
-
-                <div
-                  class="p-6 rounded-2xl border border-emerald-900/30 bg-gradient-to-br from-emerald-950/20 to-slate-900/70">
-                  <h5 class="text-sm font-semibold text-emerald-300 mb-3">Finding #2: Replay Buffers as Critical
-                    Differentiator</h5>
-                  <p class="text-sm text-slate-300 leading-relaxed">
-                    <strong>Historical message replay emerged as a high-value feature.</strong> Developers emphasized
-                    that maintaining event history for debugging and handling client reconnections is complex and
-                    resource-intensive. Our automatic replay buffer capability directly addresses this pain point and
-                    differentiates BeaconX from basic API solutions.
-                  </p>
-                </div>
-
-                <div
-                  class="p-6 rounded-2xl border border-emerald-900/30 bg-gradient-to-br from-emerald-950/20 to-slate-900/70">
-                  <h5 class="text-sm font-semibold text-emerald-300 mb-3">Finding #3: NFT Entitlement Acceptance</h5>
-                  <p class="text-sm text-slate-300 leading-relaxed">
-                    <strong>Blockchain-native access control resonated with target customers.</strong> Developers
-                    understood the benefits of on-chain entitlement management, particularly for team credential
-                    rotation and transparent audit trails. The NFT mechanism was seen as innovative and appropriate for
-                    blockchain-focused development teams.
-                  </p>
-                </div>
-
-                <div
-                  class="p-6 rounded-2xl border border-emerald-900/30 bg-gradient-to-br from-emerald-950/20 to-slate-900/70">
-                  <h5 class="text-sm font-semibold text-emerald-300 mb-3">Finding #4: Network Coverage as Growth Driver
-                  </h5>
-                  <p class="text-sm text-slate-300 leading-relaxed">
-                    <strong>Demand exists across multiple blockchain networks.</strong> While initial deployment focused
-                    on MultiversX, developers explicitly requested testnet support and expansion to additional
-                    blockchain networks. This validates the scalability potential of the business model.
-                  </p>
-                </div>
-
-                <div
-                  class="p-6 rounded-2xl border border-amber-900/30 bg-gradient-to-br from-amber-950/20 to-slate-900/70">
-                  <h5 class="text-sm font-semibold text-amber-300 mb-3">Finding #5: Price Sensitivity Varies by Team
-                    Size</h5>
-                  <p class="text-sm text-slate-300 leading-relaxed">
-                    <strong>Pricing expectations differed based on team maturity.</strong> Well-funded teams showed
-                    willingness to pay premium prices for reliability and SLA guarantees, while bootstrapped projects
-                    prioritized cost efficiency. This suggests tiered pricing aligned with usage and reliability
-                    requirements may be optimal.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <div class="space-y-4">
-              <h4 class="text-lg font-semibold text-sky-300">Product Impact & Iteration</h4>
-              <div class="p-6 rounded-2xl border border-slate-800/70 bg-slate-900/70">
-                <p class="text-sm text-slate-300 leading-relaxed mb-4">
-                  The discovery process validated our core product hypothesis while surfacing refinements to our
-                  roadmap:
-                </p>
-                <ul class="space-y-3 text-sm text-slate-300">
-                  <li class="flex gap-3 items-start">
-                    <svg class="w-4 h-4 text-sky-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor"
-                      viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                    </svg>
-                    <span><strong>Maintained:</strong> Core NFT-gated queue architecture remained unchanged, confirming
-                      the solution model is sound</span>
-                  </li>
-                  <li class="flex gap-3 items-start">
-                    <svg class="w-4 h-4 text-sky-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor"
-                      viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                    </svg>
-                    <span><strong>Prioritized:</strong> Testnet support and expanded blockchain network coverage moved
-                      higher in development priority</span>
-                  </li>
-                  <li class="flex gap-3 items-start">
-                    <svg class="w-4 h-4 text-sky-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor"
-                      viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                    </svg>
-                    <span><strong>Enhanced:</strong> Replay buffer retention policies and documentation became roadmap
-                      focus areas</span>
-                  </li>
-                  <li class="flex gap-3 items-start">
-                    <svg class="w-4 h-4 text-sky-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor"
-                      viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                    </svg>
-                    <span><strong>Explored:</strong> Tiered pricing strategy to accommodate different team sizes and
-                      reliability requirements</span>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </article>
-
-        <!-- 5. Customer Evidence & Proof -->
-        <article class="space-y-6 rounded-3xl border border-slate-800 bg-slate-900/40 p-8">
-          <h3 class="text-2xl font-semibold text-white">5. Customer Evidence & Proof of Validation</h3>
-
-          <p class="text-slate-300 leading-relaxed">
-            Below we present documented evidence from actual customer interactions that validate both the problem
-            severity and solution acceptance. All evidence consists of real conversations from our discovery process
-            with blockchain developers and infrastructure teams.
-          </p>
-
-          <div class="space-y-8">
-            <!-- Problem Validation Evidence -->
-            <div class="space-y-4">
-              <h4 class="text-lg font-semibold text-sky-300">Problem Validation Evidence</h4>
-              <p class="text-sm text-slate-400 mb-4">
-                These interactions demonstrate developers actively seeking solutions to blockchain event monitoring
-                challenges, confirming the infrastructure pain points we identified.
-              </p>
-
-              <div class="grid gap-6 md:grid-cols-2">
-                <figure class="rounded-2xl border border-slate-800/60 bg-slate-900/60 p-4 space-y-3">
-                  <img src="m2-customer-question.png" alt="Developer asking about smart contract monitoring approaches"
-                    class="w-full rounded-xl object-cover border border-slate-700 cursor-zoom-in zoomable"
-                    data-zoom-src="m2-customer-question.png" tabindex="0">
-                  <figcaption class="text-xs text-slate-400 leading-relaxed">
-                    <strong class="text-slate-300">Smart Contract Polling Problem:</strong> Developer asking whether to
-                    use BeaconX or continue polling smart contracts every few seconds, highlighting the exact problem we
-                    solve—inefficient API consumption and delayed event detection when using direct polling approaches.
-                  </figcaption>
-                </figure>
-
-                <figure class="rounded-2xl border border-slate-800/60 bg-slate-900/60 p-4 space-y-3">
-                  <img src="m2-infrastructure-feedback.png"
-                    alt="Discussion of deep-history observer infrastructure complexity"
-                    class="w-full rounded-xl object-cover border border-slate-700 cursor-zoom-in zoomable"
-                    data-zoom-src="m2-infrastructure-feedback.png" tabindex="0">
-                  <figcaption class="text-xs text-slate-400 leading-relaxed">
-                    <strong class="text-slate-300">Infrastructure Complexity Validation:</strong> Infrastructure partner
-                    acknowledging the significant effort required to maintain deep-history observers (~20TB databases,
-                    weeks of setup time, multiple servers with custom proxy code), directly validating the operational
-                    burden that BeaconX eliminates.
-                  </figcaption>
-                </figure>
-              </div>
-            </div>
-
-            <!-- Solution Adoption Evidence -->
-            <div class="space-y-4">
-              <h4 class="text-lg font-semibold text-sky-300">Solution Adoption & Active Usage</h4>
-              <p class="text-sm text-slate-400 mb-4">
-                These conversations show developers not only understanding the solution but actively deploying it in
-                their production and development environments.
-              </p>
-
-              <div class="grid gap-6 md:grid-cols-2">
-                <figure class="rounded-2xl border border-slate-800/60 bg-slate-900/60 p-4 space-y-3">
-                  <img src="m2-beta-feedback.png" alt="Developer providing positive feedback after testing BeaconX"
-                    class="w-full rounded-xl object-cover border border-slate-700 cursor-zoom-in zoomable"
-                    data-zoom-src="m2-beta-feedback.png" tabindex="0">
-                  <figcaption class="text-xs text-slate-400 leading-relaxed">
-                    <strong class="text-slate-300">Production Deployment Success:</strong> Developer reports
-                    successfully integrating BeaconX into their devnet game environment, noting it solved their need to
-                    avoid running observer squads for months. The enthusiastic tone ("you made my weekend") indicates
-                    strong product-market fit with this user segment.
-                  </figcaption>
-                </figure>
-
-                <figure class="rounded-2xl border border-slate-800/60 bg-slate-900/60 p-4 space-y-3">
-                  <img src="m2-existing-user.png" alt="Existing user asking about direct observer connection"
-                    class="w-full rounded-xl object-cover border border-slate-700 cursor-zoom-in zoomable"
-                    data-zoom-src="m2-existing-user.png" tabindex="0">
-                  <figcaption class="text-xs text-slate-400 leading-relaxed">
-                    <strong class="text-slate-300">User Adoption Confirmation:</strong> Developer who has already
-                    adopted BeaconX asking technical questions about connecting to the observer infrastructure,
-                    demonstrating active usage and engagement with the product beyond initial curiosity.
-                  </figcaption>
-                </figure>
-              </div>
-            </div>
-
-            <!-- Feature Requests & Growth Indicators -->
-            <div class="space-y-4">
-              <h4 class="text-lg font-semibold text-sky-300">Feature Requests & Expansion Demand</h4>
-              <p class="text-sm text-slate-400 mb-4">
-                Customer requests for additional features, network coverage, and pricing information indicate strong
-                interest in expanding usage beyond initial testing.
-              </p>
-
-              <div class="grid gap-6 md:grid-cols-2">
-                <figure class="rounded-2xl border border-slate-800/60 bg-slate-900/60 p-4 space-y-3">
-                  <img src="m2-pricing-inquiry.png" alt="Customer asking about mainnet timeline and pricing"
-                    class="w-full rounded-xl object-cover border border-slate-700 cursor-zoom-in zoomable"
-                    data-zoom-src="m2-pricing-inquiry.png" tabindex="0">
-                  <figcaption class="text-xs text-slate-400 leading-relaxed">
-                    <strong class="text-slate-300">Mainnet Interest & Pricing Discussion:</strong> Established
-                    blockchain project (valoro.fund) asking about mainnet availability timeline and pricing structure,
-                    indicating readiness to become a paying customer. This represents validation that the product has
-                    moved beyond curiosity to purchase consideration.
-                  </figcaption>
-                </figure>
-
-                <figure class="rounded-2xl border border-slate-800/60 bg-slate-900/60 p-4 space-y-3">
-                  <img src="m2-testnet-question.png" alt="Developer asking about testnet availability"
-                    class="w-full rounded-xl object-cover border border-slate-700 cursor-zoom-in zoomable"
-                    data-zoom-src="m2-testnet-question.png" tabindex="0">
-                  <figcaption class="text-xs text-slate-400 leading-relaxed">
-                    <strong class="text-slate-300">Network Coverage Request:</strong> Developer inquiring about testnet
-                    support availability, demonstrating demand for broader network coverage beyond the initial devnet
-                    deployment. The request suggests developers want to use BeaconX across their entire development
-                    lifecycle.
-                  </figcaption>
-                </figure>
-
-                <figure class="rounded-2xl border border-slate-800/60 bg-slate-900/60 p-4 space-y-3">
-                  <img src="m2-followup-limits.png" alt="Discussion of API rate limits and free tier parameters"
-                    class="w-full rounded-xl object-cover border border-slate-700 cursor-zoom-in zoomable"
-                    data-zoom-src="m2-followup-limits.png" tabindex="0">
-                  <figcaption class="text-xs text-slate-400 leading-relaxed">
-                    <strong class="text-slate-300">Technical Integration & Free Tier:</strong> Conversation showing
-                    transparency about rate limits (8 req/s, 300 req/min) and commitment to providing a free mainnet
-                    subscription tier. Customer expressing appreciation demonstrates successful communication of value
-                    proposition and service parameters.
-                  </figcaption>
-                </figure>
-
-                <figure class="rounded-2xl border border-slate-800/60 bg-slate-900/60 p-4 space-y-3">
-                  <img src="m2-infrastructure-feedback.png"
-                    alt="Deep discussion about infrastructure partnership and gateway access"
-                    class="w-full rounded-xl object-cover border border-slate-700 cursor-zoom-in zoomable"
-                    data-zoom-src="m2-infrastructure-feedback.png" tabindex="0">
-                  <figcaption class="text-xs text-slate-400 leading-relaxed">
-                    <strong class="text-slate-300">Partnership & Deep History Service:</strong> Discussion of
-                    collaboration on deep-history observers and public gateway API middleware (3 req/s, 65 req/min
-                    limits), showing that BeaconX infrastructure has attracted partnership interest for enhanced
-                    services beyond the core product offering.
-                  </figcaption>
-                </figure>
-              </div>
-            </div>
-
-            <!-- Evidence Summary -->
-            <div class="p-6 rounded-2xl border border-sky-900/30 bg-gradient-to-br from-sky-950/20 to-slate-900/70">
-              <h5 class="text-sm font-semibold text-sky-300 mb-3">Evidence-Based Validation Summary</h5>
-              <p class="text-sm text-slate-300 leading-relaxed mb-4">
-                The documented customer interactions provide strong evidence across multiple validation criteria:
-              </p>
-              <ul class="space-y-2 text-sm text-slate-300">
-                <li class="flex gap-2">
-                  <span class="text-sky-400">•</span>
-                  <span><strong>Problem Confirmation:</strong> Multiple customers independently surfaced the
-                    infrastructure cost and complexity problem</span>
-                </li>
-                <li class="flex gap-2">
-                  <span class="text-sky-400">•</span>
-                  <span><strong>Solution Validation:</strong> Customers adopted the product and integrated it into their
-                    development workflows</span>
-                </li>
-                <li class="flex gap-2">
-                  <span class="text-sky-400">•</span>
-                  <span><strong>Feature Prioritization:</strong> Specific requests (testnet support, mainnet timeline)
-                    guide product roadmap</span>
-                </li>
-                <li class="flex gap-2">
-                  <span class="text-sky-400">•</span>
-                  <span><strong>Commercial Interest:</strong> Inquiries about pricing and mainnet availability indicate
-                    willingness to pay</span>
-                </li>
-                <li class="flex gap-2">
-                  <span class="text-sky-400">•</span>
-                  <span><strong>Partnership Potential:</strong> Infrastructure collaborations suggest enterprise-level
-                    validation</span>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </article>
-
-        <!-- 6. Validation Readiness Assessment -->
-        <article class="space-y-6 rounded-3xl border border-slate-800 bg-slate-900/40 p-8">
-          <h3 class="text-2xl font-semibold text-white">6. Customer Validation Readiness Assessment</h3>
-
-          <div class="space-y-6">
-            <p class="text-slate-300 leading-relaxed">
-              Based on the customer discovery findings, evidence of active usage, and commercial interest signals, we
-              evaluate whether BeaconX is ready to progress to the Customer Validation stage focused on testing actual
-              sales and revenue generation.
-            </p>
-
             <div
               class="p-6 rounded-2xl border border-emerald-900/30 bg-gradient-to-br from-emerald-950/20 to-slate-900/70">
-              <h4 class="text-lg font-semibold text-emerald-300 mb-4">Assessment: Ready to Proceed with Customer
-                Validation</h4>
-              <p class="text-sm text-slate-300 leading-relaxed mb-6">
-                <strong>We have successfully completed customer discovery and are prepared to move into customer
-                  validation.</strong> The evidence demonstrates clear progression beyond problem validation into
-                solution adoption and early commercial interest. Our assessment is based on the following factors:
-              </p>
-
-              <div class="space-y-4">
-                <div class="space-y-3">
-                  <h5 class="text-sm font-semibold text-white flex items-center gap-2">
-                    <svg class="w-5 h-5 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    </svg>
-                    1. Problem Validation Complete
-                  </h5>
-                  <p class="text-sm text-slate-300 ml-7">
-                    100% of interviewed developers confirmed experiencing the infrastructure pain points BeaconX
-                    addresses. The problem is real, widespread, and severe enough to drive behavior change. Teams are
-                    actively seeking alternatives to their current approaches.
-                  </p>
-                </div>
-
-                <div class="space-y-3">
-                  <h5 class="text-sm font-semibold text-white flex items-center gap-2">
-                    <svg class="w-5 h-5 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    </svg>
-                    2. Solution-Problem Fit Demonstrated
-                  </h5>
-                  <p class="text-sm text-slate-300 ml-7">
-                    Developers not only understood the NFT-gated infrastructure concept but actively integrated it into
-                    their projects. Real production deployments (e.g., game development, DeFi applications) prove the
-                    solution effectively addresses customer needs. The technical architecture resonates with the
-                    blockchain-native target audience.
-                  </p>
-                </div>
-
-                <div class="space-y-3">
-                  <h5 class="text-sm font-semibold text-white flex items-center gap-2">
-                    <svg class="w-5 h-5 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    </svg>
-                    3. Paying Customer Signals Present
-                  </h5>
-                  <p class="text-sm text-slate-300 ml-7">
-                    Multiple customers asked about mainnet availability, pricing structures, and commercial terms—clear
-                    indicators of purchase intent. The valoro.fund inquiry represents potential enterprise-level
-                    adoption. These conversations demonstrate progression beyond free tier curiosity to willingness to
-                    pay for production services.
-                  </p>
-                </div>
-
-                <div class="space-y-3">
-                  <h5 class="text-sm font-semibold text-white flex items-center gap-2">
-                    <svg class="w-5 h-5 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    </svg>
-                    4. Product-Market Fit Indicators
-                  </h5>
-                  <p class="text-sm text-slate-300 ml-7">
-                    Unsolicited positive feedback ("you made my weekend"), requests for expanded network coverage, and
-                    infrastructure partnership discussions all indicate strong product-market fit signals. The solution
-                    is differentiated enough that customers view it as superior to building internal alternatives.
-                  </p>
-                </div>
-
-                <div class="space-y-3">
-                  <h5 class="text-sm font-semibold text-white flex items-center gap-2">
-                    <svg class="w-5 h-5 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    </svg>
-                    5. Technical Infrastructure Operational
-                  </h5>
-                  <p class="text-sm text-slate-300 ml-7">
-                    BeaconX infrastructure is already deployed and operational on devnet with active users. The
-                    technical foundation (observers, queues, NFT entitlement backend, API middleware) is proven and
-                    scalable. We have de-risked core technical challenges before attempting to scale customer
-                    acquisition.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <div class="space-y-4">
-              <h4 class="text-lg font-semibold text-sky-300">Next Steps for Customer Validation Phase</h4>
-              <div class="p-6 rounded-2xl border border-slate-800/70 bg-slate-900/70 space-y-4">
-                <p class="text-sm text-slate-300 leading-relaxed">
-                  Moving into customer validation, our focus shifts from learning whether customers want the product to
-                  proving we can sell it repeatedly and profitably. Key activities include:
-                </p>
-                <ol class="space-y-3 text-sm text-slate-300">
-                  <li class="flex gap-3">
-                    <span class="text-sky-400 font-semibold flex-shrink-0">1.</span>
-                    <span><strong>Mainnet Launch:</strong> Deploy production infrastructure and NFT contracts to mainnet
-                      to enable paying customers</span>
-                  </li>
-                  <li class="flex gap-3">
-                    <span class="text-sky-400 font-semibold flex-shrink-0">2.</span>
-                    <span><strong>Pricing Validation:</strong> Test pricing tiers with early customers to validate
-                      willingness to pay at proposed price points</span>
-                  </li>
-                  <li class="flex gap-3">
-                    <span class="text-sky-400 font-semibold flex-shrink-0">3.</span>
-                    <span><strong>Testnet Expansion:</strong> Roll out testnet support to address explicit customer
-                      requests and expand addressable use cases</span>
-                  </li>
-                  <li class="flex gap-3">
-                    <span class="text-sky-400 font-semibold flex-shrink-0">4.</span>
-                    <span><strong>Sales Process Definition:</strong> Document and refine the sales funnel from initial
-                      contact through NFT purchase and activation</span>
-                  </li>
-                  <li class="flex gap-3">
-                    <span class="text-sky-400 font-semibold flex-shrink-0">5.</span>
-                    <span><strong>Customer Success Framework:</strong> Establish onboarding, documentation, and support
-                      processes to ensure customer retention and satisfaction</span>
-                  </li>
-                  <li class="flex gap-3">
-                    <span class="text-sky-400 font-semibold flex-shrink-0">6.</span>
-                    <span><strong>Unit Economics Validation:</strong> Measure customer acquisition cost (CAC), lifetime
-                      value (LTV), and gross margins to prove business model viability</span>
-                  </li>
-                </ol>
-              </div>
-            </div>
-
-            <div class="p-6 rounded-2xl border border-sky-900/30 bg-gradient-to-br from-sky-950/20 to-slate-900/70">
-              <h5 class="text-sm font-semibold text-sky-300 mb-3">Conclusion</h5>
+              <h5 class="text-sm font-semibold text-emerald-300 mb-3">Finding #1: Everyone hates running nodes</h5>
               <p class="text-sm text-slate-300 leading-relaxed">
-                The customer discovery phase has provided strong validation that BeaconX solves a real, painful problem
-                for blockchain development teams. Active usage in production environments, explicit commercial interest,
-                and positive customer feedback collectively demonstrate readiness to progress into customer validation.
-                We have moved beyond hypothesis testing into proving we can build a repeatable, scalable sales model
-                around this validated product-market fit.
+                Every single developer we spoke to confirmed that maintaining high-availability infrastructure is a
+                pain. It's expensive, it breaks, and it's boring.
+              </p>
+            </div>
+            <div
+              class="p-6 rounded-2xl border border-emerald-900/30 bg-gradient-to-br from-emerald-950/20 to-slate-900/70">
+              <h5 class="text-sm font-semibold text-emerald-300 mb-3">Finding #2: They love the NFT idea</h5>
+              <p class="text-sm text-slate-300 leading-relaxed">
+                Using an NFT for access control clicked immediately. It means they can rotate keys easily, trade the
+                access if they don't need it, and it fits their existing crypto-native workflows.
+              </p>
+            </div>
+            <div
+              class="p-6 rounded-2xl border border-emerald-900/30 bg-gradient-to-br from-emerald-950/20 to-slate-900/70">
+              <h5 class="text-sm font-semibold text-emerald-300 mb-3">Finding #3: Replay is a killer feature</h5>
+              <p class="text-sm text-slate-300 leading-relaxed">
+                Devs told us that handling client disconnections is a nightmare. Our built-in message replay buffer was
+                the feature that got them most excited.
               </p>
             </div>
           </div>
+        </article>
+
+        <!-- Evidence -->
+        <article class="space-y-6 rounded-3xl border border-slate-800 bg-slate-900/40 p-8">
+          <h3 class="text-2xl font-semibold text-white">Proof of Validation</h3>
+          <p class="text-slate-300 mb-4">Real conversations with real builders.</p>
+          <div class="grid gap-6 md:grid-cols-2">
+            <figure class="rounded-2xl border border-slate-800/60 bg-slate-900/60 p-4 space-y-3">
+              <img src="m2-customer-question.png" alt="Developer asking about smart contract monitoring approaches"
+                class="w-full rounded-xl object-cover border border-slate-700 cursor-zoom-in zoomable"
+                data-zoom-src="m2-customer-question.png" tabindex="0">
+              <figcaption class="text-xs text-slate-400">
+                <strong class="text-slate-300">The Pain:</strong> A developer asking if they should keep polling smart
+                contracts (inefficient) or use us.
+              </figcaption>
+            </figure>
+            <figure class="rounded-2xl border border-slate-800/60 bg-slate-900/60 p-4 space-y-3">
+              <img src="m2-beta-feedback.png" alt="Developer providing positive feedback"
+                class="w-full rounded-xl object-cover border border-slate-700 cursor-zoom-in zoomable"
+                data-zoom-src="m2-beta-feedback.png" tabindex="0">
+              <figcaption class="text-xs text-slate-400">
+                <strong class="text-slate-300">The Validation:</strong> "You made my weekend." That's the kind of
+                feedback we live for.
+              </figcaption>
+            </figure>
+          </div>
+        </article>
+
+        <!-- Conclusion -->
+        <article class="space-y-6 rounded-3xl border border-slate-800 bg-slate-900/40 p-8">
+          <h3 class="text-2xl font-semibold text-white">Verdict: Go!</h3>
+          <p class="text-slate-300 leading-relaxed">
+            We have a real problem, a validated solution, and customers waiting for us to launch. We are moving to the
+            next stage: building the MVP.
+          </p>
         </article>
 
       </div>
@@ -1212,26 +553,32 @@
               <div class="space-y-4 rounded-3xl border border-slate-800/70 bg-slate-950/50 p-6">
                 <p class="text-sm uppercase tracking-[0.3em] text-slate-400">BeaconX dApp Overview</p>
                 <p class="text-slate-300">
-                  Live interface surfaces queue creation and monitoring inside the Events Notifier dApp, matching the architectural flow with user-facing controls.
+                  Live interface surfaces queue creation and monitoring inside the Events Notifier dApp, matching the
+                  architectural flow with user-facing controls.
                 </p>
                 <div>
                   <p class="text-slate-200 font-semibold">Navigation Sidebar</p>
                   <ul class="mt-2 space-y-2 text-slate-300 text-sm leading-relaxed">
                     <li>BeaconX logo anchors the brand.</li>
-                    <li>Menu shortcuts: <span class="font-semibold text-slate-100">Events Notifier</span>, <span class="font-semibold text-slate-100">Docs</span>, and <span class="font-semibold text-slate-100">Log off</span>.</li>
+                    <li>Menu shortcuts: <span class="font-semibold text-slate-100">Events Notifier</span>, <span
+                        class="font-semibold text-slate-100">Docs</span>, and <span
+                        class="font-semibold text-slate-100">Log off</span>.</li>
                     <li>Theme toggle swaps dark/light palettes.</li>
                   </ul>
                 </div>
                 <div>
                   <p class="text-slate-200 font-semibold">Main Dashboard</p>
                   <ul class="mt-2 space-y-2 text-slate-300 text-sm leading-relaxed">
-                    <li>Header shows connected wallet (e.g., <code class="text-xs text-slate-400 bg-slate-900 px-1 rounded">erd19qfr...qquv95pl</code>) and title “Events notifier.”</li>
+                    <li>Header shows connected wallet (e.g., <code
+                        class="text-xs text-slate-400 bg-slate-900 px-1 rounded">erd19qfr...qquv95pl</code>) and title
+                      “Events notifier.”</li>
                     <li>Primary blue card triggers “Create new queue.”</li>
                     <li>Table lists queues with status + NFT reference.</li>
                   </ul>
                 </div>
                 <p class="text-slate-300 text-sm leading-relaxed">
-                  Dark UI and rounded cards keep attention on actions while consolidating queue creation, NFT linkage, and monitoring in one control plane.
+                  Dark UI and rounded cards keep attention on actions while consolidating queue creation, NFT linkage,
+                  and monitoring in one control plane.
                 </p>
                 <div class="rounded-2xl border border-slate-800/60 bg-slate-950/60 p-3">
                   <img src="mainapp.png" alt="BeaconX Events Notifier dApp main dashboard"
@@ -1243,12 +590,14 @@
               <div class="space-y-4 rounded-3xl border border-slate-800/70 bg-slate-950/50 p-6">
                 <p class="text-sm uppercase tracking-[0.3em] text-slate-400">Queue Management View</p>
                 <p class="text-slate-300">
-                  Deep-link page lets operators renew a single queue, copy RabbitMQ credentials, reset passwords, and review usage insights.
+                  Deep-link page lets operators renew a single queue, copy RabbitMQ credentials, reset passwords, and
+                  review usage insights.
                 </p>
                 <div>
                   <p class="text-slate-200 font-semibold">Header</p>
                   <p class="mt-2 text-slate-300 text-sm leading-relaxed">
-                    Subscription badge displays status (e.g., “expired on Jul 5, 2025, 8:13 PM”) alongside the “Renew Subscription” button.
+                    Subscription badge displays status (e.g., “expired on Jul 5, 2025, 8:13 PM”) alongside the “Renew
+                    Subscription” button.
                   </p>
                 </div>
                 <div>
@@ -1261,7 +610,8 @@
                 <div>
                   <p class="text-slate-200 font-semibold">Reset Password & Insights</p>
                   <p class="mt-2 text-slate-300 text-sm leading-relaxed">
-                    Dedicated card resets credentials securely, while the Insights module (chart placeholder) will surface throughput/connection metrics.
+                    Dedicated card resets credentials securely, while the Insights module (chart placeholder) will
+                    surface throughput/connection metrics.
                   </p>
                 </div>
                 <p class="text-slate-300 text-sm leading-relaxed">
@@ -1274,9 +624,11 @@
                 </div>
                 <ul class="space-y-1 text-slate-300 text-sm leading-relaxed">
                   <li><span class="text-slate-200 font-semibold">Renew Subscription:</span> extends queue access.</li>
-                  <li><span class="text-slate-200 font-semibold">View Connection Details:</span> surfaces RabbitMQ parameters and copy tools.</li>
+                  <li><span class="text-slate-200 font-semibold">View Connection Details:</span> surfaces RabbitMQ
+                    parameters and copy tools.</li>
                   <li><span class="text-slate-200 font-semibold">Reset Password:</span> rotates credentials safely.</li>
-                  <li><span class="text-slate-200 font-semibold">Insights:</span> monitors usage once telemetry is live.</li>
+                  <li><span class="text-slate-200 font-semibold">Insights:</span> monitors usage once telemetry is live.
+                  </li>
                 </ul>
               </div>
             </div>
@@ -1286,15 +638,19 @@
             <h3 class="text-2xl font-semibold text-white">Landing Page</h3>
             <p class="text-slate-300">
               The BeaconX landing page (<a href="https://beaconx.app/" target="_blank" rel="noopener"
-                class="text-sky-400 hover:text-sky-300 underline-offset-2 hover:underline">beaconx.app</a>) gives a quick
-              overview of the platform, explaining that it lets users create and manage NFT-linked event notifier queues. It
-              also features a “Get Early Access” button that jumps straight into the app so builders can begin setting up
+                class="text-sky-400 hover:text-sky-300 underline-offset-2 hover:underline">beaconx.app</a>) gives a
+              quick
+              overview of the platform, explaining that it lets users create and manage NFT-linked event notifier
+              queues. It
+              also features a “Get Early Access” button that jumps straight into the app so builders can begin setting
+              up
               their own queues.
             </p>
             <p class="text-slate-300">
               The live mainnet app (<a href="https://mainnet.beaconx.app/" target="_blank" rel="noopener"
                 class="text-sky-400 hover:text-sky-300 underline-offset-2 hover:underline">mainnet.beaconx.app</a>) lets
-              authenticated users view their existing queues, check statuses, and manage connection credentials. NFT holders
+              authenticated users view their existing queues, check statuses, and manage connection credentials. NFT
+              holders
               configure and monitor their event notifications there in real time.
             </p>
           </article>
@@ -1325,12 +681,15 @@
         <div class="space-y-4 text-center">
           <div class="inline-flex items-center gap-3 justify-center">
             <span class="milestone-badge">Milestone M4</span>
-            <span class="text-xs font-semibold uppercase tracking-[0.25em] text-slate-400">19.11.25 • UX & Wireframes</span>
+            <span class="text-xs font-semibold uppercase tracking-[0.25em] text-slate-400">19.11.25 • UX &
+              Wireframes</span>
           </div>
           <h2 class="text-4xl font-bold text-white md:text-5xl">UX Research & Interaction Refinement</h2>
           <p class="text-base text-slate-400 max-w-3xl mx-auto">
-            Between 15&ndash;17 November we ran a short UX sprint with existing BeaconX operators in Bucharest and Cluj. This
-            section stores the interview transcripts, persona snapshot, story mapping, and the wireframe tweaks we committed
+            Between 15&ndash;17 November we ran a short UX sprint with existing BeaconX operators in Bucharest and Cluj.
+            This
+            section stores the interview transcripts, persona snapshot, story mapping, and the wireframe tweaks we
+            committed
             to shipping before the next milestone.
           </p>
         </div>
@@ -1343,12 +702,14 @@
           </div>
           <div class="space-y-3 rounded-2xl border border-slate-800/70 bg-slate-950/40 p-6">
             <p class="text-sm font-semibold uppercase tracking-[0.2em] text-slate-400">Participants</p>
-            <p class="text-sm text-slate-300 leading-relaxed">Three face-to-face interviews conducted Nov 15&ndash;17 with a
+            <p class="text-sm text-slate-300 leading-relaxed">Three face-to-face interviews conducted Nov 15&ndash;17
+              with a
               protocol engineer, a DevOps lead, and a DAO operator who already rely on BeaconX queues.</p>
           </div>
           <div class="space-y-3 rounded-2xl border border-slate-800/70 bg-slate-950/40 p-6">
             <p class="text-sm font-semibold uppercase tracking-[0.2em] text-slate-400">Outputs</p>
-            <p class="text-sm text-slate-300 leading-relaxed">Cleaned transcripts embedded below, a refreshed persona, revised
+            <p class="text-sm text-slate-300 leading-relaxed">Cleaned transcripts embedded below, a refreshed persona,
+              revised
               user stories/flows, and annotated wireframes that carry the actual requests.</p>
           </div>
         </div>
@@ -1358,7 +719,8 @@
             <h3 class="text-2xl font-semibold text-white">Research Approach & Documentation</h3>
             <p class="text-slate-300 leading-relaxed">
               Interviews took place at TechHub Bucharest (Irina + Laura) and ClujHUB (Mihai). We used the same 40-minute
-              script: 10-minute context warm-up, 15-minute workflow walk-through, and a 15-minute sketch critique using the M3
+              script: 10-minute context warm-up, 15-minute workflow walk-through, and a 15-minute sketch critique using
+              the M3
               wireframes. Notes were captured in Obsidian, redacted for sensitive details, then summarized in this Fiki.
             </p>
           </div>
@@ -1376,7 +738,8 @@
               <h4 class="text-base font-semibold text-sky-300">Artifacts Captured</h4>
               <ul class="space-y-2 text-sm text-slate-300 list-disc pl-5">
                 <li>Minute-by-minute transcripts (stored inline below) plus raw Obsidian exports.</li>
-                <li>Phone photos of whiteboards with Irina&rsquo;s queue filter sketch and Mihai&rsquo;s alert stack.</li>
+                <li>Phone photos of whiteboards with Irina&rsquo;s queue filter sketch and Mihai&rsquo;s alert stack.
+                </li>
                 <li>Updated `mainapp.png` dashboard callouts describing incident rail and Grafana links.</li>
                 <li>Queue management mockups featuring the runbook drawer and permission states requested.</li>
               </ul>
@@ -1397,16 +760,22 @@
                 <p class="text-sm text-slate-400">Protocol Engineer • LayerMint Rollups</p>
                 <p class="text-[11px] uppercase tracking-[0.3em] text-slate-500">Bucharest · 45 min · face-to-face</p>
               </div>
-              <p class="text-sm text-slate-300">Observation on 15 Nov at TechHub Bucharest. Irina was preparing a validator
+              <p class="text-sm text-slate-300">Observation on 15 Nov at TechHub Bucharest. Irina was preparing a
+                validator
                 upgrade with 9 observers streaming ~1,400 msgs/sec and two visiting researchers sharing her laptop.</p>
               <ul class="space-y-2 text-sm text-slate-300 list-disc pl-5">
-                <li>Wants a one-click “lock controls” state so temporary guests can view dashboards but cannot pause queues.</li>
-                <li>Needs inline glossary/tooltips for queue errors because she briefs junior ops over a noisy war-room.</li>
-                <li>Requested contextual Grafana links mapped to each queue so she can jump into her existing alert board.</li>
+                <li>Wants a one-click “lock controls” state so temporary guests can view dashboards but cannot pause
+                  queues.</li>
+                <li>Needs inline glossary/tooltips for queue errors because she briefs junior ops over a noisy war-room.
+                </li>
+                <li>Requested contextual Grafana links mapped to each queue so she can jump into her existing alert
+                  board.</li>
               </ul>
-              <p class="text-xs italic text-slate-400">"If I can&rsquo;t leave breadcrumbs for the next shift I just repeat
+              <p class="text-xs italic text-slate-400">"If I can&rsquo;t leave breadcrumbs for the next shift I just
+                repeat
                 the same ad-hoc fix ten times."</p>
-              <p class="text-[11px] text-slate-500">Actions: add locked state to the queue action bar + embed tooltip copy
+              <p class="text-[11px] text-slate-500">Actions: add locked state to the queue action bar + embed tooltip
+                copy
                 authored by Irina in the release notes.</p>
             </div>
             <div class="rounded-2xl border border-slate-800/70 bg-slate-950/40 p-6 space-y-4">
@@ -1415,16 +784,21 @@
                 <p class="text-sm text-slate-400">DevOps Lead • NodePilot Validators</p>
                 <p class="text-[11px] uppercase tracking-[0.3em] text-slate-500">Cluj · 60 min · face-to-face</p>
               </div>
-              <p class="text-sm text-slate-300">Met 16 Nov at ClujHUB. Mihai brought a printout of his Grafana wall and used a
+              <p class="text-sm text-slate-300">Met 16 Nov at ClujHUB. Mihai brought a printout of his Grafana wall and
+                used a
                 pen to mark which M3 tiles he ignored during on-call shifts.</p>
               <ul class="space-y-2 text-sm text-slate-300 list-disc pl-5">
-                <li>Needs queue depth sparklines on the primary tile with red/amber/green states visible without scrolling.</li>
+                <li>Needs queue depth sparklines on the primary tile with red/amber/green states visible without
+                  scrolling.</li>
                 <li>Insisted manual replay, drain, and acknowledge controls sit directly beside the related alert.</li>
-                <li>Confirmed NFT gating works if we let him delegate a hardware-wallet-controlled key to his automation bot.</li>
+                <li>Confirmed NFT gating works if we let him delegate a hardware-wallet-controlled key to his automation
+                  bot.</li>
               </ul>
-              <p class="text-xs italic text-slate-400">"During an incident nobody scrolls; important actions have to be on
+              <p class="text-xs italic text-slate-400">"During an incident nobody scrolls; important actions have to be
+                on
                 the same tile as the alert."</p>
-              <p class="text-[11px] text-slate-500">Actions: move sparklines above fold; add inline replay controls tied to
+              <p class="text-[11px] text-slate-500">Actions: move sparklines above fold; add inline replay controls tied
+                to
                 alert rows; expose delegated wallet handoff option.</p>
             </div>
             <div class="rounded-2xl border border-slate-800/70 bg-slate-950/40 p-6 space-y-4">
@@ -1433,16 +807,22 @@
                 <p class="text-sm text-slate-400">DAO Operations Lead • Aurora Commons</p>
                 <p class="text-[11px] uppercase tracking-[0.3em] text-slate-500">Bucharest · 40 min · face-to-face</p>
               </div>
-              <p class="text-sm text-slate-300">Followed Laura during a DAO governance prep session on 17 Nov. She reads BeaconX
+              <p class="text-sm text-slate-300">Followed Laura during a DAO governance prep session on 17 Nov. She reads
+                BeaconX
                 alerts next to a treasury spreadsheet and relays context to rotating volunteers.</p>
               <ul class="space-y-2 text-sm text-slate-300 list-disc pl-5">
-                <li>Needs curated summaries translating event language into treasury impact (missed SLAs, penalties, etc.).</li>
-                <li>Asked for shareable status links that expire so she can invite delegates without long-term access.</li>
-                <li>Flagged confusion between NFT redemption and workspace onboarding, especially for short-term delegates.</li>
+                <li>Needs curated summaries translating event language into treasury impact (missed SLAs, penalties,
+                  etc.).</li>
+                <li>Asked for shareable status links that expire so she can invite delegates without long-term access.
+                </li>
+                <li>Flagged confusion between NFT redemption and workspace onboarding, especially for short-term
+                  delegates.</li>
               </ul>
-              <p class="text-xs italic text-slate-400">"I forward alerts to five people and no one knows who owns it—give me
+              <p class="text-xs italic text-slate-400">"I forward alerts to five people and no one knows who owns
+                it—give me
                 a button that says &lsquo;assign to ops runbook&rsquo;."</p>
-              <p class="text-[11px] text-slate-500">Actions: add narrative summary field + quick “share read-only link” flow
+              <p class="text-[11px] text-slate-500">Actions: add narrative summary field + quick “share read-only link”
+                flow
                 that forces expiry selection.</p>
             </div>
           </div>
@@ -1457,22 +837,26 @@
           <ul class="space-y-3 text-slate-200 text-base">
             <li class="flex gap-3 items-start">
               <span class="text-sky-400 font-semibold flex-shrink-0">01</span>
-              <span><strong>Incident-first navigation:</strong> Anything related to replay/drain/assign must sit on the alert
+              <span><strong>Incident-first navigation:</strong> Anything related to replay/drain/assign must sit on the
+                alert
                 tile itself. Both engineers measured their “acceptable click budget” at two interactions.</span>
             </li>
             <li class="flex gap-3 items-start">
               <span class="text-sky-400 font-semibold flex-shrink-0">02</span>
-              <span><strong>Delegated NFT use:</strong> Teams accept NFT access only if temporary wallets or time-boxed links
+              <span><strong>Delegated NFT use:</strong> Teams accept NFT access only if temporary wallets or time-boxed
+                links
                 inherit the same audit log. This shaped the new “share read-only link” UX below.</span>
             </li>
             <li class="flex gap-3 items-start">
               <span class="text-sky-400 font-semibold flex-shrink-0">03</span>
-              <span><strong>Contextual storytelling:</strong> DAO ops need a short narrative (impact, owner, ETA) tied to each
+              <span><strong>Contextual storytelling:</strong> DAO ops need a short narrative (impact, owner, ETA) tied
+                to each
                 queue because they rarely understand RabbitMQ metrics.</span>
             </li>
             <li class="flex gap-3 items-start">
               <span class="text-sky-400 font-semibold flex-shrink-0">04</span>
-              <span><strong>Guided onboarding:</strong> On first login we must auto-suggest chains based on wallet history,
+              <span><strong>Guided onboarding:</strong> On first login we must auto-suggest chains based on wallet
+                history,
                 pull sample alerts, and spell out what the NFT entitlement covers.</span>
             </li>
           </ul>
@@ -1481,7 +865,8 @@
         <article class="space-y-6 rounded-3xl border border-slate-800 bg-slate-900/40 p-8">
           <div class="space-y-3">
             <h3 class="text-2xl font-semibold text-white">Primary Persona – Reliability Integration Lead</h3>
-            <p class="text-slate-300">Persona derived from interviews plus existing BeaconX data. This persona guides the
+            <p class="text-slate-300">Persona derived from interviews plus existing BeaconX data. This persona guides
+              the
               backlog until we add more segments.</p>
           </div>
           <div class="grid gap-6 md:grid-cols-3">
@@ -1499,7 +884,8 @@
             <div class="rounded-2xl border border-slate-800/70 bg-slate-950/40 p-6 space-y-2">
               <h4 class="text-sm font-semibold text-sky-300 uppercase tracking-[0.2em]">Goals & KPIs</h4>
               <ul class="space-y-2 text-sm text-slate-300">
-                <li>Keep block production incident-free during launches (target &lt;2 critical incidents per quarter).</li>
+                <li>Keep block production incident-free during launches (target &lt;2 critical incidents per quarter).
+                </li>
                 <li>Share status updates with DAO partners in under 5 minutes after an alert.</li>
                 <li>Reduce redundant infra spend by 30% via subscription NFTs instead of duplicate queues.</li>
                 <li>Coach junior staff through playbooks tied directly to the alert that paged them.</li>
@@ -1508,9 +894,12 @@
             <div class="rounded-2xl border border-slate-800/70 bg-slate-950/40 p-6 space-y-2">
               <h4 class="text-sm font-semibold text-sky-300 uppercase tracking-[0.2em]">Behaviors & Frustrations</h4>
               <ul class="space-y-2 text-sm text-slate-300">
-                <li>Triages incidents from Grafana first, then flips to BeaconX only when she needs to replay queues.</li>
-                <li>Frustrated when tooling hides causes behind multiple tabs or requires wallet re-auth mid-incident.</li>
-                <li>Wants to annotate incidents once, broadcast via shareable link, and never copy/paste screenshots.</li>
+                <li>Triages incidents from Grafana first, then flips to BeaconX only when she needs to replay queues.
+                </li>
+                <li>Frustrated when tooling hides causes behind multiple tabs or requires wallet re-auth mid-incident.
+                </li>
+                <li>Wants to annotate incidents once, broadcast via shareable link, and never copy/paste screenshots.
+                </li>
                 <li>Needs deterministic pricing and NFT scopes before convincing finance to add new chains.</li>
               </ul>
             </div>
@@ -1523,13 +912,17 @@
             <div class="space-y-4">
               <h4 class="text-sm font-semibold uppercase tracking-[0.3em] text-slate-400">Stories & Use Cases</h4>
               <ol class="space-y-3 text-slate-300 list-decimal pl-6 text-sm">
-                <li>As a reliability lead, after redeeming an access NFT I want BeaconX to auto-provision observer endpoints
+                <li>As a reliability lead, after redeeming an access NFT I want BeaconX to auto-provision observer
+                  endpoints
                   and send a sample event so I know I&rsquo;m live without filing a support ticket.</li>
-                <li>As a DevOps engineer I want manual replay, drain, and acknowledgement controls embedded on every alert so
+                <li>As a DevOps engineer I want manual replay, drain, and acknowledgement controls embedded on every
+                  alert so
                   I can resolve issues within 60 seconds without switching screens.</li>
-                <li>As a DAO operator I want a read-only incident timeline link that expires automatically so I can brief
+                <li>As a DAO operator I want a read-only incident timeline link that expires automatically so I can
+                  brief
                   stakeholders without granting them full workspace access.</li>
-                <li>As an infrastructure manager I want to issue 24-hour delegate credentials scoped to my NFT so auditors or
+                <li>As an infrastructure manager I want to issue 24-hour delegate credentials scoped to my NFT so
+                  auditors or
                   contractors can view queues without touching production keys.</li>
               </ol>
               <div>
@@ -1570,7 +963,8 @@
         <article class="space-y-6 rounded-3xl border border-slate-800 bg-slate-900/40 p-8">
           <div class="space-y-2">
             <h3 class="text-2xl font-semibold text-white">Updated Wireframes</h3>
-            <p class="text-slate-300">Wireframes incorporate the interview findings. The zoomable assets shown here now sit
+            <p class="text-slate-300">Wireframes incorporate the interview findings. The zoomable assets shown here now
+              sit
               inside the Fiki so future milestones inherit the same UX decisions.</p>
           </div>
           <div class="grid gap-6 lg:grid-cols-3">
@@ -1581,11 +975,14 @@
               <div class="space-y-2 text-sm text-slate-300">
                 <h4 class="text-base font-semibold text-white">Observer Control Center</h4>
                 <ul class="space-y-2 list-disc pl-5">
-                  <li><span class="text-sky-300 font-semibold">Incident rail:</span> priority pill + assignment button now sit
+                  <li><span class="text-sky-300 font-semibold">Incident rail:</span> priority pill + assignment button
+                    now sit
                     directly beside the alert per Mihai&rsquo;s “no scrolling during incidents” feedback.</li>
-                  <li><span class="text-sky-300 font-semibold">Context chips:</span> direct Grafana links pinned from Irina&rsquo;s
+                  <li><span class="text-sky-300 font-semibold">Context chips:</span> direct Grafana links pinned from
+                    Irina&rsquo;s
                     monitoring dashboard to reduce tool-switching.</li>
-                  <li><span class="text-sky-300 font-semibold">Delegation prompt:</span> share-link CTA under the queue header
+                  <li><span class="text-sky-300 font-semibold">Delegation prompt:</span> share-link CTA under the queue
+                    header
                     reflects Laura&rsquo;s request for time-boxed read-only access.</li>
                 </ul>
               </div>
@@ -1597,11 +994,14 @@
               <div class="space-y-2 text-sm text-slate-300">
                 <h4 class="text-base font-semibold text-white">Queue Management Drawer</h4>
                 <ul class="space-y-2 list-disc pl-5">
-                  <li><span class="text-sky-300 font-semibold">Runbook drawer:</span> positions playbook steps + ownership
+                  <li><span class="text-sky-300 font-semibold">Runbook drawer:</span> positions playbook steps +
+                    ownership
                     toggle exactly where Mihai marked them on his printout.</li>
-                  <li><span class="text-sky-300 font-semibold">Replay controls:</span> manual replay, throttle, and rollback
+                  <li><span class="text-sky-300 font-semibold">Replay controls:</span> manual replay, throttle, and
+                    rollback
                     options inline with the alert state to honor the “two-click budget.”</li>
-                  <li><span class="text-sky-300 font-semibold">Annotation footer:</span> structured summary field maps to
+                  <li><span class="text-sky-300 font-semibold">Annotation footer:</span> structured summary field maps
+                    to
                     Laura&rsquo;s treasury reports.</li>
                 </ul>
               </div>
@@ -1614,14 +1014,17 @@
                 <h4 class="text-base font-semibold text-white">System View Adjustments</h4>
                 <ul class="space-y-2 list-disc pl-5">
                   <li>Callouts explain how delegated NFTs propagate through Redis → RabbitMQ for auditing.</li>
-                  <li>Added checkpoints for the onboarding flow (wallet → observer squads → dApp) requested by Irina.</li>
-                  <li>Highlights annotation storage (Postgres sidecar) so ops can retrieve Laura&rsquo;s narratives later.</li>
+                  <li>Added checkpoints for the onboarding flow (wallet → observer squads → dApp) requested by Irina.
+                  </li>
+                  <li>Highlights annotation storage (Postgres sidecar) so ops can retrieve Laura&rsquo;s narratives
+                    later.</li>
                 </ul>
               </div>
             </figure>
           </div>
           <div class="rounded-2xl border border-slate-800/70 bg-slate-950/40 p-6">
-            <p class="text-sm text-slate-300">Together these deliverables close Milestone M4. The UX backlog is now tied to
+            <p class="text-sm text-slate-300">Together these deliverables close Milestone M4. The UX backlog is now tied
+              to
               concrete interview evidence, and the Fiki captures every artifact needed for reviewers.</p>
           </div>
         </article>
@@ -1629,21 +1032,271 @@
       </div>
     </section>
 
-    <!-- Milestone M5 Section - Coming Soon -->
-    <section id="m5" class="fade-section py-32 flex items-center justify-center" style="min-height: 60vh;">
-      <div class="mx-auto max-w-6xl px-6 text-center">
-        <div class="inline-flex items-center gap-3 mb-6">
-          <span class="milestone-badge">Milestone M5</span>
+    <!-- Milestone M3 Section - Prototype -->
+    <section id="m3" class="fade-section py-20 show">
+      <div class="mx-auto max-w-6xl px-6 space-y-16">
+
+        <!-- M3 Header -->
+        <div class="space-y-6">
+          <div class="inline-flex items-center gap-3">
+            <span class="milestone-badge">Milestone M3</span>
+            <span class="text-xs font-semibold uppercase tracking-[0.25em] text-slate-400">10.11.25 · The Build</span>
+          </div>
+          <h2 class="text-4xl font-bold text-white md:text-5xl">Validation 2: The Prototype</h2>
+          <p class="text-lg text-slate-300 max-w-3xl">
+            No more slides. We needed to prove this actually works. We spent two weeks hacking together a prototype that
+            could handle real mainnet traffic without falling over.
+          </p>
         </div>
-        <div class="flex items-center justify-center gap-4 mb-6">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 text-sky-300" fill="none" viewBox="0 0 24 24"
-            stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-              d="M12 6v6l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-          </svg>
+
+        <!-- The Architecture -->
+        <article class="space-y-6 rounded-3xl border border-slate-800 bg-slate-900/40 p-8">
+          <h3 class="text-2xl font-semibold text-white">The Stack</h3>
+          <p class="text-slate-300">
+            We kept it boring. Boring is good when you're dealing with money and data.
+          </p>
+          <div class="grid gap-8 md:grid-cols-2 items-center">
+            <div class="space-y-4">
+              <ul class="space-y-3 text-slate-300">
+                <li class="flex gap-3 items-start">
+                  <span class="text-sky-400 font-bold">1.</span>
+                  <span><strong>The Nodes:</strong> Just standard Go nodes. We run them in pairs because they
+                    crash.</span>
+                </li>
+                <li class="flex gap-3 items-start">
+                  <span class="text-sky-400 font-bold">2.</span>
+                  <span><strong>The Pipes:</strong> RabbitMQ. It's old, it's heavy, but it doesn't lose messages.</span>
+                </li>
+                <li class="flex gap-3 items-start">
+                  <span class="text-sky-400 font-bold">3.</span>
+                  <span><strong>The Gate:</strong> A simple API that checks if you hold the NFT. If yes, you get the
+                    stream.</span>
+                </li>
+              </ul>
+            </div>
+            <div class="rounded-2xl border border-slate-800/60 bg-slate-900/60 p-2">
+              <img src="Eventsnotifierarhitecture.jpg" alt="BeaconX Architecture Diagram"
+                class="w-full rounded-xl object-cover cursor-zoom-in zoomable"
+                data-zoom-src="Eventsnotifierarhitecture.jpg" tabindex="0">
+            </div>
+          </div>
+        </article>
+
+        <!-- The Dashboard -->
+        <article class="space-y-6 rounded-3xl border border-slate-800 bg-slate-900/40 p-8">
+          <h3 class="text-2xl font-semibold text-white">The Interface</h3>
+          <p class="text-slate-300">
+            We built a dashboard. It's not winning any design awards yet, but it lets you spin up a queue and see your
+            data flowing. That's all that matters right now.
+          </p>
+          <div class="grid gap-6 md:grid-cols-2">
+            <figure class="space-y-3">
+              <img src="mainapp.png" alt="Main Dashboard View"
+                class="w-full rounded-xl border border-slate-700 cursor-zoom-in zoomable" data-zoom-src="mainapp.png"
+                tabindex="0">
+              <figcaption class="text-xs text-center text-slate-400">It works.</figcaption>
+            </figure>
+            <figure class="space-y-3">
+              <img src="mainappqueuemanagement.png" alt="Queue Management View"
+                class="w-full rounded-xl border border-slate-700 cursor-zoom-in zoomable"
+                data-zoom-src="mainappqueuemanagement.png" tabindex="0">
+              <figcaption class="text-xs text-center text-slate-400">Queue controls.</figcaption>
+            </figure>
+          </div>
+        </article>
+
+        <!-- The Landing Page -->
+        <article class="space-y-6 rounded-3xl border border-slate-800 bg-slate-900/40 p-8">
+          <h3 class="text-2xl font-semibold text-white">Public Launch</h3>
+          <p class="text-slate-300">
+            We pushed <a href="https://beaconx.app" class="text-sky-400 hover:underline">beaconx.app</a> live. It's the
+            bare minimum to explain what we do and get people to the docs.
+          </p>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- Milestone M4 Section - Refinement -->
+    <section id="m4" class="fade-section py-20 bg-slate-900/20 show">
+      <div class="mx-auto max-w-6xl px-6 space-y-16">
+
+        <!-- M4 Header -->
+        <div class="space-y-6">
+          <div class="inline-flex items-center gap-3">
+            <span class="milestone-badge">Milestone M4</span>
+            <span class="text-xs font-semibold uppercase tracking-[0.25em] text-slate-400">24.11.25 · The Reality
+              Check</span>
+          </div>
+          <h2 class="text-4xl font-bold text-white md:text-5xl">Validation 3: The Refinement</h2>
+          <p class="text-lg text-slate-300 max-w-3xl">
+            We showed the prototype to a few infrastructure engineers. They didn't care about the UI. They cared about
+            what happens when things break.
+          </p>
         </div>
-        <h2 class="text-4xl font-bold text-white mb-4">Coming Soon</h2>
-        <p class="text-lg text-slate-400">Milestone M5 content will be added as the project progresses.</p>
+
+        <!-- The Feedback -->
+        <article class="space-y-6 rounded-3xl border border-slate-800 bg-slate-900/60 p-8">
+          <h3 class="text-2xl font-semibold text-white">The "Alex" Test</h3>
+          <p class="text-slate-300">
+            We tested with "Alex" (a real reliability engineer). He didn't ask about pricing. He asked: <strong>"What
+              happens when I lose my keys?"</strong> and <strong>"How do I prove it's your fault when the stream
+              dies?"</strong>
+          </p>
+          <p class="text-slate-300">
+            He was right. We were missing the safety features that make this usable in production.
+          </p>
+        </article>
+
+        <!-- What We Fixed -->
+        <article class="space-y-6 rounded-3xl border border-slate-800 bg-slate-900/40 p-8">
+          <h3 class="text-2xl font-semibold text-white">The Fixes</h3>
+          <div class="space-y-4">
+            <div
+              class="p-6 rounded-2xl border border-indigo-900/30 bg-gradient-to-br from-indigo-950/20 to-slate-900/70">
+              <h5 class="text-sm font-semibold text-indigo-300 mb-3">1. Emergency Key Rotation</h5>
+              <p class="text-sm text-slate-300 leading-relaxed">
+                Alex pointed out that if a wallet is compromised, the stream is dead. We added a "Panic Button" to
+                revoke keys instantly without moving the NFT.
+              </p>
+            </div>
+            <div
+              class="p-6 rounded-2xl border border-indigo-900/30 bg-gradient-to-br from-indigo-950/20 to-slate-900/70">
+              <h5 class="text-sm font-semibold text-indigo-300 mb-3">2. The "Blame" Logs</h5>
+              <p class="text-sm text-slate-300 leading-relaxed">
+                Engineers need to know who to blame. We added a detailed connection log so they can see exactly when
+                *their* client disconnected vs. when *our* server dropped them.
+              </p>
+            </div>
+            <div
+              class="p-6 rounded-2xl border border-indigo-900/30 bg-gradient-to-br from-indigo-950/20 to-slate-900/70">
+              <h5 class="text-sm font-semibold text-indigo-300 mb-3">3. Visual Auth Path</h5>
+              <p class="text-sm text-slate-300 leading-relaxed">
+                It wasn't clear if the NFT was actually doing anything. We added a visual indicator showing the
+                permission propagating from Chain → Redis → RabbitMQ. It's satisfying to watch.
+              </p>
+            </div>
+          </div>
+        </article>
+
+        <!-- Conclusion -->
+        <article class="space-y-6 rounded-3xl border border-slate-800 bg-slate-900/40 p-8">
+          <h3 class="text-2xl font-semibold text-white">Ready?</h3>
+          <p class="text-slate-300 leading-relaxed">
+            Alex is happy(ish). That means we're ready for real users.
+          </p>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- Milestone M5 Section - Lead Generation -->
+    <section id="m5" class="fade-section py-20 show">
+      <div class="mx-auto max-w-6xl px-6 space-y-16">
+
+        <!-- M5 Header -->
+        <div class="space-y-6">
+          <div class="inline-flex items-center gap-3">
+            <span class="milestone-badge">Milestone M5</span>
+            <span class="text-xs font-semibold uppercase tracking-[0.25em] text-slate-400">Validation 2 ·
+              03.12.25</span>
+          </div>
+          <h2 class="text-4xl font-bold text-white md:text-5xl">Validation Campaign</h2>
+          <p class="text-lg text-slate-300 max-w-3xl">
+            Validating market interest and refining our messaging through targeted community outreach and engagement
+            analysis.
+          </p>
+        </div>
+
+        <!-- Campaign Documentation -->
+        <article class="space-y-8 rounded-3xl border border-slate-800 bg-slate-900/40 p-8">
+          <h3 class="text-2xl font-semibold text-white">Lead Generation Campaign</h3>
+
+          <div class="grid gap-8 md:grid-cols-2">
+            <div class="space-y-6">
+              <h4 class="text-lg font-semibold text-sky-300">Social Media Strategy</h4>
+              <p class="text-slate-300 text-sm">
+                We focused our outreach on high-signal channels: <strong>X (Twitter)</strong> for broad announcements
+                and <strong>Telegram</strong> for direct community engagement.
+              </p>
+
+              <div class="space-y-4">
+                <!-- Real Tweet 1 -->
+                <div class="rounded-xl border border-slate-700 bg-slate-950/50 p-2">
+                  <img src="tweet-update.png" alt="BeaconX Update Tweet"
+                    class="w-full rounded-lg opacity-90 hover:opacity-100 transition-opacity cursor-zoom-in zoomable"
+                    data-zoom-src="tweet-update.png">
+                </div>
+
+                <!-- Real Tweet 2 -->
+                <div class="rounded-xl border border-slate-700 bg-slate-950/50 p-2">
+                  <img src="tweet-campaign.png" alt="BeaconX Campaign Tweet"
+                    class="w-full rounded-lg opacity-90 hover:opacity-100 transition-opacity cursor-zoom-in zoomable"
+                    data-zoom-src="tweet-campaign.png">
+                </div>
+
+                <!-- Real Tweet 3 (Reply) -->
+                <div class="rounded-xl border border-slate-700 bg-slate-950/50 p-2">
+                  <img src="tweet-reply-razvan.png" alt="Community Reply"
+                    class="w-full rounded-lg opacity-90 hover:opacity-100 transition-opacity cursor-zoom-in zoomable"
+                    data-zoom-src="tweet-reply-razvan.png">
+                </div>
+
+
+              </div>
+            </div>
+
+            <div class="space-y-4">
+              <h4 class="text-lg font-semibold text-sky-300">Channel Performance</h4>
+              <p class="text-slate-300 text-sm">
+                Early validation metrics from our November-December 2025 campaign push.
+              </p>
+
+              <div class="overflow-hidden rounded-xl border border-slate-700">
+                <table class="w-full text-sm text-left text-slate-300">
+                  <thead class="text-xs uppercase bg-slate-800 text-slate-400">
+                    <tr>
+                      <th scope="col" class="px-6 py-3">Channel</th>
+                      <th scope="col" class="px-6 py-3">Traffic</th>
+                      <th scope="col" class="px-6 py-3">Leads</th>
+                      <th scope="col" class="px-6 py-3">Conv. Rate</th>
+                    </tr>
+                  </thead>
+                  <tbody class="divide-y divide-slate-700 bg-slate-900/50">
+                    <tr class="hover:bg-slate-800/50">
+                      <td class="px-6 py-4 font-medium text-white">X (Twitter)</td>
+                      <td class="px-6 py-4">42</td>
+                      <td class="px-6 py-4">1</td>
+                      <td class="px-6 py-4 text-amber-400">2.3%</td>
+                    </tr>
+                    <tr class="hover:bg-slate-800/50">
+                      <td class="px-6 py-4 font-medium text-white">Telegram Groups</td>
+                      <td class="px-6 py-4">28</td>
+                      <td class="px-6 py-4">2</td>
+                      <td class="px-6 py-4 text-emerald-400">7.1%</td>
+                    </tr>
+                    <tr class="hover:bg-slate-800/50">
+                      <td class="px-6 py-4 font-medium text-white">Direct</td>
+                      <td class="px-6 py-4">12</td>
+                      <td class="px-6 py-4">0</td>
+                      <td class="px-6 py-4 text-slate-400">0%</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <div class="p-4 rounded-xl bg-slate-800/50 border border-slate-700">
+                <h5 class="text-sm font-semibold text-white mb-2">Key Insight</h5>
+                <p class="text-xs text-slate-300">
+                  <strong>Telegram</strong> proved more effective for high-intent leads despite lower volume. <strong>X
+                    (Twitter)</strong> drove awareness but conversion was lower. We are seeing a realistic conversion
+                  rate for early-stage validation with ~3 qualified leads from ~80 total visitors.
+                </p>
+              </div>
+            </div>
+          </div>
+        </article>
+
       </div>
     </section>
 

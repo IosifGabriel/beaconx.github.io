@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BeaconX Pitch</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            overflow: hidden;
+        }
+
+        .slide {
+            display: none;
+            height: 100vh;
+            width: 100vw;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        .slide.active {
+            display: flex;
+            opacity: 1;
+            z-index: 10;
+        }
+
+        .bg-grid {
+            background-image: radial-gradient(circle at 1px 1px, rgba(148, 163, 184, 0.08) 1px, transparent 0);
+            background-size: 32px 32px;
+        }
+
+        .zoomable {
+            transition: transform 0.3s ease;
+            cursor: zoom-in;
+        }
+
+        .zoomable:hover {
+            transform: scale(1.02);
+        }
+    </style>
+</head>
+
+<body class="bg-slate-950 text-slate-100 font-sans antialiased selection:bg-sky-500/30">
+
+    <!-- Background Elements -->
+    <div class="fixed inset-0 bg-grid opacity-40 pointer-events-none"></div>
+    <div class="fixed inset-0 bg-gradient-to-b from-transparent via-slate-950/50 to-slate-950 pointer-events-none">
+    </div>
+
+    <!-- Navigation Controls -->
+    <div class="fixed bottom-8 right-8 z-50 flex gap-4">
+        <button onclick="prevSlide()"
+            class="p-3 rounded-full bg-slate-800/50 hover:bg-sky-500/20 text-slate-400 hover:text-sky-400 border border-slate-700 hover:border-sky-500/50 transition-all backdrop-blur-sm">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+            </svg>
+        </button>
+        <button onclick="nextSlide()"
+            class="p-3 rounded-full bg-slate-800/50 hover:bg-sky-500/20 text-slate-400 hover:text-sky-400 border border-slate-700 hover:border-sky-500/50 transition-all backdrop-blur-sm">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+            </svg>
+        </button>
+    </div>
+
+    <!-- Slide Counter -->
+    <div class="fixed bottom-8 left-8 z-50 text-slate-500 font-mono text-sm">
+        <span id="current-slide">1</span> / <span id="total-slides">10</span>
+    </div>
+
+    <!-- Slide 1: Title -->
+    <section class="slide active" id="slide-1">
+        <div class="max-w-5xl w-full text-center space-y-8">
+            <div
+                class="inline-flex items-center gap-2 rounded-full border border-slate-800 bg-slate-900/60 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-sky-400 mb-4">
+                Project Pitch
+            </div>
+            <h1 class="text-7xl font-bold text-white tracking-tight mb-4">
+                BeaconX
+            </h1>
+            <p class="text-3xl text-slate-300 font-light">
+                NFT-Gated Event Streaming Infrastructure
+            </p>
+            <div class="pt-12 flex justify-center gap-12 text-slate-400">
+                <div class="text-center">
+                    <div
+                        class="w-20 h-20 mx-auto bg-slate-800 rounded-2xl mb-3 overflow-hidden border border-slate-700">
+                        <img src="9d2b06d3-29f5-47b1-96bf-ae1598e8a8d7.jpeg"
+                            class="w-full h-full object-cover opacity-80" alt="Gabriel">
+                    </div>
+                    <p class="font-semibold text-slate-200">Gabriel Iosif</p>
+                    <p class="text-xs uppercase tracking-wider">CTO/CEO</p>
+                </div>
+                <div class="text-center">
+                    <div
+                        class="w-20 h-20 mx-auto bg-slate-800 rounded-2xl mb-3 overflow-hidden border border-slate-700">
+                        <img src="ilie-david.jpg" class="w-full h-full object-cover opacity-80" alt="David">
+                    </div>
+                    <p class="font-semibold text-slate-200">David Ilie</p>
+                    <p class="text-xs uppercase tracking-wider">COO/CIO</p>
+                </div>
+                <div class="text-center">
+                    <div
+                        class="w-20 h-20 mx-auto bg-slate-800 rounded-2xl mb-3 overflow-hidden border border-slate-700">
+                        <img src="StefanRadulescu.png" class="w-full h-full object-cover opacity-80" alt="Stefan">
+                    </div>
+                    <p class="font-semibold text-slate-200">Stefan Radulescu</p>
+                    <p class="text-xs uppercase tracking-wider">Developer</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 2: Our Story (Origin) -->
+    <section class="slide" id="slide-2">
+        <div class="max-w-6xl w-full grid grid-cols-2 gap-16 items-center">
+            <div class="space-y-8">
+                <h2 class="text-5xl font-bold text-white">Our Story</h2>
+                <p class="text-2xl text-slate-300 leading-relaxed">
+                    We are developers building products on MultiversX.
+                </p>
+                <div class="space-y-6 text-lg text-slate-400">
+                    <p>
+                        We built robust infrastructure for our own dApps because we needed reliability.
+                    </p>
+                    <p>
+                        Then we realized: <strong class="text-white">Why not sell the underlying infra?</strong>
+                    </p>
+                    <p>
+                        For others, running redundant nodes and backups is a <span
+                            class="text-red-400 font-semibold">huge waste of resources</span>. By sharing our stack, we
+                        cut costs for everyone.
+                    </p>
+                </div>
+            </div>
+            <div class="relative">
+                <div class="absolute inset-0 bg-indigo-500/20 blur-[100px] rounded-full"></div>
+                <div class="relative grid grid-cols-2 gap-4">
+                    <div class="p-6 rounded-2xl border border-slate-700 bg-slate-900/80 backdrop-blur-sm">
+                        <div class="text-4xl mb-2">🛠️</div>
+                        <h3 class="font-bold text-white">Builders</h3>
+                        <p class="text-sm text-slate-400">We code daily.</p>
+                    </div>
+                    <div class="p-6 rounded-2xl border border-slate-700 bg-slate-900/80 backdrop-blur-sm mt-8">
+                        <div class="text-4xl mb-2">⚡</div>
+                        <h3 class="font-bold text-white">Power Users</h3>
+                        <p class="text-sm text-slate-400">We use what we sell.</p>
+                    </div>
+                    <div class="p-6 rounded-2xl border border-slate-700 bg-slate-900/80 backdrop-blur-sm">
+                        <div class="text-4xl mb-2">📉</div>
+                        <h3 class="font-bold text-white">Stop Waste</h3>
+                        <p class="text-sm text-slate-400">No more idle backups.</p>
+                    </div>
+                    <div class="p-6 rounded-2xl border border-slate-700 bg-slate-900/80 backdrop-blur-sm mt-8">
+                        <div class="text-4xl mb-2">🚀</div>
+                        <h3 class="font-bold text-white">Public Access</h3>
+                        <p class="text-sm text-slate-400">Open for everyone.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 3: The Product (BeaconX) -->
+    <section class="slide" id="slide-3">
+        <div class="max-w-6xl w-full text-center space-y-12">
+            <div>
+                <h2 class="text-6xl font-bold text-white mb-6">BeaconX</h2>
+                <p class="text-2xl text-slate-300 max-w-3xl mx-auto">
+                    The first thing we give users is access to <span class="text-sky-400 font-semibold">real-time
+                        blockchain events</span>.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-3 gap-8 text-left">
+                <div
+                    class="p-8 rounded-3xl border border-slate-800 bg-slate-900/40 hover:border-sky-500/30 transition-colors group">
+                    <div
+                        class="w-12 h-12 rounded-xl bg-sky-500/10 flex items-center justify-center text-sky-400 mb-6 group-hover:scale-110 transition-transform">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-2">Swaps</h3>
+                    <p class="text-slate-400">Instant notifications for DEX trades and liquidity changes.</p>
+                </div>
+
+                <div
+                    class="p-8 rounded-3xl border border-slate-800 bg-slate-900/40 hover:border-sky-500/30 transition-colors group">
+                    <div
+                        class="w-12 h-12 rounded-xl bg-sky-500/10 flex items-center justify-center text-sky-400 mb-6 group-hover:scale-110 transition-transform">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M13 10V3L4 14h7v7l9-11h-7z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-2">Transactions</h3>
+                    <p class="text-slate-400">Monitor payments, smart contract calls, and value transfers.</p>
+                </div>
+
+                <div
+                    class="p-8 rounded-3xl border border-slate-800 bg-slate-900/40 hover:border-sky-500/30 transition-colors group">
+                    <div
+                        class="w-12 h-12 rounded-xl bg-sky-500/10 flex items-center justify-center text-sky-400 mb-6 group-hover:scale-110 transition-transform">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-2">Smart Contracts</h3>
+                    <p class="text-slate-400">Listen to specific log events from any deployed contract.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 4: Crypto Subscriptions (Technical Flow) -->
+    <section class="slide" id="slide-4">
+        <div class="max-w-6xl w-full space-y-12">
+            <div class="text-center">
+                <h2 class="text-5xl font-bold text-white mb-4">Crypto Subscriptions</h2>
+                <p class="text-xl text-slate-400">The easiest way to monetize: NFT-based Access.</p>
+            </div>
+
+            <div class="relative p-10 rounded-3xl border border-slate-800 bg-slate-900/50">
+                <div class="flex items-start justify-between gap-6">
+
+                    <!-- Step 1 -->
+                    <div class="flex-1 space-y-4 text-center relative">
+                        <div
+                            class="w-16 h-16 mx-auto rounded-full bg-emerald-500/20 flex items-center justify-center text-emerald-400 text-2xl border border-emerald-500/30">
+                            1</div>
+                        <h3 class="font-bold text-white text-lg">Mint NFT</h3>
+                        <p class="text-sm text-slate-400">User creates subscription. Metadata added on-chain.</p>
+                    </div>
+
+                    <!-- Arrow -->
+                    <div class="pt-6 text-slate-600">➜</div>
+
+                    <!-- Step 2 -->
+                    <div class="flex-1 space-y-4 text-center relative">
+                        <div
+                            class="w-16 h-16 mx-auto rounded-full bg-blue-500/20 flex items-center justify-center text-blue-400 text-2xl border border-blue-500/30">
+                            2</div>
+                        <h3 class="font-bold text-white text-lg">Sync DB</h3>
+                        <p class="text-sm text-slate-400">Info saved to database for visibility & speed.</p>
+                    </div>
+
+                    <!-- Arrow -->
+                    <div class="pt-6 text-slate-600">➜</div>
+
+                    <!-- Step 3 -->
+                    <div class="flex-1 space-y-4 text-center relative">
+                        <div
+                            class="w-16 h-16 mx-auto rounded-full bg-purple-500/20 flex items-center justify-center text-purple-400 text-2xl border border-purple-500/30">
+                            3</div>
+                        <h3 class="font-bold text-white text-lg">The Watcher</h3>
+                        <p class="text-sm text-slate-400">Cronjob monitors ownership & expiry.</p>
+                    </div>
+
+                    <!-- Arrow -->
+                    <div class="pt-6 text-slate-600">➜</div>
+
+                    <!-- Step 4 -->
+                    <div class="flex-1 space-y-4 text-center relative">
+                        <div
+                            class="w-16 h-16 mx-auto rounded-full bg-red-500/20 flex items-center justify-center text-red-400 text-2xl border border-red-500/30">
+                            4</div>
+                        <h3 class="font-bold text-white text-lg">Enforce</h3>
+                        <ul
+                            class="text-xs text-left text-slate-400 space-y-2 bg-slate-950/50 p-3 rounded-lg border border-slate-800">
+                            <li class="flex gap-2">
+                                <span class="text-amber-400">⚡</span>
+                                <span><strong>Changed Hands?</strong><br>Rotate password.</span>
+                            </li>
+                            <li class="flex gap-2">
+                                <span class="text-red-400">⛔</span>
+                                <span><strong>Expired?</strong><br>Disconnect queue.</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 5: Validation Overview -->
+    <section class="slide" id="slide-5">
+        <div class="max-w-6xl w-full space-y-12">
+            <h2 class="text-5xl font-bold text-white text-center">Validation Journey</h2>
+
+            <div class="grid grid-cols-2 gap-8">
+                <!-- Discovery -->
+                <div class="p-8 rounded-3xl border border-slate-800 bg-slate-900/40 space-y-4">
+                    <div class="text-xs font-bold uppercase tracking-widest text-slate-500">Phase 1</div>
+                    <h3 class="text-2xl font-bold text-white">Outreach</h3>
+                    <p class="text-slate-300">Local Crypto Conferences & Telegram Groups.</p>
+                    <ul class="text-sm text-slate-400 space-y-2 list-disc pl-4">
+                        <li>Spoke at local meetups.</li>
+                        <li>Pitched: "Want this for a <strong>fraction of the cost</strong>?"</li>
+                        <li>Response: "Yes, running my own infra is too expensive."</li>
+                    </ul>
+                </div>
+
+                <!-- Prototype -->
+                <div class="p-8 rounded-3xl border border-slate-800 bg-slate-900/40 space-y-4">
+                    <div class="text-xs font-bold uppercase tracking-widest text-slate-500">Phase 2</div>
+                    <h3 class="text-2xl font-bold text-white">Prototype</h3>
+                    <p class="text-slate-300">Built & tested the core stack.</p>
+                    <ul class="text-sm text-slate-400 space-y-2 list-disc pl-4">
+                        <li>Go + RabbitMQ implementation</li>
+                        <li>Handled mainnet traffic</li>
+                        <li>Basic dashboard launched</li>
+                    </ul>
+                </div>
+            </div>
+            <p class="text-center text-slate-400 animate-pulse">Evidence on next slides ↓</p>
+        </div>
+    </section>
+
+    <!-- Slide 6: Evidence - Discovery -->
+    <section class="slide" id="slide-6">
+        <div class="max-w-6xl w-full space-y-8">
+            <div class="text-center">
+                <div
+                    class="inline-flex items-center gap-2 rounded-full border border-slate-800 bg-slate-900/60 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-sky-400 mb-4">
+                    Phase 1: Discovery
+                </div>
+                <h2 class="text-5xl font-bold text-white">They Asked For It</h2>
+                <p class="text-xl text-slate-400 mt-4">Direct feedback from local events and developer groups.</p>
+            </div>
+
+            <div class="grid grid-cols-2 gap-8 mt-8">
+                <div class="space-y-4">
+                    <div class="rounded-2xl border border-slate-700 bg-slate-900/80 p-2 shadow-xl">
+                        <img src="m2-customer-question.png" class="w-full rounded-xl" alt="Customer Question">
+                    </div>
+                    <p class="text-center text-sm text-slate-400">"Should I keep polling smart contracts or use you?"
+                    </p>
+                </div>
+                <div class="space-y-4">
+                    <div class="rounded-2xl border border-slate-700 bg-slate-900/80 p-2 shadow-xl">
+                        <img src="m2-infrastructure-feedback.png" class="w-full rounded-xl"
+                            alt="Infrastructure Feedback">
+                    </div>
+                    <p class="text-center text-sm text-slate-400">"Maintaining this myself is a nightmare."</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 7: Evidence - Feedback -->
+    <section class="slide" id="slide-7">
+        <div class="max-w-6xl w-full space-y-8">
+            <div class="text-center">
+                <div
+                    class="inline-flex items-center gap-2 rounded-full border border-slate-800 bg-slate-900/60 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-sky-400 mb-4">
+                    Phase 2: Feedback
+                </div>
+                <h2 class="text-5xl font-bold text-white">Real Feedback</h2>
+                <p class="text-xl text-slate-400 mt-4">Users are happy, but they want more features.</p>
+            </div>
+
+            <div class="grid grid-cols-2 gap-8 mt-8">
+                <div class="space-y-4">
+                    <div class="rounded-2xl border border-emerald-900/50 bg-slate-900/80 p-2 shadow-xl">
+                        <img src="m2-beta-feedback.png" class="w-full rounded-xl" alt="Positive Feedback">
+                    </div>
+                    <p class="text-center text-sm text-emerald-400 font-semibold">"You made my weekend."</p>
+                </div>
+                <div class="space-y-4">
+                    <div class="rounded-2xl border border-slate-700 bg-slate-900/80 p-2 shadow-xl">
+                        <img src="m2-followup-limits.png" class="w-full rounded-xl" alt="Feature Request">
+                    </div>
+                    <p class="text-center text-sm text-slate-400">Feature requests driving our roadmap.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 8: Evidence - Market -->
+    <section class="slide" id="slide-8">
+        <div class="max-w-6xl w-full space-y-8">
+            <div class="text-center">
+                <div
+                    class="inline-flex items-center gap-2 rounded-full border border-slate-800 bg-slate-900/60 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-sky-400 mb-4">
+                    Phase 3: Market
+                </div>
+                <h2 class="text-5xl font-bold text-white">Market Interest</h2>
+                <p class="text-xl text-slate-400 mt-4">Campaigns are driving real leads.</p>
+            </div>
+
+            <div class="grid grid-cols-2 gap-8 mt-8 items-center">
+                <div class="space-y-4">
+                    <div class="rounded-2xl border border-slate-700 bg-slate-900/80 p-2 shadow-xl rotate-[-2deg]">
+                        <img src="tweet-campaign.png" class="w-full rounded-xl" alt="Campaign Tweet">
+                    </div>
+                </div>
+                <div class="space-y-8">
+                    <div class="rounded-2xl border border-slate-700 bg-slate-900/80 p-2 shadow-xl rotate-[2deg]">
+                        <img src="tweet-reply-razvan.png" class="w-full rounded-xl" alt="Community Reply">
+                    </div>
+                    <div class="p-6 rounded-2xl border border-emerald-900/30 bg-emerald-950/10 text-center">
+                        <p class="text-sm text-slate-400 uppercase tracking-widest mb-2">Telegram Conversion Rate</p>
+                        <p class="text-4xl font-bold text-emerald-400">7.1%</p>
+                        <p class="text-xs text-slate-500 mt-2">High intent leads from community groups</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 9: Business Model -->
+    <section class="slide" id="slide-9">
+        <div class="max-w-5xl w-full grid grid-cols-2 gap-16 items-center">
+            <div class="space-y-8">
+                <h2 class="text-5xl font-bold text-white">Business Model</h2>
+                <p class="text-xl text-slate-400">Sustainable infrastructure with crypto-native monetization.</p>
+
+                <div class="space-y-6">
+                    <div class="p-6 rounded-2xl border border-emerald-900/30 bg-emerald-950/10">
+                        <h3 class="text-xl font-bold text-emerald-400 mb-2">Revenue</h3>
+                        <ul class="space-y-2 text-slate-300">
+                            <li class="flex justify-between">
+                                <span>Monthly Subscriptions</span>
+                                <span class="font-mono text-emerald-400">$50-100/mo</span>
+                            </li>
+                            <li class="flex justify-between">
+                                <span>NFT Royalties</span>
+                                <span class="font-mono text-emerald-400">5%</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="p-6 rounded-2xl border border-slate-800 bg-slate-900/40">
+                        <h3 class="text-xl font-bold text-slate-200 mb-2">Costs</h3>
+                        <ul class="space-y-2 text-slate-400">
+                            <li class="flex justify-between">
+                                <span>Infrastructure (DO)</span>
+                                <span class="font-mono">~$200/mo</span>
+                            </li>
+                            <li class="flex justify-between">
+                                <span>Maintenance</span>
+                                <span class="font-mono">~10h/mo</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="flex items-center justify-center">
+                <div class="relative w-64 h-64">
+                    <div class="absolute inset-0 bg-emerald-500/20 blur-[80px] rounded-full"></div>
+                    <div
+                        class="relative bg-slate-900 border border-slate-800 rounded-3xl p-6 flex flex-col items-center justify-center h-full shadow-2xl">
+                        <div class="text-6xl mb-4">💎</div>
+                        <div class="text-2xl font-bold text-white">Access NFT</div>
+                        <div class="text-sm text-slate-400 mt-2">Valid until Dec 2025</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 10: Conclusion -->
+    <section class="slide" id="slide-10">
+        <div class="max-w-4xl w-full text-center space-y-12">
+            <h2 class="text-6xl font-bold text-white">Ready for Mainnet</h2>
+            <p class="text-2xl text-slate-300">
+                We have the tech, the validation, and the customers.
+            </p>
+
+            <div class="grid grid-cols-2 gap-8 text-left max-w-2xl mx-auto">
+                <a href="https://beaconx.app" target="_blank"
+                    class="group p-6 rounded-2xl border border-slate-800 bg-slate-900/60 hover:border-sky-500/50 transition-all">
+                    <h3 class="text-xl font-bold text-white group-hover:text-sky-400 transition-colors">beaconx.app</h3>
+                    <p class="text-slate-400 mt-2">Live App</p>
+                </a>
+                <div class="p-6 rounded-2xl border border-slate-800 bg-slate-900/60">
+                    <h3 class="text-xl font-bold text-white">Fiki</h3>
+                    <p class="text-slate-400 mt-2">Our "Fancy Wiki" Documentation</p>
+                </div>
+            </div>
+
+            <div class="pt-12">
+                <p class="text-slate-500 uppercase tracking-[0.5em] text-sm">Thank You</p>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        let currentSlide = 1;
+        const totalSlides = 10;
+
+        function showSlide(n) {
+            // Hide all slides
+            document.querySelectorAll('.slide').forEach(s => {
+                s.classList.remove('active');
+                s.style.opacity = '0';
+                setTimeout(() => {
+                    if (!s.classList.contains('active')) s.style.display = 'none';
+                }, 500);
+            });
+
+            // Update current index
+            currentSlide = n;
+            if (currentSlide > totalSlides) currentSlide = 1;
+            if (currentSlide < 1) currentSlide = totalSlides;
+
+            // Show new slide
+            const slide = document.getElementById(`slide-${currentSlide}`);
+            slide.style.display = 'flex';
+            // Small delay to allow display:flex to apply before opacity transition
+            setTimeout(() => {
+                slide.classList.add('active');
+                slide.style.opacity = '1';
+            }, 10);
+
+            // Update counter
+            document.getElementById('current-slide').innerText = currentSlide;
+        }
+
+        function nextSlide() {
+            showSlide(currentSlide + 1);
+        }
+
+        function prevSlide() {
+            showSlide(currentSlide - 1);
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight' || e.key === 'Space') nextSlide();
+            if (e.key === 'ArrowLeft') prevSlide();
+        });
+    </script>
+</body>
+
+</html>

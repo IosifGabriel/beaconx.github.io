@@ -162,13 +162,13 @@
                 <span>Milestone M4</span>
               </a>
 
-              <a href="#m5" class="milestone-trigger flex-shrink-0" data-active="true">
+              <a href="#m5" class="milestone-trigger flex-shrink-0">
                 <span>Milestone M5</span>
-                <span class="milestone-badge hidden md:inline-flex">Current</span>
               </a>
 
-              <a href="#m6" class="milestone-trigger flex-shrink-0">
+              <a href="#m6" class="milestone-trigger flex-shrink-0" data-active="true">
                 <span>Milestone M6</span>
+                <span class="milestone-badge hidden md:inline-flex">Current</span>
               </a>
 
               <a href="#m7" class="milestone-trigger flex-shrink-0">
@@ -222,11 +222,13 @@
         <a href="#m4" class="milestone-trigger w-full">
           <span>Milestone M4</span>
         </a>
-        <a href="#m5" class="milestone-trigger w-full" data-active="true">
+        <a href="#m5" class="milestone-trigger w-full">
           <span>Milestone M5</span>
+        </a>
+        <a href="#m6" class="milestone-trigger w-full" data-active="true">
+          <span>Milestone M6</span>
           <span class="milestone-badge">Current</span>
         </a>
-        <a href="#m6" class="milestone-trigger w-full">Milestone M6</a>
         <a href="#m7" class="milestone-trigger w-full">Milestone M7</a>
         <a href="#m8" class="milestone-trigger w-full">Milestone M8</a>
         <a href="#m9" class="milestone-trigger w-full">Milestone M9</a>
@@ -1300,21 +1302,68 @@
       </div>
     </section>
 
-    <!-- Milestone M6 Section - Coming Soon -->
-    <section id="m6" class="fade-section py-32 flex items-center justify-center bg-slate-900/20">
-      <div class="mx-auto max-w-6xl px-6 text-center">
-        <div class="inline-flex items-center gap-3 mb-6">
-          <span class="milestone-badge">Milestone M6</span>
+    <!-- Milestone M6 Section - Market Research -->
+    <section id="m6" class="fade-section py-20 bg-slate-900/20 show">
+      <div class="mx-auto max-w-6xl px-6 space-y-16">
+
+        <!-- M6 Header -->
+        <div class="space-y-6">
+          <div class="inline-flex items-center gap-3">
+            <span class="milestone-badge">Milestone M6</span>
+            <span class="text-xs font-semibold uppercase tracking-[0.25em] text-slate-400">10.12.25 · The Niche</span>
+          </div>
+          <h2 class="text-4xl font-bold text-white md:text-5xl">Market Research</h2>
+          <p class="text-lg text-slate-300 max-w-3xl">
+            <strong>Strategic Market Analysis.</strong> Focusing resources on a high-value, underserved vertical to
+            maximize capital efficiency and market dominance.
+          </p>
         </div>
-        <div class="flex items-center justify-center gap-4 mb-6">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 text-sky-300" fill="none" viewBox="0 0 24 24"
-            stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-              d="M12 6v6l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-          </svg>
-        </div>
-        <h2 class="text-4xl font-bold text-white mb-4">Coming Soon</h2>
-        <p class="text-lg text-slate-400">Milestone M6 content will be added as the project progresses.</p>
+
+        <!-- The Numbers -->
+        <article class="space-y-8 rounded-3xl border border-slate-800 bg-slate-900/40 p-8">
+          <div class="grid gap-8 md:grid-cols-3 text-center">
+
+            <!-- Target Market -->
+            <div class="space-y-4 p-6 rounded-2xl border border-slate-800/50 bg-slate-950/30">
+              <h4 class="text-sm font-semibold text-sky-300 uppercase tracking-[0.2em]">Serviceable Market (SOM)</h4>
+              <div class="text-5xl font-bold text-white">15</div>
+              <p class="text-sm text-slate-400">
+                High-volume DeFi protocols on MultiversX requiring immediate, dedicated event infrastructure.
+              </p>
+            </div>
+
+            <!-- Competition -->
+            <div class="space-y-4 p-6 rounded-2xl border border-slate-800/50 bg-slate-950/30">
+              <h4 class="text-sm font-semibold text-sky-300 uppercase tracking-[0.2em]">Competitive Landscape</h4>
+              <div class="text-5xl font-bold text-white">0</div>
+              <p class="text-sm text-slate-400">
+                First-mover advantage. No direct competitors offer managed, NFT-gated event streaming for this
+                ecosystem.
+              </p>
+            </div>
+
+            <!-- Market Share -->
+            <div class="space-y-4 p-6 rounded-2xl border border-slate-800/50 bg-slate-950/30">
+              <h4 class="text-sm font-semibold text-sky-300 uppercase tracking-[0.2em]">Projected Share</h4>
+              <div class="text-5xl font-bold text-emerald-400">100%</div>
+              <p class="text-sm text-slate-400">
+                Monopolistic potential within the target niche due to specialized technical barriers and early adoption.
+              </p>
+            </div>
+
+          </div>
+
+          <!-- Profitability -->
+          <div class="mt-8 p-8 rounded-2xl border border-emerald-900/30 bg-emerald-950/10 text-center">
+            <h3 class="text-2xl font-bold text-white mb-2">Unit Economics & Viability</h3>
+            <p class="text-xl text-emerald-400 font-mono mb-4">Break-even Threshold: 10 Subscriptions</p>
+            <p class="text-slate-300">
+              Low operational overhead ensures rapid path to profitability. Revenue beyond the initial cohort represents
+              high-margin net income.
+            </p>
+          </div>
+        </article>
+
       </div>
     </section>
 
